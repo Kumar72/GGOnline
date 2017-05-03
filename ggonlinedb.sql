@@ -21,7 +21,7 @@ USE `ggonlinedb` ;
 DROP TABLE IF EXISTS `game` ;
 
 CREATE TABLE IF NOT EXISTS `game` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `genera` VARCHAR(50) NULL DEFAULT NULL,
   `rating` VARCHAR(1) NULL DEFAULT NULL,
@@ -37,12 +37,12 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `team` ;
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `game_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_team_game1`
     FOREIGN KEY (`game_id`)
     REFERENCES `game` (`id`)
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
   `active` TINYINT(1) NULL DEFAULT NULL,
@@ -80,11 +80,11 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `captain` ;
 
 CREATE TABLE IF NOT EXISTS `captain` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `status` TINYINT(1) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `team_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `team_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_captain_team1`
     FOREIGN KEY (`team_id`)
     REFERENCES `team` (`id`)
@@ -109,7 +109,7 @@ CREATE INDEX `fk_captain_team1_idx` ON `captain` (`team_id` ASC);
 DROP TABLE IF EXISTS `message` ;
 
 CREATE TABLE IF NOT EXISTS `message` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `message` VARCHAR(500) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `create_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `user_team` ;
 CREATE TABLE IF NOT EXISTS `user_team` (
   `user_id` INT(11) NOT NULL,
   `team_id` INT(11) NOT NULL,
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_has_team_team1`
     FOREIGN KEY (`team_id`)
@@ -167,7 +167,7 @@ CREATE INDEX `fk_user_has_team_user_idx` ON `user_team` (`user_id` ASC);
 DROP TABLE IF EXISTS `message_recipient` ;
 
 CREATE TABLE IF NOT EXISTS `message_recipient` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `message_id` INT(11) NOT NULL,
   `user_team_id` INT(11) NOT NULL,
@@ -204,11 +204,11 @@ CREATE INDEX `fk_recipient_user_team1_idx` ON `message_recipient` (`user_team_id
 DROP TABLE IF EXISTS `rating` ;
 
 CREATE TABLE IF NOT EXISTS `rating` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `rating` INT(11) NULL DEFAULT NULL,
   `comment` VARCHAR(100) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_rating_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -228,7 +228,7 @@ DROP TABLE IF EXISTS `user_game` ;
 CREATE TABLE IF NOT EXISTS `user_game` (
   `user_id` INT(11) NOT NULL,
   `game_id` INT(11) NOT NULL,
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_has_game_game1`
     FOREIGN KEY (`game_id`)
