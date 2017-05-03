@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="GGOJPA/src"/>
+	<classpathentry kind="src" path="GGOJPA/test"/>
+	<classpathentry kind="src" path="GGOREST/src"/>
+	<classpathentry kind="lib" path="GGOJPA/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="GGOREST/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
