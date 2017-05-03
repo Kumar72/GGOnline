@@ -1,0 +1,26 @@
+<div class="">
+
+	<form>
+	  <fieldset class="form-register">
+
+			<!-- <label for="InputFirstName">First Name: </label> -->
+		  	<input type="text" class="form-control" id="InputFirstName" ng-model="newuser.fname" placeholder="First Name">
+
+			<!-- <label for="InputLastName">Last Name: </label> -->
+		  	<input type="text" class="form-control" id="InputLastName" ng-model="newuser.lname" placeholder="Last Name">
+
+		   <!-- <label for="InputEmail">Email address: </label> -->
+		   <input type="email" class="form-control" id="InputEmail" ng-model="newuser.email" placeholder="Email">
+
+			<!-- <label for="InputUsername">Username: </label> -->
+	    	<input type="text" class="form-control" id="InputUsername" ng-model="newuser.username" placeholder="Username">
+
+	    	<!-- <label for="InputPassword">Password: </label> -->
+	    	<input type="password" class="form-control" id="InputPassword" ng-model="newuser.password" placeholder="Password">
+
+	  </fieldset>
+
+	  <button type="submit" class="btn btn-primary" ng-click="vm.register(newuser)">Register</button>
+	</form>
+
+</div>
