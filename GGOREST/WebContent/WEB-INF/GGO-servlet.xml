@@ -13,10 +13,12 @@
 	<bean id="gamedao" class="data.GameDAOImpl"></bean>
 	<bean id="playerdao" class="data.PlayerDAOImpl"></bean>
 	<bean id="teamdao" class="data.TeamDAOImpl"></bean>
+	<bean id="ratingdao" class="data.RatingDAOImpl"></bean>
+	<bean id="messagedao" class="data.MessageDAOImpl"></bean>
 
 	<bean id="myEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="Todo" />
+		<property name="persistenceUnitName" value="GGO" />
 	</bean>
 
 	<bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
