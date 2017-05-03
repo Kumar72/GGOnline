@@ -1,1 +1,10 @@
-/bin/
+Servers
+RemoteSystemsTempFiles
+.DS_Store
+.metadata
+.build
+.settings
+.recommenders
+build
+target
+bin
