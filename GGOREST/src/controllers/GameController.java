@@ -18,7 +18,7 @@ public class GameController {
 
 	@RequestMapping(value="ping", method=RequestMethod.GET)
 	public String ping(){
-		return "PONG";
+		return "PONG FROM GAME CONTROLLER";
 	}
 	
 	@RequestMapping(value="games", method=RequestMethod.GET)

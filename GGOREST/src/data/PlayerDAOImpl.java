@@ -26,6 +26,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	public Player create(Player player) {
 		em.persist(player);
 		em.flush();
+		System.out.println(player);
 		return player;
 	}
 
