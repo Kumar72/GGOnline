@@ -8,3 +8,5 @@ RemoteSystemsTempFiles
 build
 target
 bin
+.project
+.classpath
