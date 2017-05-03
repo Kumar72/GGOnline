@@ -12,7 +12,7 @@ public interface TeamDAO {
 	
 	public Team create(Team team);
 	
-//	public Team update(int teamId, Team team);
+	public Team update(int teamId, Team team);
 	
 	public boolean destroy(int teamId);
 }

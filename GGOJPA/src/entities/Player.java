@@ -28,9 +28,8 @@ public class Player {
 	
 	private String fname;
 	private String lname;
-	//Hey Stefan
-	private boolean active;
-	private boolean	status;
+	private Boolean active;
+	private Boolean	status;
 	
 	public int getId() {
 		return id;
@@ -74,16 +73,17 @@ public class Player {
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-	public boolean getActive() {
+	
+	public Boolean getActive() {
 		return active;
 	}
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	public boolean getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 	@Override
