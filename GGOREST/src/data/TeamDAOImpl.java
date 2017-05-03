@@ -37,12 +37,12 @@ public class TeamDAOImpl implements TeamDAO {
 		return team;
 	}
 
-//	@Override
-//	public Team update(int teamId, Team team) {
-//		Team managed = em.find(Team.class, teamId);
-//		managed.setName(team.getName);
-//		return null;
-//	}
+	@Override
+	public Team update(int teamId, Team team) {
+		Team managed = em.find(Team.class, teamId);
+		managed.setName(team.getName());
+		return null;
+	}
 
 	@Override
 	public boolean destroy(int teamId) {

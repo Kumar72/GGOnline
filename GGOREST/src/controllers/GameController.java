@@ -28,9 +28,9 @@ public class GameController {
 	}
 	
 	@RequestMapping(value="games/{id}", method=RequestMethod.GET)
-	public Game show(@PathVariable int gameId){
+	public Game show(@PathVariable int id){
 		
-		return gameDAO.show(gameId);
+		return gameDAO.show(id);
 	}
 	
 	

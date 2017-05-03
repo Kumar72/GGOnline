@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Game;
+import entities.Player;
 @Transactional
 
 public class GameDAOImpl implements GameDAO{
@@ -30,6 +31,12 @@ public class GameDAOImpl implements GameDAO{
 	public Game show(int gameId) {
 		Game game = em.find(Game.class, gameId);
 		return game;
+	}
+
+	@Override
+	public List<Player> indexOfPlayersFollowingGame(int gameId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
