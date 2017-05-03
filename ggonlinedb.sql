@@ -29,7 +29,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
   `active` TINYINT(1) NULL,
+  `status` TINYINT(1) NULL,
   PRIMARY KEY (`id`));
+
+
+-- -----------------------------------------------------
+-- Table `game`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `game` ;
+
+CREATE TABLE IF NOT EXISTS `game` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `genera` VARCHAR(50) NULL,
+  `rating` VARCHAR(1) NULL,
+  `description` VARCHAR(500) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -42,7 +58,14 @@ CREATE TABLE IF NOT EXISTS `team` (
   `name` VARCHAR(45) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL,
-  PRIMARY KEY (`id`))
+  `game_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `game_id`),
+  INDEX `fk_team_game1_idx` (`game_id` ASC),
+  CONSTRAINT `fk_team_game1`
+    FOREIGN KEY (`game_id`)
+    REFERENCES `game` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -71,36 +94,19 @@ CREATE TABLE IF NOT EXISTS `user_team` (
 
 
 -- -----------------------------------------------------
--- Table `recipient`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `recipient` ;
-
-CREATE TABLE IF NOT EXISTS `recipient` (
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `message`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `message` ;
 
 CREATE TABLE IF NOT EXISTS `message` (
   `id` INT NOT NULL,
-  `message` VARCHAR(1500) NULL,
+  `message` VARCHAR(500) NULL,
   `user_id` INT NOT NULL,
   `create_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `message_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_chat_message1_idx` (`message` ASC),
   INDEX `fk_message_user1_idx` (`user_id` ASC),
   INDEX `fk_message_message1_idx` (`message_id` ASC),
-  CONSTRAINT `fk_chat_message1`
-    FOREIGN KEY (`message`)
-    REFERENCES `recipient` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_message_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -125,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `message_id` INT NOT NULL,
   `user_team_id` INT NOT NULL,
   `is_read` TINYINT(1) NULL DEFAULT 0,
-  PRIMARY KEY (`id`, `user_id`, `message_id`, `user_team_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_recipient_user1_idx` (`user_id` ASC),
   INDEX `fk_recipient_message1_idx` (`message_id` ASC),
   INDEX `fk_recipient_user_team1_idx` (`user_team_id` ASC),
@@ -146,6 +152,76 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `captain`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `captain` ;
+
+CREATE TABLE IF NOT EXISTS `captain` (
+  `id` INT NOT NULL,
+  `status` TINYINT(1) NULL,
+  `user_id` INT NOT NULL,
+  `team_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `team_id`),
+  INDEX `fk_captain_user1_idx` (`user_id` ASC),
+  INDEX `fk_captain_team1_idx` (`team_id` ASC),
+  CONSTRAINT `fk_captain_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_captain_team1`
+    FOREIGN KEY (`team_id`)
+    REFERENCES `team` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_game`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_game` ;
+
+CREATE TABLE IF NOT EXISTS `user_game` (
+  `user_id` INT NOT NULL,
+  `game_id` INT NOT NULL,
+  `id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_has_game_game1_idx` (`game_id` ASC),
+  INDEX `fk_user_has_game_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_game_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_game_game1`
+    FOREIGN KEY (`game_id`)
+    REFERENCES `game` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table `rating`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `rating` ;
+
+CREATE TABLE IF NOT EXISTS `rating` (
+  `id` INT NOT NULL,
+  `rating` INT NULL,
+  `comment` VARCHAR(100) NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `user_id`),
+  INDEX `fk_rating_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_rating_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO admin;
  DROP USER admin;
@@ -156,7 +232,6 @@ GRANT ALL ON * TO 'admin';
 GRANT SELECT ON TABLE * TO 'admin';
 GRANT SELECT, INSERT, TRIGGER ON TABLE * TO 'admin';
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'admin';
-GRANT EXECUTE ON ROUTINE * TO 'admin';
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO student;
  DROP USER student;
