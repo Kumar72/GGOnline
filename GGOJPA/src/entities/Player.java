@@ -31,6 +31,7 @@ public class Player {
 	
 	private int active;
 	private int	status;
+	
 	public int getId() {
 		return id;
 	}

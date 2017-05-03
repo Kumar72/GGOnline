@@ -21,9 +21,17 @@ public class GameController {
 		return "PONG";
 	}
 	
-	@RequestMapping(value="games/{id}", method=RequestMethod.GET)
-	public List<Game> index(@PathVariable int id){
+	@RequestMapping(value="games", method=RequestMethod.GET)
+	public List<Game> index(){
 		return gameDAO.index();
 		
 	}
+	
+	@RequestMapping(value="games/{id}", method=RequestMethod.GET)
+	public Game show(@PathVariable int gameId){
+		
+		return gameDAO.show(gameId);
+	}
+	
+	
 }

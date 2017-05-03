@@ -9,5 +9,7 @@ public interface MessageDAO {
 	public List<Message> index();	
 	
 	public Message show();
+	
+	public Message create(Message message);
 
 }
