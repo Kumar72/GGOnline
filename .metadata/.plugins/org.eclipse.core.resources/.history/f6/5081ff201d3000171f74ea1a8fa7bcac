@@ -1,0 +1,9 @@
+package entities;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table(name='Game')
+public class Game {
+
+}

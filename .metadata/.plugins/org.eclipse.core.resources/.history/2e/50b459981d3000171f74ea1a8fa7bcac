@@ -1,0 +1,14 @@
+package data;
+
+import java.util.List;
+
+import entities.Game;
+
+public interface GameDAO {
+	
+	public List<Game> index(int userId);
+	
+	public Game show(int gameId);
+	
+	
+}
