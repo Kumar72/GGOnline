@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -36,12 +39,32 @@ public class Player {
 	private Boolean active;
 	private Boolean	status;
 	
+	@JsonManagedReference
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	  @JoinTable(name="user_team",
-	    joinColumns=@JoinColumn(name="user_id"),
+	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
 	    inverseJoinColumns=@JoinColumn(name="team_id")
 	  )
 	  private List<Team>teams;
+	
+	
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	  @JoinTable(name="user_game",
+	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
+	    inverseJoinColumns=@JoinColumn(name="game_id")
+	  )
+	  private List<Game>games;
+	
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	  @JoinTable(name="message_recipient",
+	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
+	    inverseJoinColumns=@JoinColumn(name="message_id")
+	  )
+	  private List<Message>messages;
+	
+	@OneToMany(mappedBy="player")
+	  private List<Rating> ratings;
+	
 	
 	public int getId() {
 		return id;

@@ -31,6 +31,7 @@ public class GGOTest {
          emf = Persistence.createEntityManagerFactory("GGO");
          em = emf.createEntityManager();
          player = em.find(Player.class, 1);
+        // game= em.find(Game.class, 1);
          
      }
      @After
@@ -44,5 +45,11 @@ public class GGOTest {
      public void test_player_mapping() {
         assertEquals("Stefan", player.getFname());
      }
+     
+//     @Test 
+//     public void test_Game_Mapping(){
+//    	 
+//    	 assertEquals("Rocket League", game.getName());
+//     }
      
 }

@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +33,10 @@ public class Team {
 	
 	@ManyToMany(mappedBy="teams")
 	  private List<Player> players;
+	
+	@ManyToOne
+	  @JoinColumn(name="game_id")
+	  private Game game;
 
 	public int getId() {
 		return id;

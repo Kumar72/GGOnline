@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,10 @@ public class Rating {
 	
 	@Column(name="user_id")
 	private int userId;
+	
+	@ManyToOne
+	  @JoinColumn(name="user_id", referencedColumnName="id")
+	  private Player player;
 
 	public int getId() {
 		return id;
