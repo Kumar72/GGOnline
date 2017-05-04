@@ -20,11 +20,8 @@ public class Rating {
 	private int rating;
 	private String comment;
 	
-	@Column(name="user_id")
-	private int userId;
-	
 	@ManyToOne
-	  @JoinColumn(name="user_id", referencedColumnName="id")
+	  @JoinColumn(name="user_id")
 	  private Player player;
 
 	public int getId() {
@@ -51,18 +48,6 @@ public class Rating {
 		this.comment = comment;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	@Override
-	public String toString() {
-		return "Rating [id=" + id + ", rating=" + rating + ", comment=" + comment + ", userId=" + userId + "]";
-	}
 	
 	
 }

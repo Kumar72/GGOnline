@@ -28,8 +28,6 @@ public class Team {
 	
 	private int active;
 	
-	@Column(name="game_id")
-	private int gameId;
 	
 	@ManyToMany(mappedBy="teams")
 	  private List<Player> players;
@@ -70,19 +68,7 @@ public class Team {
 		this.active = active;
 	}
 
-	public int getGameId() {
-		return gameId;
-	}
-
-	public void setGameId(int gameId) {
-		this.gameId = gameId;
-	}
-
-	@Override
-	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", createdTime=" + createdTime + ", active=" + active + ", gameId="
-				+ gameId + "]";
-	}
+	
 	
 	
 	

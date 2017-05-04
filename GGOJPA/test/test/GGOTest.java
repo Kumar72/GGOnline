@@ -31,8 +31,8 @@ public class GGOTest {
          emf = Persistence.createEntityManagerFactory("GGO");
          em = emf.createEntityManager();
          player = em.find(Player.class, 1);
-        // game= em.find(Game.class, 1);
-         
+         game= em.find(Game.class, 1);
+//         message = em.find(Message.class, 1);
      }
      @After
       public void tearDown() throws Exception {
@@ -46,10 +46,15 @@ public class GGOTest {
         assertEquals("Stefan", player.getFname());
      }
      
-//     @Test 
-//     public void test_Game_Mapping(){
-//    	 
-//    	 assertEquals("Rocket League", game.getName());
+     @Test 
+     public void test_Game_Mapping(){
+    	 
+    	 assertEquals("Rocket League", game.getName());
+     }
+     
+//     @Test
+//     public void test_Message_Mapping(){
+//    	 assertEquals("GG Easy")
 //     }
      
 }
