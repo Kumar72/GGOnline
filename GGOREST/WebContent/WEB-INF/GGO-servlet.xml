@@ -13,8 +13,8 @@
 	<bean id="gamedao" class="data.GameDAOImpl"></bean>
 	<bean id="playerdao" class="data.PlayerDAOImpl"></bean>
 	<bean id="teamdao" class="data.TeamDAOImpl"></bean>
-	<bean id="ratingdao" class="data.RatingDAOImpl"></bean>
-	<bean id="messagedao" class="data.MessageDAOImpl"></bean>
+<!-- 	<bean id="ratingdao" class="data.RatingDAOImpl"></bean>
+ -->	<bean id="messagedao" class="data.MessageDAOImpl"></bean>
 	<bean id="authdao>" class="data.AuthDAOImpl"></bean>
 
 	<bean id="myEntityManagerFactory"

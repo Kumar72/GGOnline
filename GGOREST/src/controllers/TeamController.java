@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.TeamDAO;
+import entities.Player;
 import entities.Team;
 
 @RestController
@@ -28,5 +31,12 @@ public class TeamController {
 	@RequestMapping(value="teams/{id}", method = RequestMethod.GET)
 	public Team show(@PathVariable int id){
 		return teamDAO.show(id);
+	}
+	
+	@RequestMapping(value="teams/{id}/players", method = RequestMethod.GET)
+	public List<Player> indexOfPlayers(@PathVariable int id){
+		
+		
+		return null;
 	}
 }

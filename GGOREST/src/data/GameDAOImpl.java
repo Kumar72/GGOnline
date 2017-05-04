@@ -35,8 +35,7 @@ public class GameDAOImpl implements GameDAO{
 
 	@Override
 	public List<Player> indexOfPlayersFollowingGame(int gameId) {
-		// TODO Auto-generated method stub
-		return null;
+		String q = "SELECT g from Game g JOIN FETCH g.players where g.id=:id";
+		return em.createQuery(q, Game.class).setParameter("id", gameId).getSingleResult().getPlayers();
 	}
-
 }
