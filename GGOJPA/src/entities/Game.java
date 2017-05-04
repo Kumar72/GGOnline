@@ -24,6 +24,22 @@ public class Game {
 	@Column(name="genera")
 	private String genre;
 	
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+
+	public List<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(List<Team> teams) {
+		this.teams = teams;
+	}
+
 	private String rating;
 	
 	private String description;

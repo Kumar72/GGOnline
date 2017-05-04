@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.GameDAO;
 import entities.Game;
+import entities.Player;
 @RestController
 public class GameController {
 	
@@ -33,5 +34,9 @@ public class GameController {
 		return gameDAO.show(id);
 	}
 	
+	@RequestMapping(value="games/{gameId}/players", method=RequestMethod.GET)
+	public List<Player> indexOfPlayersFollowingGame(@PathVariable int gameId){
+	return gameDAO.indexOfPlayersFollowingGame(gameId);
 	
+	}
 }
