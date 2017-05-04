@@ -5,7 +5,7 @@ angular.module("authModule").component("register", {
     	
     	vm.register = function(newuser) {
     		authService.register(newuser).then(function(res){
-    			$location.path('/home')
+    			$location.path('/')
     		})
     	}
     },

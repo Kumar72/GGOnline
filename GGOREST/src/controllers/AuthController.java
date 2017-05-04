@@ -26,6 +26,7 @@ public class AuthController {
 	
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public Player register(HttpSession session, @RequestBody Player player) {
+		System.out.println(player);
 		player = aDao.register(player);
 		session.setAttribute("user", player);
 		// TODO : Create the provided user, place the user in session, return
@@ -37,11 +38,11 @@ public class AuthController {
 	public Player login(HttpSession session, @RequestBody Player player) {
 		player = aDao.login(player);
 		session.setAttribute("user", player);
-		if (player.getStatus().equals("admin")) {
-			return null;
-		} else {
-			return player;
-		}
+//		if (player.getStatus().equals("admin")) {
+//			return null;
+//		} else {
+//		}
+		return player;
 	}
 	
 
