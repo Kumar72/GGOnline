@@ -15,6 +15,7 @@
 	<bean id="teamdao" class="data.TeamDAOImpl"></bean>
 	<bean id="ratingdao" class="data.RatingDAOImpl"></bean>
 	<bean id="messagedao" class="data.MessageDAOImpl"></bean>
+	<bean id="authdao>" class="data.AuthDAOImpl"></bean>
 
 	<bean id="myEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
