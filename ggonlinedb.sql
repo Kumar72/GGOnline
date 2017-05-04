@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS `team` ;
 CREATE TABLE IF NOT EXISTS `team` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `message` VARCHAR(500) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
-  `create_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `message_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_message_message1`
@@ -274,8 +274,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `create_time`, `active`, `game_id`) VALUES (1, 'Tiesto', NULL, 1, 1);
-INSERT INTO `team` (`id`, `name`, `create_time`, `active`, `game_id`) VALUES (2, 'MonkyBarrel', NULL, 0, 2);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`) VALUES (1, 'Tiesto', NULL, 1, 1);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`) VALUES (2, 'MonkyBarrel', NULL, 0, 2);
 
 COMMIT;
 
@@ -296,8 +296,43 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `message` (`id`, `message`, `user_id`, `create_date`, `message_id`) VALUES (1, 'GG Easy', 1, NULL, 1);
-INSERT INTO `message` (`id`, `message`, `user_id`, `create_date`, `message_id`) VALUES (2, 'Get good scrub', 2, NULL, 2);
+INSERT INTO `message` (`id`, `message`, `user_id`, `created_date`, `message_id`) VALUES (1, 'GG Easy', 1, NULL, 1);
+INSERT INTO `message` (`id`, `message`, `user_id`, `created_date`, `message_id`) VALUES (2, 'Get good scrub', 2, NULL, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_team`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ggonlinedb`;
+INSERT INTO `user_team` (`user_id`, `team_id`, `id`) VALUES (1, 1, DEFAULT);
+INSERT INTO `user_team` (`user_id`, `team_id`, `id`) VALUES (2, 1, DEFAULT);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ggonlinedb`;
+INSERT INTO `rating` (`id`, `rating`, `comment`, `user_id`) VALUES (1, 10, 'This guys is awesome!', 1);
+INSERT INTO `rating` (`id`, `rating`, `comment`, `user_id`) VALUES (2, 5, 'Great player but toxic', 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_game`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ggonlinedb`;
+INSERT INTO `user_game` (`user_id`, `game_id`, `id`) VALUES (1, 1, DEFAULT);
+INSERT INTO `user_game` (`user_id`, `game_id`, `id`) VALUES (2, 2, DEFAULT);
+INSERT INTO `user_game` (`user_id`, `game_id`, `id`) VALUES (1, 2, DEFAULT);
+INSERT INTO `user_game` (`user_id`, `game_id`, `id`) VALUES (2, 1, DEFAULT);
 
 COMMIT;
 

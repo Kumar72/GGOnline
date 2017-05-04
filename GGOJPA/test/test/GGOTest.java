@@ -32,13 +32,15 @@ public class GGOTest {
          em = emf.createEntityManager();
          player = em.find(Player.class, 1);
          game= em.find(Game.class, 1);
-//         message = em.find(Message.class, 1);
+        message = em.find(Message.class, 1);
+         team = em.find(Team.class, 1);
+         rating = em.find(Rating.class, 1);
      }
      @After
       public void tearDown() throws Exception {
          em.close();
          emf.close();    
-     }
+     }	
     
 
      @Test
@@ -52,9 +54,18 @@ public class GGOTest {
     	 assertEquals("Rocket League", game.getName());
      }
      
-//     @Test
-//     public void test_Message_Mapping(){
-//    	 assertEquals("GG Easy")
-//     }
+     @Test
+     public void test_Message_Mapping(){
+    	 assertEquals("GG Easy", message.getMessage());
+     }
      
+     @Test
+     public void test_Team_Mapping(){
+    	 assertEquals("Tiesto", team.getName());
+     }
+     
+     @Test
+     public void test_Rating_Mapping(){
+    	 assertEquals(10, rating.getRating());
+     }
 }
