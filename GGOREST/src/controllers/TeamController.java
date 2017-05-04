@@ -33,10 +33,9 @@ public class TeamController {
 		return teamDAO.show(id);
 	}
 	
-	@RequestMapping(value="teams/{id}/players", method = RequestMethod.GET)
-	public List<Player> indexOfPlayers(@PathVariable int id){
-		
-		
-		return null;
+	@RequestMapping(value="teams/{teamId}/players", method = RequestMethod.GET)
+		public List<Player> indexOfPlayersFollowingGame(@PathVariable int teamId){
+			return teamDAO.indexOfPlayers(teamId);
+				
 	}
 }

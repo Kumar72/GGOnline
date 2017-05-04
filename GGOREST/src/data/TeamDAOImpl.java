@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Player;
 import entities.Team;
 @Transactional
 public class TeamDAOImpl implements TeamDAO {
@@ -24,10 +25,10 @@ public class TeamDAOImpl implements TeamDAO {
 	
 
 	@Override
-	public List<Team> indexOfPlayers(int teamId) {
-		String q = "SELECT t FROM Team t WHERE t.id=:id";
-		List<Team> team = em.createQuery(q, Team.class).setParameter("id", teamId).getResultList();
-		return team;
+	public List<Player> indexOfPlayers(int teamId) {
+		String q = "SELECT t FROM Team t JOIN FETCH t.players WHERE t.id=:id";
+		return em.createQuery(q, Team.class).setParameter("id", teamId).getSingleResult().getPlayers();
+		
 	}
 
 	@Override
@@ -60,6 +61,8 @@ public class TeamDAOImpl implements TeamDAO {
 		
 		return false;
 	}
+	
+	
 
 
 }
