@@ -32,7 +32,7 @@ public class GGOTest {
          em = emf.createEntityManager();
          player = em.find(Player.class, 1);
          game= em.find(Game.class, 1);
-         message = em.find(Message.class, 1);
+//         message = em.find(Message.class, 1);
      }
      @After
       public void tearDown() throws Exception {
@@ -52,6 +52,9 @@ public class GGOTest {
     	 assertEquals("Rocket League", game.getName());
      }
      
-     
+//     @Test
+//     public void test_Message_Mapping(){
+//    	 assertEquals("GG Easy")
+//     }
      
 }
