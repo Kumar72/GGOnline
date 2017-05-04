@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="game")
 public class Game {
@@ -44,9 +46,10 @@ public class Game {
 	
 	private String description;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="games")
 	  private List<Player> players;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="game")
 	  private List<Team> teams;
 	
