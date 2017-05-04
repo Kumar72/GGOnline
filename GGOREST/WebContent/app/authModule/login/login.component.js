@@ -3,8 +3,11 @@ angular.module("authModule").component("login", {
     controller: function(authService, $location) {
     	vm.login = function(user) {
     		authService.login(user).then(function(res){
-    			$location.path('/todo')
+    			$location.path('/')
     		})
+    	}	
+    	vm.learn = function() {
+    		
     	}
     },
 	controllerAs: 'vm'

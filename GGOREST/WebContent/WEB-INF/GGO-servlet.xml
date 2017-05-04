@@ -25,16 +25,15 @@
 		<property name="entityManagerFactory" ref="myEntityManagerFactory" />
 	</bean>
 
-
 	<bean id="bCryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	
-	<!-- <mvc:interceptors>
+	 <mvc:interceptors>
     <mvc:interceptor>
-      <mvc:mapping path="/users/*/todos/**" />
+      <mvc:mapping path="/users/*/**" />
       <bean id="DataSecurityInterceptor" class="security.DataSecurityInterceptor" />
     </mvc:interceptor>
-  </mvc:interceptors> -->
+  </mvc:interceptors>
 </beans>

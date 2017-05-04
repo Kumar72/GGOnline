@@ -38,7 +38,7 @@ public class PlayerController {
 		try{
 			ObjectMapper mapper = new ObjectMapper();
 			Player mappedPlayer = mapper.readValue(playerJson, Player.class);
-			res.setStatus(201);
+			
 			return playerDAO.create(mappedPlayer);
 			
 		}catch(Exception e){
