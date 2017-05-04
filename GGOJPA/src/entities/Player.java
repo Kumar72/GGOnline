@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -39,7 +39,7 @@ public class Player {
 	private Boolean active;
 	private Boolean	status;
 	
-	@JsonManagedReference
+	@JsonIgnore
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	  @JoinTable(name="user_team",
 	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
@@ -47,7 +47,7 @@ public class Player {
 	  )
 	  private List<Team>teams;
 	
-	
+	@JsonIgnore
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	  @JoinTable(name="user_game",
 	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
@@ -120,6 +120,32 @@ public class Player {
 	}
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+	
+	
+	public List<Team> getTeams() {
+		return teams;
+	}
+	public void setTeams(List<Team> teams) {
+		this.teams = teams;
+	}
+	public List<Game> getGames() {
+		return games;
+	}
+	public void setGames(List<Game> games) {
+		this.games = games;
+	}
+	public List<Message> getMessages() {
+		return messages;
+	}
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
 	@Override
 	public String toString() {

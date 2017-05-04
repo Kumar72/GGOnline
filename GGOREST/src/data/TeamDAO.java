@@ -2,13 +2,14 @@ package data;
 
 import java.util.List;
 
+import entities.Player;
 import entities.Team;
 
 public interface TeamDAO {
 	
 	public Team show(int teamId);
 	
-	public List<Team> indexOfPlayers(int teamId);
+	public List<Player> indexOfPlayers(int teamId);
 	
 	public Team create(Team team);
 	

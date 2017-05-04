@@ -49,10 +49,10 @@ public class PlayerController {
 		
 	}
 	
-	@RequestMapping(value="players/{id}/teams", method=RequestMethod.GET)
-	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int id){
+	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.GET)
+	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int playerId){
+		return playerDAO.indexOfTeamsPlayerIsAMemberOf(playerId);
 		
-		return null;
 	}
 	
 

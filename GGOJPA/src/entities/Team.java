@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="team")
 public class Team {
@@ -30,6 +32,7 @@ public class Team {
 	
 	
 	@ManyToMany(mappedBy="teams")
+	@JsonIgnore
 	  private List<Player> players;
 	
 	@ManyToOne
@@ -67,6 +70,24 @@ public class Team {
 	public void setActive(int active) {
 		this.active = active;
 	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
+	
+	
 
 	
 	
