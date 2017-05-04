@@ -21,9 +21,10 @@ angular.module('authModule')
 
 
     service.login = function(user) {
+    	console.log(user);
     	return $http({
-    		method: GET,
-    		url: "rest/auth/login",
+    		method: 'POST',
+    		url: "api/auth/login",
     		headers: {
     			'Content-Type': 'application/json'
     		},
@@ -34,9 +35,10 @@ angular.module('authModule')
     }
 
     service.register = function(user) {
+    	console.log(user)
     	return $http({
-    		method: POST,
-    		url: "rest/auth/register",
+    		method: 'POST',
+    		url: "api/auth/register",
     		headers: {
     			'Content-Type': 'application/json'
     		},
@@ -48,8 +50,8 @@ angular.module('authModule')
 
     service.logout = function() {
     	return $http({
-    		method: PUT,
-    		url: "rest/auth/logout",
+    		method: 'PUT',
+    		url: "api/auth/logout",
     		headers: {
     			'Content-Type': 'application/json'
     		},

@@ -47,7 +47,7 @@ public class Player {
 	  )
 	  private List<Team>teams;
 	
-	
+	@JsonIgnore
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	  @JoinTable(name="user_game",
 	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),

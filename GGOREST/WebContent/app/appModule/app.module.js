@@ -1,14 +1,17 @@
-angular.module('appModule',['ggoModule','ngRoute','authModule'])
+angular.module('appModule',['ngRoute','authModule'])
 .config(function($routeProvider){
 	$routeProvider
 	.when('/', {
-		template: ''
+		template: '<login></login>'
 	})
 	.when('/register', {
 		template: '<register></register>'
 	})
 	.when('/login', {
 		template: '<login></login>'
+	})
+	.when('/home', {
+		template: '<home></home>'
 	})
 	.otherwise({
 		template: '<not-found-component></not-found-component>'

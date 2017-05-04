@@ -19,6 +19,11 @@ public class AuthController {
 	@Autowired
 	private AuthDAO aDao;
 
+	@RequestMapping(value="/ping", method=RequestMethod.GET)
+	public String ping(){
+		return "PONG FROM AUTH CONTROLLER";
+	}
+	
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public Player register(HttpSession session, @RequestBody Player player) {
 		player = aDao.register(player);
