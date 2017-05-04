@@ -6,6 +6,10 @@ angular.module("authModule").component("login", {
     			$location.path('/todo')
     		})
     	}
+    	
+    	vm.learn = function() {
+    		
+    	}
     },
 	controllerAs: 'vm'
     });

@@ -4,8 +4,11 @@ angular.module('appModule',['ggoModule','ngRoute','authModule'])
 	.when('/', {
 		template: ''
 	})
-	.when('/', {
-		template: '<></>'
+	.when('/register', {
+		template: '<register></register>'
+	})
+	.when('/login', {
+		template: '<login></login>'
 	})
 	.otherwise({
 		template: '<not-found-component></not-found-component>'
