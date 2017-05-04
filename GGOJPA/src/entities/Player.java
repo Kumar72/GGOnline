@@ -1,12 +1,17 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -30,6 +35,13 @@ public class Player {
 	private String lname;
 	private Boolean active;
 	private Boolean	status;
+	
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	  @JoinTable(name="user_team",
+	    joinColumns=@JoinColumn(name="user_id"),
+	    inverseJoinColumns=@JoinColumn(name="team_id")
+	  )
+	  private List<Team>teams;
 	
 	public int getId() {
 		return id;
