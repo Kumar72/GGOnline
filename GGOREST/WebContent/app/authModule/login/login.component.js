@@ -1,11 +1,17 @@
 angular.module("authModule").component("login", {
     templateUrl : 'app/authModule/login/login.component.html',
     controller: function(authService, $location) {
+    	var vm = this;
+    	
     	vm.login = function(user) {
+    		console.log("clicked")
     		authService.login(user).then(function(res){
-    			$location.path('/')
+    			$location.path('/home')
     		})
-    	}	
+    	}
+    	vm.create = function() {
+    		$location.path('/register')
+    	}
     	vm.learn = function() {
     		
     	}

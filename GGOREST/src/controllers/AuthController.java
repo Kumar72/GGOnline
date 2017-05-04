@@ -19,7 +19,7 @@ public class AuthController {
 	@Autowired
 	private AuthDAO aDao;
 
-	@RequestMapping(value="ping", method=RequestMethod.GET)
+	@RequestMapping(value="/ping", method=RequestMethod.GET)
 	public String ping(){
 		return "PONG FROM AUTH CONTROLLER";
 	}
