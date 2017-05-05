@@ -1,4 +1,4 @@
-angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
+angular.module('appModule',['ngRoute','authModule','ggoModule','navModule','gameListModule'])
 .config(function($routeProvider){
 	$routeProvider
 	.when('/', {
