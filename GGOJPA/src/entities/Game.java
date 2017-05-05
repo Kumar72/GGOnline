@@ -40,14 +40,17 @@ public class Game {
 	@OneToMany(mappedBy="game")
 	  private List<Team> teams;
 	
-//	public String getPicUrl() {
-//		return picUrl;
-//	}
+//	private boolean isFollowed;
 //	
-//	public void setPicUrl(String picUrl) {
-//		this.picUrl = picUrl;
+//	public boolean isFollowed() {
+//		return isFollowed;
 //	}
-	
+//
+//	public void setFollowed(boolean isFollowed) {
+//		this.isFollowed = isFollowed;
+//	}
+//
+
 	public List<Player> getPlayers() {
 		return players;
 	}

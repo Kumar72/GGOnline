@@ -68,8 +68,6 @@ public class Player {
 	  private List<Rating> ratings;
 	
 //	private String picUrl;
-	
-	
 //	public String getPicUrl() {
 //		return picUrl;
 //	}
