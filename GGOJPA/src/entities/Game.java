@@ -30,8 +30,8 @@ public class Game {
 	
 	private String description;
 	
-	private String picUrl;
-	
+//	private String picUrl;
+//	
 
 	@JsonIgnore
 	@ManyToMany(mappedBy="games")
@@ -50,14 +50,7 @@ public class Game {
 //		this.isFollowed = isFollowed;
 //	}
 //
-//	public String getPicUrl() {
-//		return picUrl;
-//	}
-//	
-//	public void setPicUrl(String picUrl) {
-//		this.picUrl = picUrl;
-//	}
-//	
+
 	public List<Player> getPlayers() {
 		return players;
 	}
