@@ -22,63 +22,68 @@ import entities.Team;
 public class PlayerController {
 	@Autowired
 	PlayerDAO playerDAO;
-	
-	@RequestMapping(value="players/ping",method=RequestMethod.GET)
-	public String ping(){
+
+	@RequestMapping(value = "players/ping", method = RequestMethod.GET)
+	public String ping() {
 		return "PONG FROM PLAYERS CONTROLLER";
 	}
-	
-	@RequestMapping(value="players/{id}", method=RequestMethod.GET)
-	public Player show(@PathVariable int id){
+
+	@RequestMapping(value = "players/{id}", method = RequestMethod.GET)
+	public Player show(@PathVariable int id) {
 		return playerDAO.show(id);
 	}
-	
-	@RequestMapping(value="players", method=RequestMethod.POST)
-	public Player create(@RequestBody String playerJson, HttpServletResponse res){
-		
-		try{
+
+	@RequestMapping(value = "players", method = RequestMethod.POST)
+	public Player create(@RequestBody String playerJson, HttpServletResponse res) {
+
+		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Player mappedPlayer = mapper.readValue(playerJson, Player.class);
-			
+
 			return playerDAO.create(mappedPlayer);
-			
-		}catch(Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("YOU DON MESSED UP BROH!");
 		}
 		return null;
-		
+
 	}
-	
-	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.GET)
-	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int playerId){
+
+	@RequestMapping(value = "players/{playerId}/teams", method = RequestMethod.GET)
+	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int playerId) {
 		return playerDAO.indexOfTeamsPlayerIsAMemberOf(playerId);
-		
+
 	}
-	
-	@RequestMapping(value="players/{playerId}/games", method=RequestMethod.GET)
-	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId){
+
+	@RequestMapping(value = "players/{playerId}/games", method = RequestMethod.GET)
+	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId) {
 		return playerDAO.indexOfGamesPlayerHas(playerId);
 	}
-	
-	@RequestMapping(value="players/{playerId}/games/{gameId}", method=RequestMethod.POST)
-	public Game addGameToPlayer(@PathVariable ("playerId") int playerId, @PathVariable ("gameId") int gameId){
+
+	@RequestMapping(value = "players/{playerId}/games/{gameId}", method = RequestMethod.POST)
+	public Game addGameToPlayer(@PathVariable("playerId") int playerId, @PathVariable("gameId") int gameId) {
 		return playerDAO.addGame(playerId, gameId);
 	}
 	
-	@RequestMapping(value="players/{playerId}", method = RequestMethod.PUT)
-	public Player update(@PathVariable int playerId, @RequestBody String playerJson){
-		try{
+	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
+	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
+		return playerDAO.removeGameFromPlayer(playerId, gameId);
+	}
+	
+	
+	@RequestMapping(value = "players/{playerId}", method = RequestMethod.PUT)
+	public Player update(@PathVariable int playerId, @RequestBody String playerJson) {
+		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Player mappedPlayer = mapper.readValue(playerJson, Player.class);
-			
+
 			return playerDAO.update(playerId, mappedPlayer);
-			
-		}catch(Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("YOU DON MESSED UP BROH!");
 		}
 		return null;
-		
-}
+	}
 }

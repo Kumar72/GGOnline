@@ -42,6 +42,16 @@ angular.module('ggoModule')
 		})
 	}
 	
+	service.removeGame = function(game){
+		return $http({
+			url : 'api/players/'+authService.getToken().id+'/games/'+ game.id,
+			method : 'DELETE',
+			headers : {
+				'Content_Type' : 'application/json'
+			}
+		})
+	}
+	
 	
 	return service;
 })
