@@ -30,12 +30,23 @@ public class Game {
 	
 	private String description;
 	
+	private String picUrl;
+	
+
 	@JsonIgnore
 	@ManyToMany(mappedBy="games")
 	  private List<Player> players;
 	@JsonIgnore
 	@OneToMany(mappedBy="game")
 	  private List<Team> teams;
+	
+	public String getPicUrl() {
+		return picUrl;
+	}
+	
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
 	
 	public List<Player> getPlayers() {
 		return players;
