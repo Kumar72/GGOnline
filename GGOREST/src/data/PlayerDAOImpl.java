@@ -45,9 +45,9 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public List<Game> indexOfGamesPlayerHas(int gameId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Game> indexOfGamesPlayerHas(int playerId) {
+		String q = "SELECT p FROM Player p JOIN FETCH p.games WHERE p.id=:id";
+        return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
 	}
 
 }
