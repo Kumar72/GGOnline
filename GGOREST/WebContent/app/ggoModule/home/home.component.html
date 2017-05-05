@@ -1,7 +1,6 @@
 <div id="main">
 
-  <h2>Player Side - Nav Bar</h2>
-  <p>Don't know what to put in here yet</p>
+  	 <h3>Info</h3>
 	 <table>
 	 	<thead>
 	 	</thead>
@@ -29,5 +28,17 @@
 		 </tbody>
 	 </table>
 	 <hr>
+	 <h3>Games</h3>
+	 <ul ng-repeat="game in vm.games">
+	 	<li ng-click="getDetailsAboutTheGame">{{game.name}}</li>
+	 	<li><button class="butt">Remove</button></li>
+	 </ul>
+	 
+	 <hr>
+	 <h3>Teams</h3>
+	 <ul ng-repeat="team in vm.teams">
+	 	<li ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">{{team.name}}</li>
+	 	<li><button class="butt">Leave</button></li>
+	 </ul>
 	 
 </div>

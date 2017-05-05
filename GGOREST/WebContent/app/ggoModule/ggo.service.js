@@ -11,12 +11,25 @@ angular.module('ggoModule')
 		})
 	}
 	
+	service.playerGames = function(){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ authService.getToken().id +"/games"
+		})		
+	}
+	
+	service.playerTeams = function(){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ authService.getToken().id +"/teams"
+		})		
+	}
+	
 	service.index = function(){
 		return $http({
 			method : 'GET',
 			url : 'api/games'
-		})
-		
+		})	
 	}
 	
 	

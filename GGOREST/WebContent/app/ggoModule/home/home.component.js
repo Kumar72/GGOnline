@@ -4,14 +4,26 @@ angular.module("ggoModule").component("home", {
     	var vm = this;
     	
     	vm.player =[];
+    	vm.games = [];
+    	vm.teams = [];
     	
     	vm.reload = function(){
     		ggoService.showUser().then(function(res){
         		vm.player = res.data;
         	})
+        	
+        	ggoService.playerGames().then(function(res){
+        		vm.games = res.data;
+    	    })
+    	    
+    	    ggoService.playerTeams().then(function(res){
+        		vm.teams = res.data;
+    	    })
     	}
     	
     	vm.reload();
+    	
+    	
     	
     	
     	
