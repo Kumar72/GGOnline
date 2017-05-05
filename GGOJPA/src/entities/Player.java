@@ -40,6 +40,13 @@ public class Player {
 	private String lname;
 	private Boolean active;
 	private Boolean	status;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	private String image;
 	
 	@JsonIgnore
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
@@ -162,9 +169,10 @@ public class Player {
 	public String toString() {
 		return "Player [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", createTime=" + createTime + ", fname=" + fname + ", lname=" + lname + ", active=" + active
-				+ ", status=" + status + "]";
+				+ ", status=" + status + ", image=" + image + ", teams=" + teams + ", games=" + games + ", ratings="
+				+ ratings + "]";
 	}
-	  
+	
 	
 
 }
