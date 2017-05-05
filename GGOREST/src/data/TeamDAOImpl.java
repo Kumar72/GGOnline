@@ -66,8 +66,9 @@ public class TeamDAOImpl implements TeamDAO {
 
 	@Override
 	public Player makeCaptain(int playerId, int teamId) {
-		// TODO Auto-generated method stub
-		return null;
+		Player managed = em.find(Player.class,playerId);
+		managed.setStatus(true);
+		return managed;
 	}
 
 

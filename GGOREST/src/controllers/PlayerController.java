@@ -67,10 +67,18 @@ public class PlayerController {
 	}
 	
 	@RequestMapping(value="players/{playerId}", method = RequestMethod.PUT)
-	public Player update(@PathVariable int playerId, Player player){
-		return playerDAO.update(playerId, player);
-	}
-
-	
-
+	public Player update(@PathVariable int playerId, @RequestBody String playerJson){
+		try{
+			ObjectMapper mapper = new ObjectMapper();
+			Player mappedPlayer = mapper.readValue(playerJson, Player.class);
+			
+			return playerDAO.update(playerId, mappedPlayer);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println("YOU DON MESSED UP BROH!");
+		}
+		return null;
+		
+}
 }
