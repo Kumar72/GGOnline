@@ -1,5 +1,5 @@
 angular.module('ggoModule')
-.component('gameList',{
+.component('game',{
 	templateUrl : 'app/ggoModule/game/game.component.html',
 	controller : function(ggoService, $filter, $location){
 		var vm = this;
