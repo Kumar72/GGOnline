@@ -14,7 +14,7 @@ angular.module('ggoModule')
 	service.index = function(){
 		return $http({
 			method : 'GET',
-			url : 'api/players/'+ authService.getToken().id+'/games'
+			url : 'api/games'
 		})
 		
 	}
