@@ -61,6 +61,11 @@ public class PlayerController {
 		return playerDAO.indexOfGamesPlayerHas(playerId);
 	}
 	
+	@RequestMapping(value="players/{playerId}/games/{gameId}", method=RequestMethod.POST)
+	public Game addGameToPlayer(@PathVariable ("playerId") int playerId, @PathVariable ("gameId") int gameId){
+		return playerDAO.addGame(playerId, gameId);
+	}
+	
 	@RequestMapping(value="players/{playerId}", method = RequestMethod.PUT)
 	public Player update(@PathVariable int playerId, @RequestBody String playerJson){
 		try{

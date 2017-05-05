@@ -17,6 +17,9 @@ public interface PlayerDAO {
 	
 	public List<Game> indexOfGamesPlayerHas(int playerId);
 	
+	public Game addGame(int playerId, int gameId);
+
+	
 	//
 	
 	

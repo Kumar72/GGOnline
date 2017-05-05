@@ -1,10 +1,16 @@
-
+<div id="searchDiv">
+	<form>
+		<input type="text" placeHolder="Search" ng-model="game.game">
+		<input type="submit" class="button" type="submit" value="Search" ng-click="vm.filterGame">
+	</form>
+</div>
 <table>
 	<thead>
 	<tbody>
 		<tr ng-repeat="game in vm.games">
 
 		<td>{{game.name}}</td>
+		<td><button class="button" ng-click="vm.addGame(game.id)">Follow Game</button></td>
 
 		</tr>
 	</tbody>
