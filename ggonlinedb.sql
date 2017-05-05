@@ -265,6 +265,12 @@ START TRANSACTION;
 USE `ggonlinedb`;
 INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (1, 'Rocket League', 'Sport', 'E', 'Soccer with RC Cars!');
 INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (2, 'League Of Legends', 'MOBA', 'E', 'MOBA battles and fun');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (3, 'Halo 5', 'FPS', 'M', 'Newst installment in the future shooter.');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (4, 'Counter Strike', 'FPS', 'M', 'Strategic objective based shooter.');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (5, 'Overwatch', 'FPS/MOBA', 'T', 'FPS-MOBA cross over by Blizzard Ent.');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (6, 'Destiny', 'FPS/RPG', 'M', 'Bungie FPS set in open world enviormnet.');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (7, 'World of Warcraft', 'MMO/RPG', 'T', 'Blizzard\'s best selling MMO/RPG.');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (8, 'Dead by Daylight', 'Horro/Survival', 'M', 'Four players try to escape from a Serial Killer');
 
 COMMIT;
 
@@ -287,6 +293,7 @@ START TRANSACTION;
 USE `ggonlinedb`;
 INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL);
 INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL);
 
 COMMIT;
 
