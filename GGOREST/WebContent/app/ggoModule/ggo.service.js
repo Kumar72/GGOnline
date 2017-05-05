@@ -32,6 +32,16 @@ angular.module('ggoModule')
 		})	
 	}
 	
+	service.addGame = function(gameId, getUserId){
+		return $http({
+			method : 'POST',
+			url : 'api/players/'+ getUserId +'/games/'+gameId,
+			headers : {
+				'Content_Type' : 'application/json'
+			}
+		})
+	}
+	
 	
 	return service;
 })

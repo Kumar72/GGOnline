@@ -156,6 +156,8 @@ public class Player {
 	public void setRatings(List<Rating> ratings) {
 		this.ratings = ratings;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password

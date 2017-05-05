@@ -55,7 +55,9 @@ public class Game {
 //		this.isFollowed = isFollowed;
 //	}
 //
+	
 
+	
 	public List<Player> getPlayers() {
 		return players;
 	}

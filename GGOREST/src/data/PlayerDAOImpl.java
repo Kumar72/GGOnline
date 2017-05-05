@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Game;
@@ -59,6 +60,16 @@ public class PlayerDAOImpl implements PlayerDAO {
 
         
 
+	}
+
+	@Override
+	public Game addGame(int playerId, int gameId) {
+		Game game = em.find(Game.class, gameId);
+		Player player = em.find(Player.class, playerId);
+		
+		player.getGames().add(game);
+		
+		return game;
 	}
 
 }
