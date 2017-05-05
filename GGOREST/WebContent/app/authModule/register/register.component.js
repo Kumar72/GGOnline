@@ -8,6 +8,11 @@ angular.module("authModule").component("register", {
     			$location.path('/')
     		})
     	}
+    	
+    	vm.cancel = function() {   		
+    			$location.path('/')
+ 	
+    	}
     },
 	controllerAs: 'vm'
     });
