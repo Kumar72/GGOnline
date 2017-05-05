@@ -1,6 +1,6 @@
 angular.module('ggoModule')
 .component('gameList',{
-	templateUrl : 'app/ggoModule/game.component.html',
+	templateUrl : 'app/ggoModule/game/game.component.html',
 	controller : function(ggoService, $filter){
 		var vm = this;
 		
