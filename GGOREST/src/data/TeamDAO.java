@@ -13,7 +13,8 @@ public interface TeamDAO {
 	public Team update(int teamId, Team team);
 	public boolean destroy(int teamId);
 	
-	//A method to make the player who created the team its captain
-	//A method to promote another player to captain 
-	//
+	public Player makeCaptain(int playerId, int teamId);
+	public Player promoteToCaptain(int playerId);
+	
+
 }

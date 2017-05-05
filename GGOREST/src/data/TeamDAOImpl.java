@@ -61,4 +61,20 @@ public class TeamDAOImpl implements TeamDAO {
 		
 		return false;
 	}
+
+
+
+	@Override
+	public Player makeCaptain(int playerId, int teamId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Player promoteToCaptain(int playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

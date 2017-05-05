@@ -2,6 +2,7 @@ package data;
 
 import java.util.List;
 
+import entities.Game;
 import entities.Player;
 import entities.Team;
 
@@ -12,12 +13,9 @@ public interface PlayerDAO {
 	public Player create(Player player);	//we will never call this method from here
 	public List<Team> indexOfTeamsPlayerIsAMemberOf(int playerId);
 
-	//updating player profile
-	/*	Change user password -- encrypt 
-	 * 	Change other info associated with a user
-	 * */
+	public Player update(Player player, int playerId);
 	
-	//List of games a player has
+	public List<Game> indexOfGamesPlayerHas(int gameId);
 	
 	//
 	

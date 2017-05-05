@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Game;
 import entities.Player;
 import entities.Team;
 
@@ -35,6 +36,18 @@ public class PlayerDAOImpl implements PlayerDAO {
 		String q = "SELECT p FROM Player p JOIN FETCH p.teams WHERE p.id=:id";
 		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getTeams();
 		
+	}
+
+	@Override
+	public Player update(Player player, int playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Game> indexOfGamesPlayerHas(int gameId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
