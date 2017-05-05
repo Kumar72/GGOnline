@@ -129,7 +129,7 @@ button:hover {
 }
 
 .butt {
-    width: auto;
+    width: 40%;
     padding: 10px 18px;
     background-color: #f44336;
 }
@@ -156,8 +156,17 @@ img.avatar {
      width: 50.2%;
      padding: 10px;
 }
-
 .container2 {
+	opacity: 1.0;
+	position: relative;
+     padding: 16px;
+     margin: auto;
+     width: 96.5%;
+     padding: 10px;
+     text-align: center;
+}
+
+.container3 {
 	position: relative;
 	top: 10px;
      padding: 16px;
