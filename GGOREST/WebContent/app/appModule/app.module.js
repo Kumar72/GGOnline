@@ -22,8 +22,8 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/setting', {
 		template: '<setting></setting>'
 	})
-	.when('/test', {
-		template: '<test></test>'
+	.when('/game', {
+		template: '<game></game>'
 	})
 	
 	.otherwise({
