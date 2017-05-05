@@ -3,6 +3,8 @@ angular.module("ggoModule").component("home", {
     controller: function(authService, $location) {
     	var vm = this;
     	
+    	
+    	
     },
 	controllerAs: 'vm'
     });

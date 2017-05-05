@@ -1,12 +1,28 @@
 
 <nav class="topnav" id="myTopnav" ng-show="vm.loggedIn()">
+	
 	<div>
 		<ul>
-			<li><a href="#/home">Home</a></li>	  
-	  		<li><a href="#/game">Game</a></li>
-	  		<li><a href="#/social">Social</a></li>
-	  		<li><a href="#/setting">Setting</a></li>
-	  		<li ng-click="vm.logout()"><a>LogOut</a></li>
+			<li><a>
+			<div>
+				<span style="font-size:30px;cursor:pointer" ng-click="vm.openNav()">&#9776;</span>
+			</div>
+			</a></li>
+			<li><a href="#/home">Profile</a></li>	  
+	  		<li><a href="#/stats">Stats</a></li>
+	  		<li><a href="#/inbox">Inbox</a></li>
+	  </ul>
+	  <ul id="right">
+	  		<li><a>Welcome {{vm.name}}</a></li>
 	  </ul>
  	 </div>
 </nav>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" ng-click="vm.closeNav()">&times;</a>
+  <a href="#/home">Home</a>
+  <a href="#/game">Game</a>
+  <a href="#/social">Social</a>
+  <a href="#/setting">Setting</a>
+  <li ng-click="vm.logout()"/><a>LogOut</a></li>
+</div>
