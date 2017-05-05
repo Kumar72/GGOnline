@@ -49,6 +49,7 @@ angular.module('authModule')
     }
 
     service.logout = function() {
+    	console.log("in logout service")
     	return $http({
     		method: 'PUT',
     		url: "api/auth/logout",

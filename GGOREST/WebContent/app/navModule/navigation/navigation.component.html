@@ -1,6 +1,12 @@
-<div class="topnav" id="myTopnav">
-  <a href="#/home">Home</a>
-  <a href="#/game">Game</a>
-  <a href="#/social">Social</a>
-  <a href="#/setting">Setting</a>
-</div>
+
+<nav class="topnav" id="myTopnav" ng-show="vm.loggedIn()">
+	<div>
+		<ul>
+			<li><a href="#/home">Home</a></li>	  
+	  		<li><a href="#/game">Game</a></li>
+	  		<li><a href="#/social">Social</a></li>
+	  		<li><a href="#/setting">Setting</a></li>
+	  		<li ng-click="vm.logout()"><a>LogOut</a></li>
+	  </ul>
+ 	 </div>
+</nav>

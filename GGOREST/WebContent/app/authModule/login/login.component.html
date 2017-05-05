@@ -1,14 +1,26 @@
-<div class="">
+<div class="loginbackground" id="logIn">
 
-	<form>
-		Username: <input type="text" ng-model="user.username"/>
-		<br>
-		Password: <input type="password" ng-model ="user.password"/>
-		<br>
-		<input type="submit" value="Sign In" ng-click = "vm.login(user)"/>
-		<hr>
-		<input type="submit" value="Create Account" ng-click="vm.create()"/>
-		<input type="submit" value="Learn More" ng-click="vm.learn()"/>
+	<div class="imgcontainer">
+	 <!-- <img src="http://www.reason.gg/wp-content/uploads/2015/03/default-avatar.png" alt="Avatar" class="avatar"> -->
+     	<img src="https://cdn.leagueoflegends.com/match-history/opengraph_icon.jpg" alt="Avatar" class="avatar">
+   	</div>
 
-	</form>
+	<div class="container">
+		<form>
+			<label><b>Username</b></label>
+			<input type="text" ng-model="user.username" required/>
+			
+			<label><b>Password</b></label>
+			<input type="password" ng-model ="user.password" required/>
+			
+			<button type="button" ng-click = "vm.login(user)">Sign In</button>
+			<input type="checkbox" id="label" checked="checked"> Remember me
+			<span class="psw">Forgot <a href="#">password?</a></span>
+			<hr>
+		<div class="container2" style="background-color:#f1f1f1">
+			<button type="button" class="butt" ng-click="vm.create()">Create Account</button>
+			<button type="button" class="butt" ng-click="vm.learn()">Learn More</button>
+		</div>
+		</form>
+	</div>
 </div>
