@@ -7,7 +7,7 @@ angular.module("navModule").component("navComponent", {
     	
     	vm.loggedIn = function() {
     		if(authService.getToken().id){
-    			vm.name = authService.getToken().fname;
+    			vm.name = authService.getToken().fname;	
     			document.body.style.backgroundImage = "url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg')";
     			return true
     			
@@ -16,6 +16,7 @@ angular.module("navModule").component("navComponent", {
     	}
     	
     	vm.logout = function() {
+    		vm.closeNav();
     		console.log("test logout");
     		authService.logout().then(function(res) {
     			$location.path('/');

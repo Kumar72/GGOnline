@@ -11,5 +11,6 @@ public interface GameDAO {
 	public Game show(int gameId);
 	public List<Player>indexOfPlayersFollowingGame(int gameId);
 	
+	
 
 }

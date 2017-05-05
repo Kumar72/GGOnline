@@ -54,12 +54,11 @@ angular.module('authModule')
     service.logout = function() {
     	console.log("in logout service")
     	return $http({
-    		method: 'PUT',
+    		method: 'POST',
     		url: "api/auth/logout",
     		headers: {
     			'Content-Type': 'application/json'
-    		},
-    		data: user
+    		}
     	}).then(function(res){
     		removeToken(res.data);
     	})
