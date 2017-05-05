@@ -55,13 +55,15 @@ public class Player {
 	  )
 	  private List<Game>games;
 	
-	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	  @JoinTable(name="message_recipient",
-	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
-	    inverseJoinColumns=@JoinColumn(name="message_id")
-	  )
-	  private List<Message>messages;
+//	@JsonIgnore
+//	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+//	  @JoinTable(name="message_recipient",
+//	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
+//	    inverseJoinColumns=@JoinColumn(name="message_id")
+//	  )
+//	  private List<Message>messages;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="player")
 	  private List<Rating> ratings;
 	
@@ -135,12 +137,12 @@ public class Player {
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
-	public List<Message> getMessages() {
-		return messages;
-	}
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
-	}
+//	public List<Message> getMessages() {
+//		return messages;
+//	}
+//	public void setMessages(List<Message> messages) {
+//		this.messages = messages;
+//	}
 	public List<Rating> getRatings() {
 		return ratings;
 	}
