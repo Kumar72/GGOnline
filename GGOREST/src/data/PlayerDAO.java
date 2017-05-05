@@ -13,9 +13,9 @@ public interface PlayerDAO {
 	public Player create(Player player);	//we will never call this method from here
 	public List<Team> indexOfTeamsPlayerIsAMemberOf(int playerId);
 
-	public Player update(Player player, int playerId);
+	public Player update(int playerId, Player player);
 	
-	public List<Game> indexOfGamesPlayerHas(int gameId);
+	public List<Game> indexOfGamesPlayerHas(int playerId);
 	
 	//
 	

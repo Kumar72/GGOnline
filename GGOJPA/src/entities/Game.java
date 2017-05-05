@@ -2,11 +2,14 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,8 +34,10 @@ public class Game {
 	private String description;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy="games")
-	  private List<Player> players;
+    @ManyToMany(mappedBy="games")
+    private List<Player> players;
+	
+	
 	@JsonIgnore
 	@OneToMany(mappedBy="game")
 	  private List<Team> teams;

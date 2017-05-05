@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.PlayerDAO;
+import entities.Game;
 import entities.Player;
 import entities.Team;
 
@@ -55,5 +56,14 @@ public class PlayerController {
 		
 	}
 	
+	@RequestMapping(value="players/{playerId}/games", method=RequestMethod.GET)
+	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId){
+		return playerDAO.indexOfGamesPlayerHas(playerId);
+	}
+	
+	@RequestMapping(value="players/{playerId}", method = RequestMethod.PUT)
+	public Player update(@PathVariable int playerId, Player player){
+		return playerDAO.update(playerId, player);
+	}
 
 }

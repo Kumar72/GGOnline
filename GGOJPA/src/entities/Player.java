@@ -55,6 +55,7 @@ public class Player {
 	  )
 	  private List<Game>games;
 	
+	
 //	@JsonIgnore
 //	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 //	  @JoinTable(name="message_recipient",

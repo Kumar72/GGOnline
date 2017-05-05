@@ -39,15 +39,22 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public Player update(Player player, int playerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Player update(int playerId, Player player) {
+		Player managed = em.find(Player.class,playerId);
+		managed.setUsername(player.getUsername());
+		managed.setEmail(player.getEmail());
+		managed.setPassword(player.getPassword());
+		managed.setFname(player.getFname());
+		managed.setLname(player.getLname());
+		managed.setActive(player.getActive());
+		managed.setStatus(player.getStatus());
+		return player;
 	}
 
 	@Override
-	public List<Game> indexOfGamesPlayerHas(int gameId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Game> indexOfGamesPlayerHas(int playerId) {
+		String q = "SELECT p FROM Player p JOIN FETCH p.games WHERE p.id=:id";
+		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
 	}
 
 }

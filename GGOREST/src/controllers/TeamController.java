@@ -38,4 +38,10 @@ public class TeamController {
 			return teamDAO.indexOfPlayers(teamId);
 				
 	}
+	
+	@RequestMapping(value="teams/{teamId}", method = RequestMethod.PUT)
+	public Team update(@PathVariable int teamId, Team team){
+		
+		return teamDAO.update(teamId, team);
+	}
 }
