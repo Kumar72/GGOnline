@@ -33,6 +33,9 @@ public class Game {
 	
 	private String description;
 	
+//	private String picUrl;
+//	
+
 	@JsonIgnore
     @ManyToMany(mappedBy="games")
     private List<Player> players;
@@ -42,6 +45,17 @@ public class Game {
 	@OneToMany(mappedBy="game")
 	  private List<Team> teams;
 	
+//	private boolean isFollowed;
+//	
+//	public boolean isFollowed() {
+//		return isFollowed;
+//	}
+//
+//	public void setFollowed(boolean isFollowed) {
+//		this.isFollowed = isFollowed;
+//	}
+//
+
 	public List<Player> getPlayers() {
 		return players;
 	}

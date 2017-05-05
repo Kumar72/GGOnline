@@ -3,7 +3,17 @@ angular.module("navModule").component("navComponent", {
     controller: function(authService, $location) {
     	var vm = this;
     	
-    	
+    	vm.openNav = function() {
+    	    document.getElementById("mySidenav").style.width = "250px";
+    	    document.getElementById("main").style.marginLeft = "250px";
+    	    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    	}
+
+    	vm.closeNav = function() {
+    	    document.getElementById("mySidenav").style.width = "0";
+    	    document.getElementById("main").style.marginLeft= "0";
+    	    document.body.style.backgroundColor = "white";
+    	}
     	
     	vm.loggedIn = function() {
     		if(authService.getToken().id){
@@ -23,17 +33,7 @@ angular.module("navModule").component("navComponent", {
     		})
     	}
     	
-    	vm.openNav = function() {
-    	    document.getElementById("mySidenav").style.width = "250px";
-    	    document.getElementById("main").style.marginLeft = "250px";
-    	    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    	}
-
-    	vm.closeNav = function() {
-    	    document.getElementById("mySidenav").style.width = "0";
-    	    document.getElementById("main").style.marginLeft= "0";
-    	    document.body.style.backgroundColor = "white";
-    	}
+    	
     },
 	controllerAs: 'vm'
     });
