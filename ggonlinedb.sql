@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `game` (
   `genera` VARCHAR(50) NULL DEFAULT NULL,
   `rating` VARCHAR(1) NULL DEFAULT NULL,
   `description` VARCHAR(500) NULL DEFAULT NULL,
+  `image` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -42,7 +43,9 @@ CREATE TABLE IF NOT EXISTS `team` (
   `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
+  `image` VARCHAR(500) NULL,
   PRIMARY KEY (`id`),
+  INDEX `fk_team_game1_idx` (`game_id` ASC),
   CONSTRAINT `fk_team_game1`
     FOREIGN KEY (`game_id`)
     REFERENCES `game` (`id`)
@@ -50,8 +53,6 @@ CREATE TABLE IF NOT EXISTS `team` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE INDEX `fk_team_game1_idx` ON `team` (`game_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -69,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lname` VARCHAR(45) NOT NULL,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `status` TINYINT(1) NULL DEFAULT NULL,
+  `image` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -81,10 +83,11 @@ DROP TABLE IF EXISTS `captain` ;
 
 CREATE TABLE IF NOT EXISTS `captain` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `status` TINYINT(1) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `team_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
+  INDEX `fk_captain_user1_idx` (`user_id` ASC),
+  INDEX `fk_captain_team1_idx` (`team_id` ASC),
   CONSTRAINT `fk_captain_team1`
     FOREIGN KEY (`team_id`)
     REFERENCES `team` (`id`)
@@ -97,10 +100,6 @@ CREATE TABLE IF NOT EXISTS `captain` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE INDEX `fk_captain_user1_idx` ON `captain` (`user_id` ASC);
-
-CREATE INDEX `fk_captain_team1_idx` ON `captain` (`team_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -115,6 +114,8 @@ CREATE TABLE IF NOT EXISTS `message` (
   `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `message_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
+  INDEX `fk_message_user1_idx` (`user_id` ASC),
+  INDEX `fk_message_message1_idx` (`message_id` ASC),
   CONSTRAINT `fk_message_message1`
     FOREIGN KEY (`message_id`)
     REFERENCES `message` (`id`)
@@ -128,10 +129,6 @@ CREATE TABLE IF NOT EXISTS `message` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE INDEX `fk_message_user1_idx` ON `message` (`user_id` ASC);
-
-CREATE INDEX `fk_message_message1_idx` ON `message` (`message_id` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `user_team`
@@ -143,6 +140,8 @@ CREATE TABLE IF NOT EXISTS `user_team` (
   `team_id` INT(11) NOT NULL,
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
+  INDEX `fk_user_has_team_team1_idx` (`team_id` ASC),
+  INDEX `fk_user_has_team_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_has_team_team1`
     FOREIGN KEY (`team_id`)
     REFERENCES `team` (`id`)
@@ -155,10 +154,6 @@ CREATE TABLE IF NOT EXISTS `user_team` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE INDEX `fk_user_has_team_team1_idx` ON `user_team` (`team_id` ASC);
-
-CREATE INDEX `fk_user_has_team_user_idx` ON `user_team` (`user_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -173,6 +168,9 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `user_team_id` INT(11) NOT NULL,
   `is_read` TINYINT(1) NULL DEFAULT '0',
   PRIMARY KEY (`id`),
+  INDEX `fk_recipient_user1_idx` (`user_id` ASC),
+  INDEX `fk_recipient_message1_idx` (`message_id` ASC),
+  INDEX `fk_recipient_user_team1_idx` (`user_team_id` ASC),
   CONSTRAINT `fk_recipient_message1`
     FOREIGN KEY (`message_id`)
     REFERENCES `message` (`id`)
@@ -191,12 +189,6 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE INDEX `fk_recipient_user1_idx` ON `message_recipient` (`user_id` ASC);
-
-CREATE INDEX `fk_recipient_message1_idx` ON `message_recipient` (`message_id` ASC);
-
-CREATE INDEX `fk_recipient_user_team1_idx` ON `message_recipient` (`user_team_id` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `rating`
@@ -209,6 +201,7 @@ CREATE TABLE IF NOT EXISTS `rating` (
   `comment` VARCHAR(100) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
+  INDEX `fk_rating_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_rating_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -216,8 +209,6 @@ CREATE TABLE IF NOT EXISTS `rating` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE INDEX `fk_rating_user1_idx` ON `rating` (`user_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -230,6 +221,8 @@ CREATE TABLE IF NOT EXISTS `user_game` (
   `game_id` INT(11) NOT NULL,
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
+  INDEX `fk_user_has_game_game1_idx` (`game_id` ASC),
+  INDEX `fk_user_has_game_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_has_game_game1`
     FOREIGN KEY (`game_id`)
     REFERENCES `game` (`id`)
@@ -242,10 +235,6 @@ CREATE TABLE IF NOT EXISTS `user_game` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE INDEX `fk_user_has_game_game1_idx` ON `user_game` (`game_id` ASC);
-
-CREATE INDEX `fk_user_has_game_user1_idx` ON `user_game` (`user_id` ASC);
 
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO user1;
@@ -263,14 +252,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (1, 'Rocket League', 'Sport', 'E', 'Soccer with RC Cars!');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (2, 'League Of Legends', 'MOBA', 'E', 'MOBA battles and fun');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (3, 'Halo 5', 'FPS', 'M', 'Newst installment in the future shooter.');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (4, 'Counter Strike', 'FPS', 'M', 'Strategic objective based shooter.');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (5, 'Overwatch', 'FPS/MOBA', 'T', 'FPS-MOBA cross over by Blizzard Ent.');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (6, 'Destiny', 'FPS/RPG', 'M', 'Bungie FPS set in open world enviormnet.');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (7, 'World of Warcraft', 'MMO/RPG', 'T', 'Blizzard\'s best selling MMO/RPG.');
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`) VALUES (8, 'Dead by Daylight', 'Horro/Survival', 'M', 'Four players try to escape from a Serial Killer');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (1, 'Rocket League', 'Sport', 'E', 'Soccer with RC Cars!', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (2, 'League Of Legends', 'MOBA', 'E', 'MOBA battles and fun', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (3, 'Halo 5', 'FPS', 'M', 'Newst installment in the future shooter.', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (4, 'Counter Strike', 'FPS', 'M', 'Strategic objective based shooter.', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (5, 'Overwatch', 'FPS/MOBA', 'T', 'FPS-MOBA cross over by Blizzard Ent.', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (6, 'Destiny', 'FPS/RPG', 'M', 'Bungie FPS set in open world enviormnet.', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (7, 'World of Warcraft', 'MMO/RPG', 'T', 'Blizzard\'s best selling MMO/RPG.', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (8, 'Dead by Daylight', 'Horro/Survival', 'M', 'Four players try to escape from a Serial Killer', NULL);
 
 COMMIT;
 
@@ -280,8 +269,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`) VALUES (1, 'Tiesto', NULL, 1, 1);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`) VALUES (2, 'MonkyBarrel', NULL, 0, 2);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`) VALUES (1, 'Tiesto', NULL, 1, 1, NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, NULL);
 
 COMMIT;
 
@@ -291,9 +280,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL, NULL);
 
 COMMIT;
 

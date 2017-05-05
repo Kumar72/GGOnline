@@ -33,8 +33,19 @@ public class Game {
 	
 	private String description;
 	
-//	private String picUrl;
-//	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	private String image;
 
 	@JsonIgnore
     @ManyToMany(mappedBy="games")
@@ -115,8 +126,9 @@ public class Game {
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", name=" + name + ", genre=" + genre + ", rating=" + rating + ", description="
-				+ description + "]";
+				+ description + ", image=" + image + ", players=" + players + ", teams=" + teams + "]";
 	}
+
 	
 	
 

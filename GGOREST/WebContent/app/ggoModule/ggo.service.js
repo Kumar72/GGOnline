@@ -32,6 +32,18 @@ angular.module('ggoModule')
 		})	
 	}
 	
+
+	service.updatePlayer = function(){
+		return $http({
+			method : 'PUT',
+			url : 'api/players' + authService.getToken().id,
+			headers : {
+	            'Content-Type' : 'application/json'
+	          },
+	          data : todo
+	        })
+		
+	}
 	service.addGame = function(gameId, getUserId){
 		return $http({
 			method : 'POST',
@@ -40,6 +52,7 @@ angular.module('ggoModule')
 				'Content_Type' : 'application/json'
 			}
 		})
+
 	}
 	
 	service.removeGame = function(game){
@@ -54,4 +67,5 @@ angular.module('ggoModule')
 	
 	
 	return service;
-})
+	})
+

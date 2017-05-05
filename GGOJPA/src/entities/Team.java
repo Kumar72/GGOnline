@@ -29,8 +29,17 @@ public class Team {
 	private Timestamp createdTime;
 	
 	private int active;
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	private String image;
 	
-	
+
 	@ManyToMany(mappedBy="teams")
 	@JsonIgnore
 	  private List<Player> players;
@@ -89,7 +98,11 @@ public class Team {
 	
 	
 
-	
+	@Override
+	public String toString() {
+		return "Team [id=" + id + ", name=" + name + ", createdTime=" + createdTime + ", active=" + active + ", image="
+				+ image + ", players=" + players + ", game=" + game + "]";
+	}
 	
 	
 	

@@ -1,0 +1,77 @@
+<div id="main">
+
+  	 <h3>Update Account Information</h3>
+	 
+	 <form>
+	 
+	 <label>First Name
+	 <input type="text" value={{vm.player.fname}}>
+	 </label>
+	 
+	 <label>Last Name
+	 <input type="text" value={{vm.player.lname}}>
+	 </label>
+	 
+	 <label>Username
+	 <input type="text" value={{vm.player.username}}>
+	 </label>
+	 
+	 <label>Email
+	 <input type="text" value={{vm.player.email}>
+	 </label>
+	 
+	 <label>Password
+	 <input type="text" value={{vm.player.password}}>
+	 </label>
+	 
+	 
+	 </form>
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 <table>
+	 	<thead>
+	 	</thead>
+		  <tbody>
+		  	
+		  	<tr>
+		  		<td>First Name: </td>
+			  	<td>{{vm.player.fname}}</td>
+			</tr>
+		  	<tr>
+		  		<td>Last Name: </td>
+			  	<td>{{vm.player.lname}}</td>
+			</tr>
+		  	<tr>
+		  		<td>Username: </td>
+			  	<td>{{vm.player.username}}</td>
+			</tr>
+		  	<tr>
+		  		<td>Email: </td>
+			  	<td>{{vm.player.email}}</td>
+		  	</tr>	
+		  	<tr>
+		  		<td>Password: </td>
+			  	<td>{{vm.player.password}}</td>
+		  	</tr>  	
+		 </tbody>
+	 </table>
+	 <hr>
+	 <h3>Games</h3>
+	 <ul ng-repeat="game in vm.games">
+	 	<li ng-click="getDetailsAboutTheGame">{{game.name}}</li>
+	 	<li><button class="butt">Remove</button></li>
+	 </ul>
+	 
+	 <hr>
+	 <h3>Teams</h3>
+	 <ul ng-repeat="team in vm.teams">
+	 	<li ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">{{team.name}}</li>
+	 	<li><button class="butt">Leave</button></li>
+	 </ul>
+	 
+</div>
