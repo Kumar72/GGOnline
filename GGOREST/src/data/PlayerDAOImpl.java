@@ -46,8 +46,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 		managed.setPassword(player.getPassword());
 		managed.setFname(player.getFname());
 		managed.setLname(player.getLname());
-		managed.setActive(player.getActive());
-		managed.setStatus(player.getStatus());
+		
 		return player;
 	}
 

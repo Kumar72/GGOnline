@@ -28,6 +28,8 @@ public class Player {
 	private int id;
 	
 	private String username;
+	
+	@Column(nullable=false)
 	private String email;
 	private String password;
 	
