@@ -15,15 +15,15 @@ angular.module("navModule").component("navComponent", {
     	    document.body.style.backgroundColor = "white";
     	}
     	
-//    	vm.loggedIn = function() {
-//    		if(authService.getToken().id){
+    	vm.loggedIn = function() {
+    		if(authService.getToken().id){
     			vm.name = authService.getToken().fname;	
-//    			document.body.style.backgroundImage = "url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg')";
-//    			return true
-//    			
-//    		}
-//    		return false;	
-//    	}
+    			document.body.style.backgroundImage = "url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg')";
+    			return true
+    			
+    		}
+    		return false;	
+    	}
     	
     	vm.logout = function() {
     		vm.closeNav();

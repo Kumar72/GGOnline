@@ -5,6 +5,11 @@
 	 	<thead>
 	 	</thead>
 		  <tbody>
+			  <tr>
+		  		<td>Image: </td>
+			  	<td><img ng-src="{{vm.player.image}}" height="42" width="42">
+			  	</td>
+		  	</tr>
 		  	<tr>
 		  		<td>Player id: </td>
 			  	<td>{{vm.player.id}}</td>
@@ -29,16 +34,37 @@
 	 </table>
 	 <hr>
 	 <h3>Games</h3>
-	 <ul ng-repeat="game in vm.games">
-	 	<li ng-click="vm.removeGame">{{game.name}}</li>
-	 	<li><button ng-click="vm.removeGame(game)" class="butt">Remove</button></li>
-	 </ul>
+	 <table>
+	 	<thead>
+	 	</thead>
+		  <tbody ng-repeat="game in vm.games">
+			  <tr>
+			  	<td ng-click="getDetailsAboutTheGame"><img ng-src="{{game.image}}" height="42" width="42"></td>
+		  	</tr>
+		  	<tr>
+			  	<td>{{game.name}}</td>
+			  	<td><button class="button">Remove</button></td>
+		  	</tr>  	
+		 </tbody>
+	 </table>
 	 
 	 <hr>
 	 <h3>Teams</h3>
-	 <ul ng-repeat="team in vm.teams">
-	 	<li ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">{{team.name}}</li>
-	 	<li><button class="butt">Leave</button></li>
+	 <table>
+	 	<thead>
+	 	</thead>
+		  <tbody ng-repeat="team in vm.teams">
+			  <tr>
+			  	<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam"><img ng-src="team.image" height="42" width="42"></td>
+		  	</tr>
+		  	<tr>
+			  	<td>{{team.name}}</td>
+			  	<td><button class="button">Leave</button></td>
+		  	</tr>  	
+		 </tbody>
+	 </table>
+	 <ul>
+	 	<li >{{team.name}}</li>
 	 </ul>
 	 
 </div>
