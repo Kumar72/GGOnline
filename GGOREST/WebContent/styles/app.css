@@ -7,6 +7,15 @@ body {
    transition: background-color .5s;
 }
 
+/* body .page {
+   margin:0;
+   background-image: url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg');  
+   background-repeat: no-repeat;
+   background-attachment: fixed;  
+   background-size: 100%;
+   transition: background-color .5s;
+} */
+
 
 p, h2 {
 	color: white;
