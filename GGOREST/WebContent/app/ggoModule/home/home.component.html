@@ -1,70 +1,83 @@
-<div id="main">
+<div id="main" class="container3">
+	<table>
+		<thead>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img ng-src="{{vm.player.image}}" height="100px"
+					width="100px"></td>
+				<td>
+					<table>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>Player id:</td>
+								<td>{{vm.player.id}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>First Name:</td>
+								<td>{{vm.player.fname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Last Name:</td>
+								<td>{{vm.player.lname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Username:</td>
+								<td>{{vm.player.username}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Email:</td>
+								<td>{{vm.player.email}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3>Games</h3>
+	<div ng-repeat="game in vm.games"> <!-- class="divline" -->
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-click="getDetailsAboutTheGame">
+					<img ng-src="{{game.image}}" height="60px" width="60px">
+					</td>
+				</tr>
+				<tr>
+					<td>{{game.name}}</td>
+					<td><button class="button">Remove</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br class="clearBoth" />
+	<hr>
+	<h3>Teams</h3>
+	<div ng-repeat="team in vm.teams">
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
+					<img ng-src="team.image" height="42" width="42">
+					</td>
+				</tr>
+				<tr>
+					<td>{{team.name}}</td>
+					<td><button class="button">Leave</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-  	 <h3>Info</h3>
-	 <table>
-	 	<thead>
-	 	</thead>
-		  <tbody>
-			  <tr>
-		  		<td>Image: </td>
-			  	<td><img ng-src="{{vm.player.image}}" height="42" width="42">
-			  	</td>
-		  	</tr>
-		  	<tr>
-		  		<td>Player id: </td>
-			  	<td>{{vm.player.id}}</td>
-		  	</tr>
-		  	<tr>
-		  		<td>First Name: </td>
-			  	<td>{{vm.player.fname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Last Name: </td>
-			  	<td>{{vm.player.lname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Username: </td>
-			  	<td>{{vm.player.username}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Email: </td>
-			  	<td>{{vm.player.email}}</td>
-		  	</tr>	  	
-		 </tbody>
-	 </table>
-	 <hr>
-	 <h3>Games</h3>
-	 <table>
-	 	<thead>
-	 	</thead>
-		  <tbody ng-repeat="game in vm.games">
-			  <tr>
-			  	<td ng-click="getDetailsAboutTheGame"><img ng-src="{{game.image}}" height="42" width="42"></td>
-		  	</tr>
-		  	<tr>
-			  	<td>{{game.name}}</td>
-			  	<td><button class="button">Remove</button></td>
-		  	</tr>  	
-		 </tbody>
-	 </table>
-	 
-	 <hr>
-	 <h3>Teams</h3>
-	 <table>
-	 	<thead>
-	 	</thead>
-		  <tbody ng-repeat="team in vm.teams">
-			  <tr>
-			  	<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam"><img ng-src="team.image" height="42" width="42"></td>
-		  	</tr>
-		  	<tr>
-			  	<td>{{team.name}}</td>
-			  	<td><button class="button">Leave</button></td>
-		  	</tr>  	
-		 </tbody>
-	 </table>
-	 <ul>
-	 	<li >{{team.name}}</li>
-	 </ul>
-	 
 </div>

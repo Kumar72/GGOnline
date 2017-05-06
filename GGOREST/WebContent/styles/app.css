@@ -6,6 +6,13 @@ body {
    background-size: 100%;
    transition: background-color .5s;
 }
+.divline {
+	float: left;
+	display: inline;
+}
+.clearboth {
+	clear: both;
+}
 
 /* body .page {
    margin:0;
