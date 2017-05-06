@@ -66,6 +66,11 @@ public class PlayerController {
 		return playerDAO.addGame(playerId, gameId);
 	}
 	
+	@RequestMapping(value = "players/{playerId}/teams/{teamId}", method = RequestMethod.POST)
+	public Team joinTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId") int teamId) {
+		return playerDAO.joinTeam(playerId, teamId);
+	}
+	
 	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
 	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
 		return playerDAO.removeGameFromPlayer(playerId, gameId);

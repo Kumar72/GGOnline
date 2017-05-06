@@ -92,4 +92,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return false;
 	}
 
+	@Override
+	public Team joinTeam(int playerId, int teamId) {
+		Team team = em.find(Team.class, teamId);
+		Player player = em.find(Player.class, playerId);
+		
+		player.getTeams().add(team);
+		return team;
+	}
+
 }

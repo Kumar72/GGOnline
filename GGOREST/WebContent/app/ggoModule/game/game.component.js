@@ -7,7 +7,7 @@ angular.module('ggoModule')
 		vm.games=[];
 		
 		vm.reload = function(){
-			ggoService.index().then(function(res){
+			ggoService.gameIndex().then(function(res){
 				console.log(res.data);
 				vm.games = res.data;
 				

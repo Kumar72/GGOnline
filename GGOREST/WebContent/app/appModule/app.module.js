@@ -13,8 +13,8 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/home', {
 		template: '<home></home>'
 	})
-	.when('/stats', {
-		template: '<stats></stats>'
+	.when('/team', {
+		template: '<team></team>'
 	})
 	.when('/inbox', {
 		template: '<inbox></inbox>'

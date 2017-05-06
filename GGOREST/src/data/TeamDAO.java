@@ -7,6 +7,7 @@ import entities.Team;
 
 public interface TeamDAO {
 	
+	public List<Team> index();
 	public Team show(int teamId);	
 	public List<Player> indexOfPlayers(int teamId);
 	public Team create(Team team);
