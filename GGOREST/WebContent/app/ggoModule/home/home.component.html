@@ -30,8 +30,8 @@
 	 <hr>
 	 <h3>Games</h3>
 	 <ul ng-repeat="game in vm.games">
-	 	<li ng-click="getDetailsAboutTheGame">{{game.name}}</li>
-	 	<li><button class="butt">Remove</button></li>
+	 	<li ng-click="vm.removeGame">{{game.name}}</li>
+	 	<li><button ng-click="vm.removeGame(game)" class="butt">Remove</button></li>
 	 </ul>
 	 
 	 <hr>

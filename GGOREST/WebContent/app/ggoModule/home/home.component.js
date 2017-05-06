@@ -12,6 +12,7 @@ angular.module("ggoModule").component("home", {
         		vm.player = res.data;
         	})
         	
+       
         	ggoService.playerGames().then(function(res){
         		vm.games = res.data;
     	    })
@@ -19,7 +20,15 @@ angular.module("ggoModule").component("home", {
     	    ggoService.playerTeams().then(function(res){
         		vm.teams = res.data;
     	    })
+    	    
+    	    vm.removeGame = function(game){
+    			ggoService.removeGame(game)
+    				.then(console.log)
+    				.catch(console.error)
+    			
+    		}
     	}
+    	
     	
     	vm.reload();
     	
