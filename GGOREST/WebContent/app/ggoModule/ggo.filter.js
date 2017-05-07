@@ -1,14 +1,19 @@
 angular.module('ggoModule')
-.filter('fuzzyGameSearch', function() {
+.filter('gameSearch', function() {
   return function(Game, text) {
-    if (!text) return games;
+	  gameSearch={}
+	  console.log("in Filter JS")
+	  console.log("Game: "+Game.name)
+	  console.log("Text: "+text)
+    if (!text) return Game;
     var results = [];
-    games.forEach(function(name) {
-      if(game.name.toLowerCase().includes(text.toLowerCase())) {
-        results.push(game);
+    games.forEach(function(g) {
+      if(g.name.toLowerCase().includes(text.toLowerCase())) {
+        results.push(g);
       }
     }) // end forEach
     return results;
+
   }
   // end function
 })
