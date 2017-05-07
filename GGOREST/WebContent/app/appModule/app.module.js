@@ -20,7 +20,7 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 		template: '<inbox></inbox>'
 	})
 	.when('/setting', {
-		template: '<setting></setting>'
+		template: ''
 	})
 	.when('/game', {
 		template: '<game></game>'

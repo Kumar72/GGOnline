@@ -8,6 +8,7 @@ angular.module("ggoModule").component("home", {
     	vm.teams = [];
     	vm.showTeamForm = true;
     	
+    	
     	vm.reload = function(){
     		ggoService.showUser().then(function(res){
         		vm.player = res.data;
@@ -28,9 +29,19 @@ angular.module("ggoModule").component("home", {
     	    })
     	}
     	
+    	vm.setting = true;
+    	
+    	vm.settings = function() {
+    		vm.setting = false;
+    		console.log("in setting function")
+    		$location.path('/setting')
+    		
+    	}
+    	
     	vm.updatePlayer = function(updateUser) {
     		ggoService.update().then(function(res){
         		vm.player = res.data;
+        		
         	})
     	}
     	
