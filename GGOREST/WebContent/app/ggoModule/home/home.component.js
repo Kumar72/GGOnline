@@ -52,14 +52,7 @@ angular.module("ggoModule").component("home", {
     	  };
     	
     	vm.displayGameInfo = function() {}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+
     },
 	controllerAs: 'vm'
     });
