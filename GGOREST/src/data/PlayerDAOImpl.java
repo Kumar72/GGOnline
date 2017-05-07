@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -34,7 +35,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public List<Team> indexOfTeamsPlayerIsAMemberOf(int playerId) {
 		String q = "SELECT p FROM Player p JOIN FETCH p.teams WHERE p.id=:id";
-		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getTeams();
+		try {
+			List<Team> players = em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getTeams(); 
+			return players;
+		} catch (Exception e) {
+			List<Team> newTeamList = new ArrayList<>();
+			return newTeamList;
+		}
 		
 	}
 
@@ -53,11 +60,17 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public List<Game> indexOfGamesPlayerHas(int playerId) {
 		String q = "SELECT p FROM Player p JOIN FETCH p.games WHERE p.id=:id";
-
-		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
-
-        
-
+		try{
+		List <Game> games = em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
+		return games;
+		
+		}catch(Exception e){
+			System.out.println(e.getStackTrace());
+		 
+			List<Game> newGamesList = new ArrayList<>();
+			return newGamesList;
+		}
+		
 	}
 
 	@Override
@@ -99,6 +112,28 @@ public class PlayerDAOImpl implements PlayerDAO {
 		
 		player.getTeams().add(team);
 		return team;
+	}
+
+	@Override
+	public boolean leaveTeam(int playerId, int teamId) {
+		Player player = em.find(Player.class, playerId);
+		Team team = em.find(Team.class, teamId);
+		
+		int id = player.getTeams().indexOf(team);
+		List<Team> Team = player.getTeams();
+		System.out.println(Team.size());
+		Team.remove(id);
+		player.setTeams(Team);
+		System.out.println(player.getGames().size());
+		
+		if(em.find(Game.class, teamId)==null){
+			return true;
+		}
+		else if(em.find(Game.class, teamId)!= null){
+			return false;
+		}
+		
+		return false;
 	}
 
 }

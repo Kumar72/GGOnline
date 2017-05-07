@@ -34,7 +34,9 @@ angular.module('authModule')
     		data: user
     	}).then(function(res){
     		saveToken(res.data);
+    		return res;
     	})
+    	
     }
 
     service.register = function(user) {
