@@ -12,7 +12,6 @@ angular.module("ggoModule").component("home", {
     		ggoService.showUser().then(function(res){
         		vm.player = res.data;
         	})
-        	
        
         	ggoService.playerGames().then(function(res){
         		vm.games = res.data;
@@ -27,6 +26,12 @@ angular.module("ggoModule").component("home", {
     	    ggoService.playerTeams().then(function(res){
         		vm.teams = res.data;
     	    })
+    	}
+    	
+    	vm.updatePlayer = function(updateUser) {
+    		ggoService.update().then(function(res){
+        		vm.player = res.data;
+        	})
     	}
     	
     	vm.reload();

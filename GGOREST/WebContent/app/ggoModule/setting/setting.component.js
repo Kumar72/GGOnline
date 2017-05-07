@@ -11,7 +11,7 @@ angular.module("ggoModule")
     	}
     	
     	vm.reload();
-    	
+    	vm.update = fun
     	
     	
     	
