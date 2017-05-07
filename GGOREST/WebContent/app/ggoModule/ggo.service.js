@@ -25,7 +25,7 @@ angular.module('ggoModule')
 			url : 'api/players/'+ authService.getToken().id +"/teams"
 		})		
 	}
-	
+	//Create a new team
 	service.createTeam = function(team) {
     	console.log(team)
     	return $http({
@@ -79,7 +79,7 @@ angular.module('ggoModule')
 
 	}
 	
-
+	//Update an active account
 	service.updatePlayer = function(){
 		return $http({
 			method : 'PUT',
@@ -91,7 +91,7 @@ angular.module('ggoModule')
 	        })
 		
 	}
-		
+	//Remove a game from your list of followed games
 	service.removeGame = function(game){
 		return $http({
 			url : 'api/players/'+authService.getToken().id+'/games/'+ game.id,

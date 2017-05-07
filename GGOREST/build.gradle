@@ -5,7 +5,7 @@ apply plugin: 'eclipse-wtp'
 
 project.webAppDirName = 'WebContent'
 
-group = 'com.todo'
+group = 'com.ggonline'
 version = '0.0.1-SNAPSHOT'
 
 ext {

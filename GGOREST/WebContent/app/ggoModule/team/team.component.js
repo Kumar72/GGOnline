@@ -12,14 +12,14 @@ angular.module('ggoModule')
 				vm.teams = res.data;
 				
 			})
-			vm.joinTeam = function(teamId){
-				var getUserId = authService.getToken().id;
-				console.log("clicked in joinTeam function" + teamId)
-				ggoService.joinTeam(teamId).then(function(res){
-					vm.reload();
-				})
-				
-			}
+		}
+		vm.joinTeam = function(teamId){
+			var getUserId = authService.getToken().id;
+			console.log("clicked in joinTeam function" + teamId)
+			ggoService.joinTeam(teamId).then(function(res){
+				vm.reload();
+			})
+			
 		}
 		vm.reload();
 		
