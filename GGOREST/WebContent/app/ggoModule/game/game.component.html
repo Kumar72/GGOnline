@@ -1,17 +1,17 @@
 <div id="searchDiv">
 	<form>
-		<input type="text" placeHolder="Search" ng-model="vm.fuzzyGameSerach">
-<!-- 		<input type="submit" class="button" type="submit" value="Search" ng-click="vm.fuzzyGameSearch"> -->
+		<input type="text" placeHolder="Search By Title" ng-model="gameSearch">
+		
 	</form>
 </div>
 <table>
 	<thead>
 	<tbody>
-		<tr ng-repeat="game in vm.games">
+		<tr ng-repeat="game in vm.games | gameSearch | orderBy:'id'">
 
 		<td>{{game.name}}</td>
 		<td><button class="button" ng-click="vm.addGame(game.id)">Follow Game</button></td>
-
 		</tr>
 	</tbody>
 </table>
+

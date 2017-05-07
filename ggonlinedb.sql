@@ -270,8 +270,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, NULL, NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, NULL, NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
 
 COMMIT;
 

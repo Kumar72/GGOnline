@@ -9,11 +9,11 @@
 				<td>
 					<table>
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<td></td>
 								<td>Player id:</td>
 								<td>{{vm.player.id}}</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<td></td>
 								<td>First Name:</td>
@@ -29,11 +29,11 @@
 								<td>Username:</td>
 								<td>{{vm.player.username}}</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td></td>
 								<td>Email:</td>
 								<td>{{vm.player.email}}</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 				</td>
@@ -81,8 +81,6 @@
 				<tr>
 					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
 					<img ng-src="{{team.image}}" height="60px" width="60px"></td>
-				</tr>
-				<tr>
 					<td>{{team.name}}</td>
 					<td><button class="button" ng-click="vm.leaveTeam(team)">Leave</button></td>
 				</tr>
