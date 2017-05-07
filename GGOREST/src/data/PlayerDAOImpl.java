@@ -35,7 +35,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public List<Team> indexOfTeamsPlayerIsAMemberOf(int playerId) {
 		String q = "SELECT p FROM Player p JOIN FETCH p.teams WHERE p.id=:id";
-		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getTeams();
+		try {
+			List<Team> players = em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getTeams(); 
+			return players;
+		} catch (Exception e) {
+			List<Team> newTeamList = new ArrayList<>();
+			return newTeamList;
+		}
 		
 	}
 
