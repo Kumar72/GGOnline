@@ -38,6 +38,13 @@ angular.module("ggoModule").component("home", {
     	    })
     	}
     	
+    	  vm.newTeam = function(newteam) {
+			console.log(newteam);
+    		ggoService.createTeam(newteam).then(function(res){
+        		vm.teams = res.data;
+        		
+        	})
+    	}
 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)
@@ -48,6 +55,8 @@ angular.module("ggoModule").component("home", {
     		.catch(function(error){
     			console.log("hit error");
     		})
+    		
+    		
 //    		vm.reload();
     	}
     	
