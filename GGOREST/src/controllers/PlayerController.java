@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.PlayerDAO;
+import data.TeamDAO;
 import entities.Game;
 import entities.Player;
 import entities.Team;
@@ -22,6 +24,7 @@ import entities.Team;
 public class PlayerController {
 	@Autowired
 	PlayerDAO playerDAO;
+	TeamDAO teamDAO;
 
 	@RequestMapping(value = "players/ping", method = RequestMethod.GET)
 	public String ping() {
@@ -74,6 +77,11 @@ public class PlayerController {
 	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
 	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
 		return playerDAO.removeGameFromPlayer(playerId, gameId);
+	}
+	
+	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
+	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String todoJson) {
+		return teamDAO.createTeam(playerId, todoJson);
 	}
 	
 	
