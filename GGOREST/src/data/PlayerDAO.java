@@ -21,5 +21,6 @@ public interface PlayerDAO {
 	
 	public boolean removeGameFromPlayer(int playerId, int gameId);
 	public Team joinTeam(int playerId, int teamId);
+	public boolean leaveTeam(int playerId, int teamId);
 	
 }

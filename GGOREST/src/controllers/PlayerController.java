@@ -78,6 +78,10 @@ public class PlayerController {
 	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
 		return playerDAO.removeGameFromPlayer(playerId, gameId);
 	}
+	@RequestMapping(value="players/{playerId}/teams/{teamId}", method = RequestMethod.DELETE)
+	public boolean leaveTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId")int teamId){
+		return playerDAO.leaveTeam(playerId, teamId);
+	}
 	
 	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
 	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String todoJson) {

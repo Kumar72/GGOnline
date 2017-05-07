@@ -101,4 +101,26 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return team;
 	}
 
+	@Override
+	public boolean leaveTeam(int playerId, int teamId) {
+		Player player = em.find(Player.class, playerId);
+		Team team = em.find(Team.class, teamId);
+		
+		int id = player.getTeams().indexOf(team);
+		List<Team> Team = player.getTeams();
+		System.out.println(Team.size());
+		Team.remove(id);
+		player.setTeams(Team);
+		System.out.println(player.getGames().size());
+		
+		if(em.find(Game.class, teamId)==null){
+			return true;
+		}
+		else if(em.find(Game.class, teamId)!= null){
+			return false;
+		}
+		
+		return false;
+	}
+
 }

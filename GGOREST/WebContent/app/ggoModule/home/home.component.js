@@ -40,6 +40,13 @@ angular.module("ggoModule").component("home", {
     		})
 //    		vm.reload();
     	}
+    	
+    	vm.leaveTeam = function(team) {
+    		ggoService.leaveTeam(team).then(function(res){
+    			vm.reload();
+    		})
+    	}
+    	
     	vm.updatePlayer = function(updateUser) {
     		ggoService.update().then(function(res){
         		vm.player = res.data;
