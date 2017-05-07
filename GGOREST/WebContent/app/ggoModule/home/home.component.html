@@ -112,37 +112,4 @@
 	  		</fieldset>
 		</form>
 	</div>
-
-
-<div class="container3" ng-hide="vm.setting">
-
-	<form>
-	  <fieldset class="form-register" id="show-settings">
-
-			<!-- <label for="InputFirstName">First Name: </label> -->
-		  	<input type="text" class="form-control" id="InputFirstName" ng-model="updateuser.fname" placeholder="First Name" required>
-			<br>
-			<!-- <label for="InputLastName">Last Name: </label> -->
-		  	<input type="text" class="form-control" id="InputLastName" ng-model="updateuser.lname" placeholder="Last Name" required>
-			<br>
-		   <!-- <label for="InputEmail">Email address: </label> -->
-		   <input type="email" class="form-control" id="InputEmail" ng-model="updateuser.email" placeholder="Email" required>
-			<br>
-			<!-- <label for="InputUsername">Username: </label> -->
-	    	<input type="text" class="form-control" id="InputUsername" ng-model="updateuser.username" placeholder="Username" required>
-			<br>
-	    	<!-- <label for="InputPassword">Password: </label> -->
-	    	<input type="password" class="form-control" id="InputPassword" ng-model="updateuser.password" placeholder="Password" required>
-	    	
-	    	<input type="password" class="form-control" id="InputPassword" ng-model="updateuser.password" placeholder="Confirm Password">
-	    	
-	    	
-			<br>
-	  </fieldset>
-
-	</form>
-	  <button type="submit" class="btn btn-primary" ng-click="vm.updatePlayer(updateuser)">Save Changes</button>
-	  <button type="submit" class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
-
-</div>
 </div>

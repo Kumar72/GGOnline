@@ -1,78 +1,31 @@
-<div id="main">
+<div class="container3" ng-hide="vm.setting">
 
-  	 <h3>Update Account Information</h3>
-	 
-	 <form>
-	 
-	 <label>First Name
-	 <input type="text" value={{vm.player.fname}}>
-	 </label>
-	 
-	 <label>Last Name
-	 <input type="text" value={{vm.player.lname}}>
-	 </label>
-	 
-	 <label>Username
-	 <input type="text" value={{vm.player.username}}>
-	 </label>
-	 
-	 <label>Email
-	 <input type="text" value={{vm.player.email}>
-	 </label>
-	 
-	 <label>Password
-	 <input type="text" value={{vm.player.password}}>
-	 </label>
-	 <button ng-click="vm.reload()">Save Changes</button>
-	 
-	 
-	 </form>
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 <table>
-	 	<thead>
-	 	</thead>
-		  <tbody>
-		  	
-		  	<tr>
-		  		<td>First Name: </td>
-			  	<td>{{vm.player.fname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Last Name: </td>
-			  	<td>{{vm.player.lname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Username: </td>
-			  	<td>{{vm.player.username}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Email: </td>
-			  	<td>{{vm.player.email}}</td>
-		  	</tr>	
-		  	<tr>
-		  		<td>Password: </td>
-			  	<td>{{vm.player.password}}</td>
-		  	</tr>  	
-		 </tbody>
-	 </table>
-	 <hr>
-	 <h3>Games</h3>
-	 <ul ng-repeat="game in vm.games">
-	 	<li ng-click="getDetailsAboutTheGame">{{game.name}}</li>
-	 	<li><button class="butt">Remove</button></li>
-	 </ul>
-	 
-	 <hr>
-	 <h3>Teams</h3>
-	 <ul ng-repeat="team in vm.teams">
-	 	<li ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">{{team.name}}</li>
-	 	<li><button class="butt">Leave</button></li>
-	 </ul>
-	 
+	<form>
+	  <fieldset class="form-register" id="show-settings">
+
+			<!-- <label for="InputFirstName">First Name: </label> -->
+		  	<input type="text" class="form-control" id="InputFirstName" ng-model="updateuser.fname" placeholder="First Name" required>
+			<br>
+			<!-- <label for="InputLastName">Last Name: </label> -->
+		  	<input type="text" class="form-control" id="InputLastName" ng-model="updateuser.lname" placeholder="Last Name" required>
+			<br>
+		   <!-- <label for="InputEmail">Email address: </label> -->
+		   <input type="email" class="form-control" id="InputEmail" ng-model="updateuser.email" placeholder="Email" required>
+			<br>
+			<!-- <label for="InputUsername">Username: </label> -->
+	    	<input type="text" class="form-control" id="InputUsername" ng-model="updateuser.username" placeholder="Username" required>
+			<br>
+	    	<!-- <label for="InputPassword">Password: </label> -->
+	    	<input type="password" class="form-control" id="InputPassword" ng-model="updateuser.password" placeholder="Password" required>
+	    	
+	    	<input type="password" class="form-control" id="InputPassword" ng-model="updateuser.password" placeholder="Confirm Password">
+	    	
+	    	
+			<br>
+	  </fieldset>
+
+	</form>
+	  <button type="submit" class="btn btn-primary" ng-click="vm.updatePlayer(updateuser)">Save Changes</button>
+	  <button type="submit" class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+
 </div>

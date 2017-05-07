@@ -10,22 +10,24 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/login', {
 		template: '<login></login>'
 	})
+	.when('/setting', {
+		template: '<setting></setting>'
+	})
 	.when('/home', {
 		template: '<home></home>'
+	})
+	.when('/notification', {
+		template: '<notification></notification>'
 	})
 	.when('/team', {
 		template: '<team></team>'
 	})
-	.when('/inbox', {
-		template: '<inbox></inbox>'
-	})
-	.when('/setting', {
-		template: ''
-	})
 	.when('/game', {
 		template: '<game></game>'
 	})
-	
+	.when('/social', {
+		template: '<social></social>'
+	})
 	.otherwise({
 		template: '<not-found-component></not-found-component>'
 	})
