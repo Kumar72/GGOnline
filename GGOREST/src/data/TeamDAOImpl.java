@@ -91,7 +91,7 @@ public class TeamDAOImpl implements TeamDAO {
 	public List<Team> index() {
 		String q = "SELECT t FROM Team t";
 		List<Team> team = em.createQuery(q, Team.class).getResultList();
-		
+	
 		return team;
 	}
 

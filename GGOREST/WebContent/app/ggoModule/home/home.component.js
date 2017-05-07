@@ -10,24 +10,35 @@ angular.module("ggoModule").component("home", {
     	
     	vm.reload = function(){
     		ggoService.showUser().then(function(res){
+    			console.log("In show user");
         		vm.player = res.data;
         	})
        
         	ggoService.playerGames().then(function(res){
+    			console.log("In player Games");
+
         		vm.games = res.data;
     	    })
     	    
-    	    vm.removeGame = function(game){
-    			ggoService.removeGame(game)
-    				.then(console.log)
-    				.catch(console.error)
-    		}
     	    
     	    ggoService.playerTeams().then(function(res){
+    			console.log("In player Teams");
+
         		vm.teams = res.data;
     	    })
     	}
     	
+    	vm.removeGame = function(game){
+    		ggoService.removeGame(game)
+    		.then(function(res){
+    			vm.reload();
+    			console.log('In removeGame function')
+    		})
+    		.catch(function(error){
+    			console.log("hit error");
+    		})
+//    		vm.reload();
+    	}
     	vm.updatePlayer = function(updateUser) {
     		ggoService.update().then(function(res){
         		vm.player = res.data;

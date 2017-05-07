@@ -48,20 +48,20 @@
 	
 	
 	<h3>Games</h3>
-	<div ng-repeat="game in vm.games">
+	<div>
 		<!-- class="divline" -->
 		<table>
 			<thead>
 			</thead>
 			<tbody>
 
-				<tr>
+				<tr ng-repeat="game in vm.games">
 					<td><img ng-src="{{game.image}}"
 						height="60px" width="60px"></td>
-				</tr>
-				<tr>
 					<td>{{game.name}}</td>
-					<td><button class="button">Remove</button></td>
+					<td><button class="button" ng-click="vm.removeGame(game)">Remove</button></td>
+				<!-- </tr>
+				<tr> -->
 				</tr>
 
 			</tbody>
