@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,11 +54,17 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public List<Game> indexOfGamesPlayerHas(int playerId) {
 		String q = "SELECT p FROM Player p JOIN FETCH p.games WHERE p.id=:id";
-
-		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
-
-        
-
+		try{
+		List <Game> games = em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult().getGames();
+		return games;
+		
+		}catch(Exception e){
+			System.out.println(e.getStackTrace());
+		 
+			List<Game> newGamesList = new ArrayList<>();
+			return newGamesList;
+		}
+		
 	}
 
 	@Override
