@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `team` (
   `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
-  `image` VARCHAR(500) NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
+  `image` VARCHAR(500) NOT NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
   `size` INT(12) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_team_game1_idx` (`game_id` ASC),
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lname` VARCHAR(45) NOT NULL,
   `active` TINYINT(1) NULL DEFAULT 0,
   `status` TINYINT(1) NULL DEFAULT NULL,
-  `image` VARCHAR(500) NULL DEFAULT 'http://lastpage.in/blogAsset/img/avatar-na.png',
+  `image` VARCHAR(500) NOT NULL DEFAULT 'http://lastpage.in/blogAsset/img/avatar-na.png',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -270,8 +270,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, NULL, NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, NULL, NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
 
 COMMIT;
 
@@ -281,9 +281,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL, DEFAULT);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL, DEFAULT);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL, DEFAULT);
 
 COMMIT;
 
