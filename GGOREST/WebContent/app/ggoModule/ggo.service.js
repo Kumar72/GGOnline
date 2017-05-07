@@ -25,6 +25,21 @@ angular.module('ggoModule')
 			url : 'api/players/'+ authService.getToken().id +"/teams"
 		})		
 	}
+	
+	//Update an active account
+	service.updatePlayer = function(player){
+		console.log("In updatePlayer service method")
+		console.log(player)
+		return $http({
+			method : 'PUT',
+			url : 'api/players/'+authService.getToken().id,
+			headers : {
+	            'Content-Type' : 'application/json'
+	          },
+	          data : player
+	        })
+		
+	}
 	//Create a new team
 	service.createTeam = function(team) {
     	console.log(team)
@@ -77,20 +92,6 @@ angular.module('ggoModule')
 			}
 		})
 
-	}
-	
-
-	//Update an active account
-	service.updatePlayer = function(player){
-		return $http({
-			method : 'PUT',
-			url : 'api/players/' + authService.getToken().id,
-			headers : {
-	            'Content-Type' : 'application/json'
-	          },
-	          data : player
-	        })
-		
 	}
 	
 	//Remove a team from profile

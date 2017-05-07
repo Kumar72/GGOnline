@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Game;
@@ -13,7 +16,11 @@ import entities.Player;
 import entities.Team;
 
 @Transactional
+@Repository
 public class PlayerDAOImpl implements PlayerDAO {
+	
+	@Autowired
+	private PasswordEncoder encoder;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -47,14 +54,17 @@ public class PlayerDAOImpl implements PlayerDAO {
 
 	@Override
 	public Player update(int playerId, Player player) {
+		System.out.println("###############"+player.getPassword());
+		String passwordSha = encoder.encode(player.getPassword());
 		Player managed = em.find(Player.class,playerId);
 		managed.setUsername(player.getUsername());
 		managed.setEmail(player.getEmail());
-		managed.setPassword(player.getPassword());
+		managed.setPassword(passwordSha);
+		System.out.println("###############"+managed.getPassword());
 		managed.setFname(player.getFname());
 		managed.setLname(player.getLname());
 		
-		return player;
+		return managed;
 	}
 
 	@Override
