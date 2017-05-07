@@ -37,7 +37,13 @@ angular.module("ggoModule").component("home", {
         		vm.teams = res.data;
     	    })
     	}
-    	
+    	vm.newTeam = function(newteam) {
+			console.log(newteam);
+    		ggoService.createTeam(newteam).then(function(res){
+        		vm.player = res.data;
+        		
+        	})
+    	}
 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)

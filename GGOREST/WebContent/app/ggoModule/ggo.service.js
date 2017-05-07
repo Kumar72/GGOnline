@@ -34,7 +34,7 @@ angular.module('ggoModule')
     		headers: {
     			'Content-Type': 'application/json'
     		},
-    	data: user
+    	data: team
     	})
     }
 	
