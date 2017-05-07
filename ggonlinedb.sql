@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `team` (
   `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
-  `image` VARCHAR(500) NULL,
+  `image` VARCHAR(500) NULL DEFAULT 'http://us.battle.net/heroes/static/images/game/game-modes/Icon_team-league.png',
+  `size` INT(12) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_team_game1_idx` (`game_id` ASC),
   CONSTRAINT `fk_team_game1`
@@ -68,9 +69,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
-  `active` TINYINT(1) NULL DEFAULT NULL,
+  `active` TINYINT(1) NULL DEFAULT 0,
   `status` TINYINT(1) NULL DEFAULT NULL,
-  `image` VARCHAR(500) NULL,
+  `image` VARCHAR(500) NULL DEFAULT 'http://lastpage.in/blogAsset/img/avatar-na.png',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -269,8 +270,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`) VALUES (1, 'Tiesto', NULL, 1, 1, NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, NULL, NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, NULL, NULL);
 
 COMMIT;
 
