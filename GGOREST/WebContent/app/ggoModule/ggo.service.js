@@ -80,14 +80,14 @@ angular.module('ggoModule')
 	}
 	
 
-	service.updatePlayer = function(){
+	service.updatePlayer = function(player){
 		return $http({
 			method : 'PUT',
-			url : 'api/players' + authService.getToken().id,
+			url : 'api/players/' + authService.getToken().id,
 			headers : {
 	            'Content-Type' : 'application/json'
 	          },
-	          data : todo
+	          data : player
 	        })
 		
 	}

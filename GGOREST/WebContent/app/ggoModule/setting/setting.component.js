@@ -2,14 +2,14 @@ angular.module("ggoModule").component("setting", {
 	templateUrl : 'app/ggoModule/setting/setting.component.html',
 	controller : function(ggoService, $location, $scope) {
 		var vm = this;
-
-		vm.setting = true;
-
-		vm.settings = function() {
-			vm.setting = false;
-			console.log("in setting function")
-			$location.path('/setting')
-
-		}
-	}
+		
+		vm.updatePlayer = function(updateuser) {
+			console.log(updateuser);
+    		ggoService.updatePlayer(updateuser).then(function(res){
+        		vm.player = res.data;
+        		
+        	})
+    	}
+	},
+	controllerAs: 'vm'
 });

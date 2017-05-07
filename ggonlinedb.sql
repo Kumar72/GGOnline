@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `team` (
   `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT NULL,
   `game_id` INT(11) NOT NULL,
-  `image` VARCHAR(500) NULL DEFAULT 'http://us.battle.net/heroes/static/images/game/game-modes/Icon_team-league.png',
+  `image` VARCHAR(500) NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
   `size` INT(12) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_team_game1_idx` (`game_id` ASC),
@@ -253,14 +253,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (1, 'Rocket League', 'Sport', 'E', 'Soccer with RC Cars!', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (2, 'League Of Legends', 'MOBA', 'E', 'MOBA battles and fun', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (3, 'Halo 5', 'FPS', 'M', 'Newst installment in the future shooter.', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (4, 'Counter Strike', 'FPS', 'M', 'Strategic objective based shooter.', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (5, 'Overwatch', 'FPS/MOBA', 'T', 'FPS-MOBA cross over by Blizzard Ent.', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (6, 'Destiny', 'FPS/RPG', 'M', 'Bungie FPS set in open world enviormnet.', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (7, 'World of Warcraft', 'MMO/RPG', 'T', 'Blizzard\'s best selling MMO/RPG.', NULL);
-INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (8, 'Dead by Daylight', 'Horro/Survival', 'M', 'Four players try to escape from a Serial Killer', NULL);
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (1, 'Rocket League', 'Sport', 'E', 'Soccer with RC Cars!', 'http://vignette1.wikia.nocookie.net/rocketleague/images/3/32/Rocket_League_Logo.png/revision/latest?cb=20150611180530');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (2, 'League Of Legends', 'MOBA', 'E', 'MOBA battles and fun', 'https://s-media-cache-ak0.pinimg.com/originals/b8/3e/6f/b83e6fea403a390bd06ae17c187408e3.png');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (3, 'Halo 5', 'FPS', 'M', 'Newst installment in the future shooter.', 'http://compass.xbox.com/assets/52/91/5291abf9-9053-44a6-bae6-22a7fc3ce8da.jpg?n=Halo5_MasterChief.jpg');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (4, 'Counter Strike', 'FPS', 'M', 'Strategic objective based shooter.', 'http://media.steampowered.com/apps/csgo/blog/images/fb_image.png?v=4');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (5, 'Overwatch', 'FPS/MOBA', 'T', 'FPS-MOBA cross over by Blizzard Ent.', 'https://s-media-cache-ak0.pinimg.com/736x/fa/68/95/fa6895c3c200384f0dd8914386e1f871.jpg');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (6, 'Destiny', 'FPS/RPG', 'M', 'Bungie FPS set in open world enviormnet.', 'https://nubimagazine.com/wp-content/uploads/2014/11/destiny-game.jpg');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (7, 'World of Warcraft', 'MMO/RPG', 'T', 'Blizzard\'s best selling MMO/RPG.', 'https://s-media-cache-ak0.pinimg.com/originals/18/f2/c2/18f2c237688c6a4395e0f6a702743a7c.png');
+INSERT INTO `game` (`id`, `name`, `genera`, `rating`, `description`, `image`) VALUES (8, 'Dead by Daylight', 'Horro/Survival', 'M', 'Four players try to escape from a Serial Killer', 'https://images3.alphacoders.com/706/thumb-1920-706645.jpg');
 
 COMMIT;
 

@@ -29,12 +29,7 @@ angular.module("ggoModule").component("home", {
     	    })
     	}
     	
-    	vm.updatePlayer = function(updateUser) {
-    		ggoService.update().then(function(res){
-        		vm.player = res.data;
-        		
-        	})
-    	}
+    	
     	
     	vm.reload();
     	
