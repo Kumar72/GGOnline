@@ -26,6 +26,18 @@ angular.module('ggoModule')
 		})		
 	}
 	
+	service.createTeam = function(team) {
+    	console.log(team)
+    	return $http({
+    		method: 'POST',
+    		url: "api/players/"+ authService.getToken().id +"/teams",
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
+    	data: user
+    	})
+    }
+	
 	//Game Index
 	service.gameIndex = function(){
 		return $http({

@@ -1,11 +1,16 @@
 package data;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Game;
 import entities.Player;
@@ -88,5 +93,32 @@ public class TeamDAOImpl implements TeamDAO {
 		List<Team> team = em.createQuery(q, Team.class).getResultList();
 		
 		return team;
+	}
+
+
+
+	@Override
+	public Team createTeam(int playerId, String todoJson) {
+//		ObjectMapper om = new ObjectMapper();
+//		Team MappedTeam = null;
+//		Player player = em.find(Player.class, playerId);
+//		
+//		try {			
+//			MappedTeam = om.readValue(todoJson, Team.class);
+//			MappedTeam.setPlayers(players);
+//		} catch (JsonParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (JsonMappingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		em.persist(MappedTeam);
+//		em.flush();
+//		return MappedTeam;
+		return null;
 	}
 }

@@ -16,6 +16,7 @@ public interface TeamDAO {
 	
 	public Player makeCaptain(int playerId, int teamId);
 	public Player promoteToCaptain(int playerId);
+	public Team createTeam(int playerId, String todoJson);
 	
 
 }
