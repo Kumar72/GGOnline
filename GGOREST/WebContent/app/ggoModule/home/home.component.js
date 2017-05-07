@@ -19,7 +19,16 @@ angular.module("ggoModule").component("home", {
     			console.log("In player Games");
 
         		vm.games = res.data;
+        		console.log(vm.games)
+        		
     	    })
+    	    .catch(function(error){
+    	    	console.log(error)
+    	    	console.log('In failed player games')
+    	    
+    	    })
+    	    
+    	    
     	    
     	    
     	    ggoService.playerTeams().then(function(res){
