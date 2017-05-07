@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Game;
 import entities.Player;
 import entities.Team;
 @Transactional
@@ -77,5 +78,15 @@ public class TeamDAOImpl implements TeamDAO {
 	public Player promoteToCaptain(int playerId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public List<Team> index() {
+		String q = "SELECT t FROM Team t";
+		List<Team> team = em.createQuery(q, Team.class).getResultList();
+		
+		return team;
 	}
 }

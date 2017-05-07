@@ -1,44 +1,117 @@
-<div id="main">
+<div id="main" class="container3">
+	<table>
+		<thead>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img ng-src="{{vm.player.image}}" height="100px"
+					width="100px"></td>
+				<td>
+					<table>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>Player id:</td>
+								<td>{{vm.player.id}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>First Name:</td>
+								<td>{{vm.player.fname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Last Name:</td>
+								<td>{{vm.player.lname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Username:</td>
+								<td>{{vm.player.username}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Email:</td>
+								<td>{{vm.player.email}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<button ng-click='vm.toggleModal()'>Open Modal Dialog</button>
+	<modal-dialog show='vm.modalShown' width='750px' height='60%'>
+		<p>Modal Content Goes here<p>
+	</modal-dialog>
+	
+	
+	<h3>Games</h3>
+	<div ng-repeat="game in vm.games">
+		<!-- class="divline" -->
+		<table>
+			<thead>
+			</thead>
+			<tbody>
 
-  	 <h3>Info</h3>
-	 <table>
-	 	<thead>
-	 	</thead>
-		  <tbody>
-		  	<tr>
-		  		<td>Player id: </td>
-			  	<td>{{vm.player.id}}</td>
-		  	</tr>
-		  	<tr>
-		  		<td>First Name: </td>
-			  	<td>{{vm.player.fname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Last Name: </td>
-			  	<td>{{vm.player.lname}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Username: </td>
-			  	<td>{{vm.player.username}}</td>
-			</tr>
-		  	<tr>
-		  		<td>Email: </td>
-			  	<td>{{vm.player.email}}</td>
-		  	</tr>	  	
-		 </tbody>
-	 </table>
-	 <hr>
-	 <h3>Games</h3>
-	 <ul ng-repeat="game in vm.games">
-	 	<li ng-click="getDetailsAboutTheGame">{{game.name}}</li>
-	 	<li><button class="butt">Remove</button></li>
-	 </ul>
-	 
-	 <hr>
-	 <h3>Teams</h3>
-	 <ul ng-repeat="team in vm.teams">
-	 	<li ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">{{team.name}}</li>
-	 	<li><button class="butt">Leave</button></li>
-	 </ul>
-	 
+				<tr>
+					<td><img ng-src="{{game.image}}"
+						height="60px" width="60px"></td>
+				</tr>
+				<tr>
+					<td>{{game.name}}</td>
+					<td><button class="button">Remove</button></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	<br class="clearBoth" />
+	<hr>
+
+
+	<h3>Teams</h3>
+	<button ng-click="vm.displayForm()">New Team</button>
+	<div ng-repeat="team in vm.teams">
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
+					<img ng-src="{{team.image}}" height="60px" width="60px"></td>
+				</tr>
+				<tr>
+					<td>{{team.name}}</td>
+					<td><button class="button">Leave</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- Put the form in modal once it works -->
+	<div id="share-options">
+		<form ng-hide="vm.showTeamForm">
+			<fieldset class="form-register">
+				<label for="InputTeamName">Team Name: </label>
+			  	<input type="text" class="form-control" id="InputTeamName" ng-model="newteam.name" placeholder="Team Name" required>
+				<br>
+				<label for="InputTeamPic">Team Image URL: </label>
+			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="newteam.image" placeholder="Team Name">
+				<br>
+				<label for="SelectGame">Game: </label> 
+				<select>
+					<option ng-repeat="game in vm.games" ng-model="newteam.game.id">{{game.name}}</option>
+				</select>
+				<br>	
+				<label for="InputTeamSize">Team Size: </label>
+		    	<input type="number" class="form-control" id="InputTeamSize" placeholder="Team Size" min="5" max="50"/> <!-- add team size to db -->
+				<br>
+				<button type="submit" class="btn btn-primary" ng-click="vm.newTeam(newteam)">Create Team</button>
+				<button type="submit" class="btn btn-primary" ng-click="vm.cancelButton()">Cancel</button>
+	  		</fieldset>
+		</form>
+	</div>
+
+
 </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.TeamDAO;
+import entities.Game;
 import entities.Player;
 import entities.Team;
 
@@ -26,6 +27,12 @@ public class TeamController {
 	@RequestMapping(value="teams/ping", method = RequestMethod.GET)
 	public String ping(){
 		return "PONG FROM TEAM CONTROLLER";
+	}
+	
+	@RequestMapping(value="teams", method=RequestMethod.GET)
+	public List<Team> index(){
+		return teamDAO.index();
+		
 	}
 	
 	@RequestMapping(value="teams/{id}", method = RequestMethod.GET)

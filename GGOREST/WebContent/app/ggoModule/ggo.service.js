@@ -2,8 +2,7 @@ angular.module('ggoModule')
 .factory('ggoService', function($http,$cookies,authService){
 	var service = {};
 	
-	//get info on the currently logged in player
-	//how do i used the logged in user
+	//Get User
 	service.showUser = function () {
 		return $http({
 			method: 'GET',
@@ -11,6 +10,7 @@ angular.module('ggoModule')
 		})
 	}
 	
+	//Get Player Games
 	service.playerGames = function(){
 		return $http({
 			method : 'GET',
@@ -18,6 +18,7 @@ angular.module('ggoModule')
 		})		
 	}
 	
+	//Get Player Teams
 	service.playerTeams = function(){
 		return $http({
 			method : 'GET',
@@ -25,11 +26,45 @@ angular.module('ggoModule')
 		})		
 	}
 	
-	service.index = function(){
+	//Game Index
+	service.gameIndex = function(){
 		return $http({
 			method : 'GET',
 			url : 'api/games'
 		})	
+	}
+	//Add Game to Player List
+	service.addGame = function(gameId, getUserId){
+		return $http({
+			method : 'POST',
+			url : 'api/players/'+ getUserId +'/games/'+gameId,
+			headers : {
+				'Content_Type' : 'application/json'
+			}
+		})
+
+	}
+
+	
+	//Team Index
+	service.teamIndex = function(){
+		console.log('In teamIndex -- ggoService')
+		return $http({
+			method : 'GET',
+			url : 'api/teams'
+		})	
+	}
+	
+	//Join A team
+	service.joinTeam = function(teamId){
+		return $http({
+			method : 'POST',
+			url : 'api/players/'+ authService.getToken().id +'/teams/'+teamId,
+			headers : {
+				'Content_Type' : 'application/json'
+			}
+		})
+
 	}
 	
 
@@ -44,15 +79,15 @@ angular.module('ggoModule')
 	        })
 		
 	}
-	service.addGame = function(gameId, getUserId){
+		
+	service.removeGame = function(game){
 		return $http({
-			method : 'POST',
-			url : 'api/players/'+ getUserId +'/games/'+gameId,
+			url : 'api/players/'+authService.getToken().id+'/games/'+ game.id,
+			method : 'DELETE',
 			headers : {
 				'Content_Type' : 'application/json'
 			}
 		})
-
 	}
 	
 	

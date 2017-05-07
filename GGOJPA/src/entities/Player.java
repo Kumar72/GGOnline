@@ -77,13 +77,18 @@ public class Player {
 	@OneToMany(mappedBy="player")
 	  private List<Rating> ratings;
 	
-//	private String picUrl;
+	
+	
+	//	private String picUrl;
 //	public String getPicUrl() {
 //		return picUrl;
 //	}
 //	public void setPicUrl(String picUrl) {
 //		this.picUrl = picUrl;
 //	}
+	
+	
+	
 	public int getId() {
 		return id;
 	}

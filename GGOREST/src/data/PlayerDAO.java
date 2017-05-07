@@ -18,10 +18,8 @@ public interface PlayerDAO {
 	public List<Game> indexOfGamesPlayerHas(int playerId);
 	
 	public Game addGame(int playerId, int gameId);
-
 	
-	//
-	
-	
+	public boolean removeGameFromPlayer(int playerId, int gameId);
+	public Team joinTeam(int playerId, int teamId);
 	
 }

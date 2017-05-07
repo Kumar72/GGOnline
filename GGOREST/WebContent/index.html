@@ -20,7 +20,13 @@
 		<script src="app/ggoModule/ggo.module.js"></script>
 	    <script src="app/ggoModule/ggo.service.js"></script>
 	    <script src="app/ggoModule/ggo.filter.js"></script>
-	    <script src="app/ggoModule/home/home.component.js"></script> 
+	    
+	    <!-- application tabs -->
+	    <script src="app/ggoModule/home/home.component.js"></script>
+  		<script src="app/ggoModule/game/game.component.js"></script> 
+  		<script src="app/ggoModule/team/team.component.js"></script> 
+  		<script src="app/ggoModule/modal/modal.component.js"></script> 
+  		<!-- <script src="app/ggoModule/social/social.component.js"></script> --> 
 		
 		<!-- nav -->
 		<script src="app/navModule/nav.module.js"></script>
@@ -30,14 +36,13 @@
 		<script src="app/appModule/app.module.js"></script>
   		<script src="app/appModule/appComponent/app.component.js"></script>
   		
-  		<!-- game -->
-  		<script src="app/ggoModule/game/game.component.js"></script>
+  		
   		
   		<!-- css -->
   		<link rel="stylesheet" href="styles/app.css">
 	</head>
 
-	<body>
+	<body ng-class="logIn">
 		<!-- for dual background class="{{bodyClass}}" ng-controller="GlobalCtrl" -->
 		<!-- http://stackoverflow.com/questions/37384153/set-different-body-background-for-different-pages-when-using-angularjs-template -->
 		<app-component>Loding index.....</app-component>

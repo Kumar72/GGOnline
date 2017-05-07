@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Game;
@@ -69,6 +68,37 @@ public class PlayerDAOImpl implements PlayerDAO {
 		player.getGames().add(game);
 		
 		return game;
+	}
+
+	@Override
+	public boolean removeGameFromPlayer(int playerId, int gameId) {
+		Player player = em.find(Player.class, playerId);
+		Game game = em.find(Game.class, gameId);
+		
+		int id = player.getGames().indexOf(game);
+		List<Game> playerGames = player.getGames();
+		System.out.println(playerGames.size());
+		playerGames.remove(id);
+		player.setGames(playerGames);
+		System.out.println(player.getGames().size());
+		
+		if(em.find(Game.class, gameId)==null){
+			return true;
+		}
+		else if(em.find(Game.class, gameId)!= null){
+			return false;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Team joinTeam(int playerId, int teamId) {
+		Team team = em.find(Team.class, teamId);
+		Player player = em.find(Player.class, playerId);
+		
+		player.getTeams().add(team);
+		return team;
 	}
 
 }
