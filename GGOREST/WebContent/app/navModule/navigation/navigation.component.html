@@ -9,9 +9,12 @@
 			</div>
 			</a></li>
 			<li ng-show="vm.homeNav"><a href="#/home">Profile</a></li>	  
-	  		<li ng-show="vm.homeNav"><a href="#/notification">Notification</a></li>
+	  		<li ng-show="vm.homeNav"><a href="#/notification" >Notification</a></li>
 	  		<li ng-show="vm.homeNav"><a href="#/setting">Setting</a></li>
 	  		<li ng-show="vm.gameNav"><a href="#/game">Game</a></li>
+	  		<li ng-show="vm.gameNav"><a href="#/search">Advance Search</a></li>
+	  		<li ng-show="vm.socialNav"><a href="#/social">Chat</a></li>
+	  		
 	  		
 	  </ul>
 	  <ul id="right">
@@ -25,7 +28,6 @@
   <a href="#/home" ng-click="vm.closeNav()" >Home</a>
   <a href="#/game" ng-click="vm.closeNav()" >Game</a>
   <a href="#/social" ng-click="vm.closeNav()">Social</a>
-  <a href="#/setting" ng-click="vm.closeNav()">Setting</a>
   <a href="#/team" ng-click="vm.closeNav()">Team</a>
   <li ng-click="vm.logout()"/><a>LogOut</a></li>
 </div>
