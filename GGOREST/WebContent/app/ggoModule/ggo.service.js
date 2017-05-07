@@ -91,6 +91,18 @@ angular.module('ggoModule')
 	        })
 		
 	}
+	
+	//Remove a team from profile
+	service.leaveTeam = function(team) {
+		return $http ({
+			url: 'api/players/'+authService.getToken().id+'/teams/'+ team.id,
+			method: 'DELETE',
+			headers : {
+				'Content_Type' : 'application/json'
+			}
+		})
+	}
+	
 	//Remove a game from your list of followed games
 	service.removeGame = function(game){
 		return $http({
