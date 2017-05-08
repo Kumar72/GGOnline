@@ -8,8 +8,10 @@ public interface MessageDAO {
 	
 	public List<Message> index();	
 	
-	public Message show();
+	public Message show(int messageId);
 	
-	public Message create(Message message);
+	public Message createMessage(Message message);
+	
+	public boolean destroy(int messageId);
 
 }
