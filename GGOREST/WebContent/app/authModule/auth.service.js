@@ -45,7 +45,7 @@ angular.module('authModule')
     }
 
     service.register = function(user) {
-    	console.log(user)
+//    	console.log(user)
     	return $http({
     		method: 'POST',
     		url: "api/auth/register",

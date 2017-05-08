@@ -257,5 +257,8 @@ span.psw {
 }
 
 #modalButton{
+	margin-left: 4em;
+}
+#removeGame{
 	margin-left: 2em;
 }

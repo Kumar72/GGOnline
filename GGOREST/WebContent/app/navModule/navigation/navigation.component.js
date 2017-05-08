@@ -35,6 +35,7 @@ angular.module("navModule").component("navComponent",{
     	} */
 
 		vm.logout = function() {
+			console.log('in navigation component')
 			vm.closeNav();
 			console.log("test logout");
 			authService.logout().then(function(res) {
