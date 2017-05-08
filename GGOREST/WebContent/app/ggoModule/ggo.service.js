@@ -41,11 +41,13 @@ angular.module('ggoModule')
 	}
 	
 	//Create a new team using gameId
-	service.createTeam = function(team) {
+	service.createTeam = function(team, gameId) {
     	console.log(team)
+    	console.log("Game ID in service"+gameId)
     	return $http({
     		method: 'POST',
-    		url: "api/players/"+ authService.getToken().id +"/teams",
+    		url: "api/players/"+ authService.getToken().id +"/games/"
+    		+ gameId +"/teams",
     		headers: {
     			'Content-Type': 'application/json'
     		},

@@ -7,11 +7,6 @@ angular.module("ggoModule").component("home", {
     	vm.games = [];
     	vm.teams = [];
     	vm.showTeamForm = true;
-    	vm.team = {
-    			name: 'StarWars',
-    			image: '',
-    			game: {}
-    	};
     	
     	
     	vm.reload = function(){
@@ -41,13 +36,13 @@ angular.module("ggoModule").component("home", {
     	}
     	
     	
-    	 vm.newTeam = function(team, newgame) {
+    	
+    	 vm.newTeam = function(team, gameId) {
 //    		team.active = true;
-	 		console.log(team);
-	 		console.log(newgame);
-			ggoService.createTeam(team).then(function(res){
+	 		console.log("Team: "+ team);
+	 		console.log("Game ID: " + gameId);
+			ggoService.createTeam(team, gameId).then(function(res){
     		vm.teams = res.data;
-    		
     		})
     	 }
     	 

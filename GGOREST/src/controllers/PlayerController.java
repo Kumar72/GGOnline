@@ -1,8 +1,11 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,10 +30,14 @@ import entities.Team;
 @RestController
 public class PlayerController {
 	@Autowired
-	PlayerDAO playerDAO;
-	TeamDAO teamDAO;
-	GameDAO gameDAO;
+	private PlayerDAO playerDAO;
+	@Autowired
+	private TeamDAO teamDAO;
+	@Autowired
+	private GameDAO gameDAO;
 
+	@PersistenceContext
+	private EntityManager em;
 
 	@RequestMapping(value = "players/ping", method = RequestMethod.GET)
 	public String ping() {
@@ -120,10 +127,11 @@ public class PlayerController {
 	}
 	
 	//Team Create using gameId
-	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
-	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String teamJson) {
+	@RequestMapping(value="players/{playerId}/games/{gameId}/teams", method=RequestMethod.POST)
+	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId,@PathVariable int gameId, @RequestBody String teamJson) {
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@ IN CREATE TEAM METHOD @@@@@@@@@@@@@@@@@@@@@");
-		return teamDAO.createTeam(playerId, teamJson);
+		System.out.println(teamJson + teamDAO);
+		return teamDAO.createTeam(playerId, gameId, teamJson);
 	}
 	
 }
