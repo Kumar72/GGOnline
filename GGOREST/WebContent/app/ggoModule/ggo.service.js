@@ -116,6 +116,14 @@ angular.module('ggoModule')
 		})
 	}
 	
+	//Message Index
+	service.messageIndex = function(){
+		return $http({
+			method : 'GET',
+			url : 'api/messages'
+		})	
+	}
+	
 	
 	return service;
 	})
