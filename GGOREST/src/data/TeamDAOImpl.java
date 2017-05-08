@@ -98,7 +98,7 @@ public class TeamDAOImpl implements TeamDAO {
 
 
 	@Override
-	public Team createTeam(int playerId, String todoJson) {
+	public Team createTeam(int playerId, Team team) {
 //		ObjectMapper om = new ObjectMapper();
 //		Team MappedTeam = null;
 //		Player player = em.find(Player.class, playerId);
@@ -116,9 +116,9 @@ public class TeamDAOImpl implements TeamDAO {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//		em.persist(MappedTeam);
-//		em.flush();
-//		return MappedTeam;
-		return null;
+		em.persist(team);
+		em.flush();
+		return team;
+//		return null;
 	}
 }

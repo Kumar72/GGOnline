@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import data.GameDAO;
 import data.PlayerDAO;
 import data.TeamDAO;
 import entities.Game;
@@ -25,6 +29,7 @@ public class PlayerController {
 	@Autowired
 	PlayerDAO playerDAO;
 	TeamDAO teamDAO;
+	GameDAO gameDAO;
 
 	@RequestMapping(value = "players/ping", method = RequestMethod.GET)
 	public String ping() {
@@ -84,8 +89,25 @@ public class PlayerController {
 	}
 	
 	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
-	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String todoJson) {
-		return teamDAO.createTeam(playerId, todoJson);
+	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String teamJson) {
+		ObjectMapper mapper = new ObjectMapper();
+		Team team = null;
+		System.out.println(teamJson);
+		try {
+			team = mapper.readValue(teamJson, Team.class);
+			System.out.println(team);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(team);
+		return teamDAO.createTeam(playerId, team);
 	}
 	
 	

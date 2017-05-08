@@ -29,6 +29,10 @@ angular.module("navModule").component("navComponent",{
 			}
 			return false;
 		}
+		
+		/* vm.messageNotification = function() {
+    		return vm.message.length; 
+    	} */
 
 		vm.logout = function() {
 			vm.closeNav();

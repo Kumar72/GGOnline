@@ -26,7 +26,7 @@ angular.module('ggoModule')
 		})		
 	}
 	//Create a new team
-	service.createTeam = function(team) {
+	service.createTeam = function(team, id) {
     	console.log(team)
     	return $http({
     		method: 'POST',
