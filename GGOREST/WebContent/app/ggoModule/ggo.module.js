@@ -1,1 +1,1 @@
-angular.module('ggoModule',[]);
+angular.module('ggoModule',['ui.bootstrap']);

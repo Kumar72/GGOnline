@@ -255,3 +255,7 @@ span.psw {
        width: 100%;
     }
 }
+
+#modalButton{
+	margin-left: 2em;
+}

@@ -1,3 +1,4 @@
+//game fuzzy search
 angular.module('ggoModule')
 .filter('gameSearch', function() {
   return function(games, text) {
@@ -14,6 +15,7 @@ angular.module('ggoModule')
   // end function
 })
 
+//team fuzzy search
 angular.module('ggoModule')
 .filter('teamSearch', function() {
   return function(teams, text) {
@@ -29,6 +31,8 @@ angular.module('ggoModule')
   }
   // end function
 })
+
+//player fuzzy search
 angular.module('ggoModule')
 .filter('playerSearch', function() {
 	return function(players, text) {

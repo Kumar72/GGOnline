@@ -1,21 +1,64 @@
-angular.module("ggoModule").component('modalDialog', function() {
-  return {
-    restrict: 'E',
-    scope: {
-      show: '='
-    },
-    replace: true, // Replace with the template below
-    transclude: true, // we want to insert custom content inside the directive
-    link: function(scope, element, attrs) {
-      scope.dialogStyle = {};
-      if (attrs.width)
-        scope.dialogStyle.width = attrs.width;
-      if (attrs.height)
-        scope.dialogStyle.height = attrs.height;
-      scope.hideModal = function() {
-        scope.show = false;
-      };
-    },
-    templateUrl : 'app/ggoModule/modal/modal.component.html'
-  };
-});
+angular.module('ggoModule').controller('gameModal',
+		function($scope, $uibModal, $log, ggoService) {
+
+			console.log('Clicked in modal.component.js');
+			
+			$scope.animationsEnabled = true;
+
+			$scope.open = function(game) {
+				var modalInstance = $uibModal.open({
+					animation : $scope.animationsEnabled,
+					templateUrl : 'app/ggoModule/modal/modal.component.html',
+					controller : 'ModalInstanceCtrl',
+					size : "large",
+					resolve : {
+						game : function() {
+							return game;
+						}
+					}
+				});
+
+				modalInstance.result.then(function(selectedItem) {
+					$scope.selected = selectedItem;
+				}, function() {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			};
+
+			$scope.toggleAnimation = function() {
+				$scope.animationsEnabled = !$scope.animationsEnabled;
+			};
+			
+		});
+
+// Please note that $uibModalInstance represents a modal window (instance)
+// dependency.
+// It is not the same as the $uibModal service used above.
+
+angular.module('ggoModule').controller('ModalInstanceCtrl',
+		function($scope, $uibModalInstance, game, ggoService) {
+			console.log(game);
+			$scope.game = game;
+//			$scope.game = items;
+//			$scope.selected = {
+//				item : $scope.items[0]
+//			};
+//
+//			$scope.ok = function() {
+//				$uibModalInstance.close($scope.selected.item);
+//			};
+			
+			$scope.removeGame = function(game){
+				ggoService.removeGame(game)
+	    			.then(function(res){
+//	    			vm.reload();
+	    			console.log('In removeGame function')
+	    			
+	    		})
+				
+			}
+//
+			$scope.cancel = function() {
+				$uibModalInstance.dismiss('cancel');
+			};
+		});
