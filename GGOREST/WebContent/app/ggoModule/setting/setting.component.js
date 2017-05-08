@@ -1,14 +1,15 @@
 angular.module("ggoModule").component("setting", {
 	templateUrl : 'app/ggoModule/setting/setting.component.html',
-	controller : function(ggoService, $location, $scope) {
+	controller : function(ggoService, $location, $scope, authService) {
 		var vm = this;
 		
 		vm.updatePlayer = function(updateuser) {
-			console.log(updateuser);
+			updateuser.id = authService.getToken().id;
+			authService.updateToken(updateuser);
     		ggoService.updatePlayer(updateuser).then(function(res){
         		vm.player = res.data;
-        		
         	})
+        	$location.path('/home')
     	}
 	},
 	controllerAs: 'vm'

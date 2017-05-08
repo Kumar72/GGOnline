@@ -9,11 +9,11 @@
 				<td>
 					<table>
 						<tbody>
-							<!-- <tr>
+							<tr>
 								<td></td>
 								<td>Player id:</td>
 								<td>{{vm.player.id}}</td>
-							</tr> -->
+							</tr>
 							<tr>
 								<td></td>
 								<td>First Name:</td>
@@ -29,11 +29,11 @@
 								<td>Username:</td>
 								<td>{{vm.player.username}}</td>
 							</tr>
-							<!-- <tr>
+							<tr>
 								<td></td>
 								<td>Email:</td>
 								<td>{{vm.player.email}}</td>
-							</tr> -->
+							</tr>
 						</tbody>
 					</table>
 				</td>
@@ -81,6 +81,8 @@
 				<tr>
 					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
 					<img ng-src="{{team.image}}" height="60px" width="60px"></td>
+				</tr>
+				<tr>
 					<td>{{team.name}}</td>
 					<td><button class="button" ng-click="vm.leaveTeam(team)">Leave</button></td>
 				</tr>
@@ -98,14 +100,14 @@
 			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="vm.team.image" placeholder="Team Picture URL">
 				<br>
 				<label for="SelectGame">Game: </label> 
-				<select id="game">
-					<option ng-repeat="game in vm.games" ng-model="vm.team.game" value="{{game}}">{{game.name}}</option>
+				<select ng-model="newgame">
+					<option ng-repeat="game in vm.games" value="{{game.id}}" required>{{game.name}}</option>
 				</select>
 				<br>	
 				<label for="InputTeamSize">Team Size: </label>
 		    	<input type="number" class="form-control" id="InputTeamSize" placeholder="Team Size" min="2" max="50"/> <!-- add team size to db -->
 				<br>
-				<button type="submit" class="btn btn-primary" ng-click="vm.newTeam(newteam)">Create Team</button>
+				<button type="submit" class="btn btn-primary" ng-click="vm.newTeam(newteam, newgame); ">Create Team</button>
 				<button type="submit" class="btn btn-primary" ng-click="vm.cancelButton()">Cancel</button>
 	  		</fieldset>
 		</form>

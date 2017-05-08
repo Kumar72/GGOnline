@@ -7,6 +7,11 @@ angular.module('authModule')
     	$cookies.put('userEmail', user.email);
     	$cookies.put('firstName', user.fname);
     }
+    
+    service.updateToken = function(user) {
+    	saveToken(user);
+    	return user;
+    }
 
     service.getToken = function() {
     	return {
