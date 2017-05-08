@@ -86,8 +86,6 @@ public class TeamDAOImpl implements TeamDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public List<Team> index() {
 		String q = "SELECT t FROM Team t";
@@ -96,39 +94,40 @@ public class TeamDAOImpl implements TeamDAO {
 		return team;
 	}
 
-
-
+	
 	@Override
-	public Team createTeam(int playerId, String teamJson) {
-		Game game = em.find(Game.class, 1);
-		System.out.println("Enter CREATE TEAM DAOImpl");
+	public Team createTeam(int playerId, int gameId, String teamJson) {
+		System.out.println(teamJson);
+		System.out.print(playerId);
 		ObjectMapper om = new ObjectMapper();
-		Team MappedTeam = null;
+		Team mappedTeam = null;
 		Player player = em.find(Player.class, playerId);
-		player.setStatus(true);
-		List<Player> players = new ArrayList<>();
-		players.add(player);
-		System.out.println(player);
+		List<Player> p = new ArrayList<>();
+		p.add(player);
+		Game g = em.find(Game.class, gameId);
+		System.out.println("BEFORE TRY");
 		try {			
-			MappedTeam = om.readValue(teamJson, Team.class);
-			System.out.println(MappedTeam);
-			MappedTeam.setPlayers(players);
-			MappedTeam.setGame(game);
+			mappedTeam = om.readValue(teamJson, Team.class);
+			System.out.println("TEST 1: "+mappedTeam);
+			mappedTeam.setPlayers(p);
+			mappedTeam.setGame(g);
+			mappedTeam.setActive(true);
+			System.out.println("TEST 2: "+mappedTeam);
 		} catch (JsonParseException e) {
-			System.out.println("##################### 1 @@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("!!!!!!!!!!!!!!  ERRROR 1");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
-			System.out.println("##################### 2 @@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("!!!!!!!!!!!!!!  ERRROR 2");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("##################### 3 @@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("!!!!!!!!!!!!!!  ERRROR 3");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		em.persist(MappedTeam);
+		em.persist(mappedTeam);
 		em.flush();
-		return MappedTeam;
+		return mappedTeam;
 	}
 }

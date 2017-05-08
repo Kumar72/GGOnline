@@ -94,10 +94,10 @@
 		<form ng-hide="vm.showTeamForm">
 			<fieldset class="form-register">
 				<label for="InputTeamName">Team Name: </label>
-			  	<input type="text" class="form-control" id="InputTeamName" ng-model="vm.team.name" placeholder="{{vm.team.name}}" required>
+			  	<input type="text" class="form-control" id="InputTeamName" ng-model="newteam.name" placeholder="Team Name" required>
 				<br>
 				<label for="InputTeamPic">Team Image URL: </label>
-			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="vm.team.image" placeholder="Team Picture URL">
+			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="newteam.image" placeholder="Team Picture URL">
 				<br>
 				<label for="SelectGame">Game: </label> 
 				<select ng-model="newgame">

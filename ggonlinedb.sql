@@ -33,30 +33,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `team`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `team` ;
-
-CREATE TABLE IF NOT EXISTS `team` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `active` TINYINT(1) NULL DEFAULT NULL,
-  `game_id` INT(11) NOT NULL,
-  `image` VARCHAR(500) NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
-  `size` INT(12) NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_team_game1_idx` (`game_id` ASC),
-  CONSTRAINT `fk_team_game1`
-    FOREIGN KEY (`game_id`)
-    REFERENCES `game` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user` ;
@@ -73,32 +49,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` TINYINT(1) NULL DEFAULT NULL,
   `image` VARCHAR(500) NULL DEFAULT 'http://lastpage.in/blogAsset/img/avatar-na.png',
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `captain`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `captain` ;
-
-CREATE TABLE IF NOT EXISTS `captain` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `user_id` INT(11) NOT NULL,
-  `team_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_captain_user1_idx` (`user_id` ASC),
-  INDEX `fk_captain_team1_idx` (`team_id` ASC),
-  CONSTRAINT `fk_captain_team1`
-    FOREIGN KEY (`team_id`)
-    REFERENCES `team` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_captain_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -132,14 +82,38 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `team`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `team` ;
+
+CREATE TABLE IF NOT EXISTS `team` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `active` TINYINT(1) NULL DEFAULT 0,
+  `game_id` INT(11) NOT NULL,
+  `image` VARCHAR(500) NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
+  `size` INT(12) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_team_game1_idx` (`game_id` ASC),
+  CONSTRAINT `fk_team_game1`
+    FOREIGN KEY (`game_id`)
+    REFERENCES `game` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `user_team`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user_team` ;
 
 CREATE TABLE IF NOT EXISTS `user_team` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `team_id` INT(11) NOT NULL,
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   INDEX `fk_user_has_team_team1_idx` (`team_id` ASC),
   INDEX `fk_user_has_team_user_idx` (`user_id` ASC),
@@ -237,6 +211,31 @@ CREATE TABLE IF NOT EXISTS `user_game` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `captain`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `captain` ;
+
+CREATE TABLE IF NOT EXISTS `captain` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) NOT NULL,
+  `team_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `user_id`, `team_id`),
+  INDEX `fk_captain_user1_idx` (`user_id` ASC),
+  INDEX `fk_captain_team1_idx` (`team_id` ASC),
+  CONSTRAINT `fk_captain_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_captain_team1`
+    FOREIGN KEY (`team_id`)
+    REFERENCES `team` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO user1;
  DROP USER user1;
@@ -266,17 +265,6 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `team`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -300,12 +288,23 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `team`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ggonlinedb`;
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `user_team`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `user_team` (`user_id`, `team_id`, `id`) VALUES (1, 1, DEFAULT);
-INSERT INTO `user_team` (`user_id`, `team_id`, `id`) VALUES (2, 1, DEFAULT);
+INSERT INTO `user_team` (`id`, `user_id`, `team_id`) VALUES (DEFAULT, 1, 1);
+INSERT INTO `user_team` (`id`, `user_id`, `team_id`) VALUES (DEFAULT, 2, 1);
 
 COMMIT;
 
