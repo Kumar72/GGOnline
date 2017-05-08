@@ -1,6 +1,7 @@
 package data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -98,27 +99,36 @@ public class TeamDAOImpl implements TeamDAO {
 
 
 	@Override
-	public Team createTeam(int playerId, String todoJson) {
-//		ObjectMapper om = new ObjectMapper();
-//		Team MappedTeam = null;
-//		Player player = em.find(Player.class, playerId);
-//		
-//		try {			
-//			MappedTeam = om.readValue(todoJson, Team.class);
-//			MappedTeam.setPlayers(players);
-//		} catch (JsonParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (JsonMappingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		em.persist(MappedTeam);
-//		em.flush();
-//		return MappedTeam;
-		return null;
+	public Team createTeam(int playerId, String teamJson) {
+		Game game = em.find(Game.class, 1);
+		System.out.println("Enter CREATE TEAM DAOImpl");
+		ObjectMapper om = new ObjectMapper();
+		Team MappedTeam = null;
+		Player player = em.find(Player.class, playerId);
+		player.setStatus(true);
+		List<Player> players = new ArrayList<>();
+		players.add(player);
+		System.out.println(player);
+		try {			
+			MappedTeam = om.readValue(teamJson, Team.class);
+			System.out.println(MappedTeam);
+			MappedTeam.setPlayers(players);
+			MappedTeam.setGame(game);
+		} catch (JsonParseException e) {
+			System.out.println("##################### 1 @@@@@@@@@@@@@@@@@@@@@");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			System.out.println("##################### 2 @@@@@@@@@@@@@@@@@@@@@");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("##################### 3 @@@@@@@@@@@@@@@@@@@@@");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		em.persist(MappedTeam);
+		em.flush();
+		return MappedTeam;
 	}
 }

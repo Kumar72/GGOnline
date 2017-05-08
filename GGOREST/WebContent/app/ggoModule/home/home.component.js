@@ -27,10 +27,7 @@ angular.module("ggoModule").component("home", {
     	    	console.log('In failed player games')
     	    
     	    })
-    	    
-    	    
-    	    
-    	    
+    		
     	    ggoService.playerTeams().then(function(res){
     			console.log("In player Teams");
 
@@ -38,14 +35,18 @@ angular.module("ggoModule").component("home", {
     	    })
     	}
     	
-    	  vm.newTeam = function(newteam) {
-			console.log(newteam);
-    		ggoService.createTeam(newteam).then(function(res){
-        		vm.teams = res.data;
-        		
-        	})
-    	}
-
+    	
+    	
+    	 vm.newTeam = function(team, newgame) {
+//    		team.active = true;
+	 		console.log(team);
+	 		console.log(newgame);
+			ggoService.createTeam(team).then(function(res){
+    		vm.teams = res.data;
+    		
+    		})
+    	 }
+    	 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)
     		.then(function(res){
@@ -59,6 +60,7 @@ angular.module("ggoModule").component("home", {
     		
 //    		vm.reload();
     	}
+    	
     	
     	vm.leaveTeam = function(team) {
     		ggoService.leaveTeam(team).then(function(res){
@@ -79,6 +81,7 @@ angular.module("ggoModule").component("home", {
     	vm.displayForm = function() {
     		vm.showTeamForm = false;
     	}
+    	
     	vm.cancelButton = function() {
     		vm.showTeamForm = true;
     	}

@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -44,6 +45,7 @@ public class Team {
 	@JsonIgnore
 	  private List<Player> players;
 	
+	@JsonIgnore
 	@ManyToOne
 	  @JoinColumn(name="game_id")
 	  private Game game;

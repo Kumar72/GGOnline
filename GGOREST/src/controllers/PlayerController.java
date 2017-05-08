@@ -26,16 +26,19 @@ public class PlayerController {
 	PlayerDAO playerDAO;
 	TeamDAO teamDAO;
 
+
 	@RequestMapping(value = "players/ping", method = RequestMethod.GET)
 	public String ping() {
 		return "PONG FROM PLAYERS CONTROLLER";
 	}
 
+	//Player get by Id
 	@RequestMapping(value = "players/{id}", method = RequestMethod.GET)
 	public Player show(@PathVariable int id) {
 		return playerDAO.show(id);
 	}
 
+	//Player Create
 	@RequestMapping(value = "players", method = RequestMethod.POST)
 	public Player create(@RequestBody String playerJson, HttpServletResponse res) {
 
@@ -52,43 +55,8 @@ public class PlayerController {
 		return null;
 
 	}
-
-	@RequestMapping(value = "players/{playerId}/teams", method = RequestMethod.GET)
-	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int playerId) {
-		return playerDAO.indexOfTeamsPlayerIsAMemberOf(playerId);
-
-	}
-
-	@RequestMapping(value = "players/{playerId}/games", method = RequestMethod.GET)
-	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId) {
-		return playerDAO.indexOfGamesPlayerHas(playerId);
-	}
-
-	@RequestMapping(value = "players/{playerId}/games/{gameId}", method = RequestMethod.POST)
-	public Game addGameToPlayer(@PathVariable("playerId") int playerId, @PathVariable("gameId") int gameId) {
-		return playerDAO.addGame(playerId, gameId);
-	}
 	
-	@RequestMapping(value = "players/{playerId}/teams/{teamId}", method = RequestMethod.POST)
-	public Team joinTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId") int teamId) {
-		return playerDAO.joinTeam(playerId, teamId);
-	}
-	
-	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
-	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
-		return playerDAO.removeGameFromPlayer(playerId, gameId);
-	}
-	@RequestMapping(value="players/{playerId}/teams/{teamId}", method = RequestMethod.DELETE)
-	public boolean leaveTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId")int teamId){
-		return playerDAO.leaveTeam(playerId, teamId);
-	}
-	
-	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
-	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String todoJson) {
-		return teamDAO.createTeam(playerId, todoJson);
-	}
-	
-	
+	//Player update
 	@RequestMapping(value = "players/{playerId}", method = RequestMethod.PUT)
 	public Player update(@PathVariable int playerId, @RequestBody String playerJson) {
 		try {
@@ -103,4 +71,54 @@ public class PlayerController {
 		}
 		return null;
 	}
+
+	
+	
+	
+	//Game index
+	@RequestMapping(value = "players/{playerId}/games", method = RequestMethod.GET)
+	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId) {
+		return playerDAO.indexOfGamesPlayerHas(playerId);
+	}
+	
+	//Game add Game to Player
+	@RequestMapping(value = "players/{playerId}/games/{gameId}", method = RequestMethod.POST)
+	public Game addGameToPlayer(@PathVariable("playerId") int playerId, @PathVariable("gameId") int gameId) {
+		return playerDAO.addGame(playerId, gameId);
+	}
+	
+	//Game Player can remove a game
+	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
+	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
+		return playerDAO.removeGameFromPlayer(playerId, gameId);
+	}
+	
+	
+	
+	
+	//Team index
+	@RequestMapping(value = "players/{playerId}/teams", method = RequestMethod.GET)
+	public List<Team> indexOfTeamsPlayerIsAMemberOf(@PathVariable int playerId) {
+		return playerDAO.indexOfTeamsPlayerIsAMemberOf(playerId);
+	}
+	
+	//Team Player can join a team
+	@RequestMapping(value = "players/{playerId}/teams/{teamId}", method = RequestMethod.POST)
+	public Team joinTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId") int teamId) {
+		return playerDAO.joinTeam(playerId, teamId);
+	}
+	
+	//Team Player can leave a game
+	@RequestMapping(value="players/{playerId}/teams/{teamId}", method = RequestMethod.DELETE)
+	public boolean leaveTeam(@PathVariable("playerId") int playerId, @PathVariable("teamId")int teamId){
+		return playerDAO.leaveTeam(playerId, teamId);
+	}
+	
+	//Team Create using gameId
+	@RequestMapping(value="players/{playerId}/teams", method=RequestMethod.POST)
+	public Team create(HttpServletRequest req, HttpServletResponse res, @PathVariable int playerId, @RequestBody String teamJson) {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@ IN CREATE TEAM METHOD @@@@@@@@@@@@@@@@@@@@@");
+		return teamDAO.createTeam(playerId, teamJson);
+	}
+	
 }

@@ -40,7 +40,7 @@ angular.module('ggoModule')
 	        })
 		
 	}
-	//Create a new team
+	//Create a new team using gameId
 	service.createTeam = function(team) {
     	console.log(team)
     	return $http({
