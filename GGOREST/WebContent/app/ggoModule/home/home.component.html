@@ -41,10 +41,10 @@
 		</tbody>
 	</table>
 	<hr>
-	<button ng-click='vm.toggleModal()'>Open Modal Dialog</button>
+	<!-- <button ng-click='gameModal'>Open Modal Dialog</button>
 	<modal-dialog show='vm.modalShown' width='750px' height='60%'>
 		<p>Modal Content Goes here<p>
-	</modal-dialog>
+	</modal-dialog> -->
 	
 	
 	<h3>Games</h3>
@@ -59,7 +59,8 @@
 					<td><img ng-src="{{game.image}}"
 						height="60px" width="60px"></td>
 					<td>{{game.name}}</td>
-					<td><button class="button" ng-click="vm.removeGame(game)">Remove</button></td>
+					<td><button id="removeGame" class="button" ng-click="vm.removeGame(game)">Remove</button></td>
+					<td ng-controller="gameModal"><button id="modalButton" class="button" ng-click="open(game)">View Game</button></td>
 				<!-- </tr>
 				<tr> -->
 				</tr>
@@ -94,10 +95,10 @@
 		<form ng-hide="vm.showTeamForm">
 			<fieldset class="form-register">
 				<label for="InputTeamName">Team Name: </label>
-			  	<input type="text" class="form-control" id="InputTeamName" ng-model="vm.team.name" placeholder="{{vm.team.name}}" required>
+			  	<input type="text" class="form-control" id="InputTeamName" ng-model="newteam.name" placeholder="Team Name" required>
 				<br>
 				<label for="InputTeamPic">Team Image URL: </label>
-			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="vm.team.image" placeholder="Team Picture URL">
+			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="newteam.image" placeholder="Team Picture URL">
 				<br>
 				<label for="SelectGame">Game: </label> 
 				<select ng-model="newgame">

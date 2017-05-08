@@ -1,7 +1,32 @@
-<div class='ng-modal' ng-show='show'>
-	<div class='ng-modal-overlay' ng-click='hideModal()'></div>
-	<div class='ng-modal-dialog' ng-style='dialogStyle'>
-		<div class='ng-modal-close' ng-click='hideModal()'>X</div>
-		<div class='ng-modal-dialog-content' ng-transclude></div>
-	</div>
+<div>
+<!--     <script type="text/ng-template" id="myModalContent.html"> -->
+        <div class="modal-header">
+            <h3 class="modal-title">{{game.name}}</h3>
+        </div>
+        <div class="modal-body">
+            
+            <ul>
+            		
+                <li>
+                  <img src={{game.image}}/><br>
+                </li>
+                <li>
+                   Genera: {{game.genra}}<br>
+                </li>
+                <li>
+                   Rating: {{game.rating}}<br>
+                </li>
+                <li>
+                		Description: {{game.description}}
+                </li>
+            </ul>
+            
+            <button class="button" ng-click="removeGame()">Un-follow</button>
+            <button class="button" ng-click="cancel()">Cancel</button>
+           
+        </div>
+        
+    <!-- </script> -->
+
+   
 </div>

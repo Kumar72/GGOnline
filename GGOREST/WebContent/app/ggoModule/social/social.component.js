@@ -1,3 +1,4 @@
+
 angular.module("ggoModule")
 .component("social", {
 	templateUrl : 'app/ggoModule/social/social.component.html',
@@ -15,3 +16,5 @@ angular.module("ggoModule")
 	},
 	controllerAs: 'vm'
 });
+
+

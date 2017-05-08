@@ -28,8 +28,8 @@ angular.module('ggoModule')
 
 	//Update an active account
 	service.updatePlayer = function(player){
-		console.log("In updatePlayer service method")
-		console.log(player)
+//		console.log("In updatePlayer service method")
+//		console.log(player)
 		return $http({
 			method : 'PUT',
 			url : 'api/players/'+authService.getToken().id,
@@ -41,11 +41,13 @@ angular.module('ggoModule')
 	}
 	
 	//Create a new team using gameId
-	service.createTeam = function(team) {
-    	console.log(team)
+	service.createTeam = function(team, gameId) {
+//    	console.log(team)
+//    	console.log("Game ID in service"+gameId)
     	return $http({
     		method: 'POST',
-    		url: "api/players/"+ authService.getToken().id +"/teams",
+    		url: "api/players/"+ authService.getToken().id +"/games/"
+    		+ gameId +"/teams",
     		headers: {
     			'Content-Type': 'application/json'
     		},
@@ -75,7 +77,7 @@ angular.module('ggoModule')
 	
 	//Team Index
 	service.teamIndex = function(){
-		console.log('In teamIndex -- ggoService')
+//		console.log('In teamIndex -- ggoService')
 		return $http({
 			method : 'GET',
 			url : 'api/teams'

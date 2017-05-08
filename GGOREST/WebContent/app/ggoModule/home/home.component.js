@@ -7,11 +7,6 @@ angular.module("ggoModule").component("home", {
     	vm.games = [];
     	vm.teams = [];
     	vm.showTeamForm = true;
-    	vm.team = {
-    			name: 'StarWars',
-    			image: '',
-    			game: {}
-    	};
     	
     	
     	vm.reload = function(){
@@ -21,48 +16,39 @@ angular.module("ggoModule").component("home", {
         	})
        
         	ggoService.playerGames().then(function(res){
-    			console.log("In player Games");
-
         		vm.games = res.data;
-        		console.log(vm.games)
-        		
     	    })
     	    .catch(function(error){
-    	    	console.log(error)
+//    	    	console.log(error)
     	    	console.log('In failed player games')
-    	    
+  	    
     	    })
     		
     	    ggoService.playerTeams().then(function(res){
-    			console.log("In player Teams");
-
         		vm.teams = res.data;
     	    })
     	}
     	
+    	vm.reload();
     	
-    	 vm.newTeam = function(team, newgame) {
-//    		team.active = true;
-	 		console.log(team);
-	 		console.log(newgame);
-			ggoService.createTeam(team).then(function(res){
-    		vm.teams = res.data;
-    		
-    		})
-    	 }
+    	
+		 vm.newTeam = function(team, gameId) {
+			ggoService.createTeam(team, gameId).then(function(res){
+				ggoService.playerTeams().then(function(res){
+	        		vm.teams = res.data;
+	    	    })
+			})
+		 }
     	 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)
     		.then(function(res){
     			vm.reload();
-    			console.log('In removeGame function')
+//    			console.log('In removeGame function')
     		})
     		.catch(function(error){
     			console.log("hit error");
     		})
-    		
-    		
-//    		vm.reload();
     	}
     	
     	
@@ -92,7 +78,7 @@ angular.module("ggoModule").component("home", {
     	
     	vm.modalShown = false;
     	  vm.toggleModal = function() {
-    		  console.log("in toggleModal function")
+//    		  console.log("in toggleModal function")
     	    vm.modalShown = !vm.modalShown;
     	  };
     	

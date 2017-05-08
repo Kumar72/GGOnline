@@ -255,3 +255,10 @@ span.psw {
        width: 100%;
     }
 }
+
+#modalButton{
+	margin-left: 4em;
+}
+#removeGame{
+	margin-left: 2em;
+}

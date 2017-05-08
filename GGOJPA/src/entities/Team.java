@@ -29,8 +29,14 @@ public class Team {
 	@Column(name="created_time")
 	private Timestamp createdTime;
 	
-	private int active;
+
+
 	
+
+	private boolean active;
+
+
+
 	private String image;
 	
 
@@ -67,11 +73,11 @@ public class Team {
 		this.createdTime = createdTime;
 	}
 
-	public int getActive() {
+	public boolean getActive() {
 		return active;
 	}
 
-	public void setActive(int active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 
@@ -102,7 +108,7 @@ public class Team {
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", name=" + name + ", createdTime=" + createdTime + ", active=" + active + ", image="
-				+ image + ", players=" + players + ", game=" + game + "]";
+				+ image + "]";
 	}
 
 

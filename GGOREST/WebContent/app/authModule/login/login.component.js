@@ -4,7 +4,8 @@ angular.module("authModule").component("login", {
     	var vm = this;
     	
     	vm.login = function(user) {
-    		console.log("clicked")
+//    		console.log("clicked")
+//    		console.log(user.image)
     		authService.login(user).then(function(res){
     			$location.path('/home')
     		})

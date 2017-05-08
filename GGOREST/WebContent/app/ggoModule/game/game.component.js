@@ -8,14 +8,14 @@ angular.module('ggoModule')
 		
 		vm.reload = function(){
 			ggoService.gameIndex().then(function(res){
-				console.log(res.data);
+//				console.log(res.data);
 				vm.games = res.data;
 				
 			})
 		}
 		vm.addGame = function(gameId){
 			var getUserId = authService.getToken().id;
-			console.log("clicked in addGame function" + gameId)
+//			console.log("clicked in addGame function" + gameId)
 			ggoService.addGame(gameId, getUserId).then(function(res){
 				vm.reload();
 			})
