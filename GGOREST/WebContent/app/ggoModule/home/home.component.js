@@ -38,11 +38,13 @@ angular.module("ggoModule").component("home", {
     	
     	
     	 vm.newTeam = function(team, gameId) {
-//    		team.active = true;
 	 		console.log("Team: "+ team);
 	 		console.log("Game ID: " + gameId);
 			ggoService.createTeam(team, gameId).then(function(res){
-    		vm.teams = res.data;
+				ggoService.playerTeams().then(function(res){
+	    			console.log("In player Teams");
+	        		vm.teams = res.data;
+	    	    })
     		})
     	 }
     	 
