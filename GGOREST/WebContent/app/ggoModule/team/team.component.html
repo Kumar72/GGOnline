@@ -1,13 +1,13 @@
 <div id="searchDiv">
 	<form>
-		<input type="text" placeHolder="Search By Team Name" ng-model="team.team">
-		<input type="submit" class="button" type="submit" value="Search " ng-click="vm.filterTeam">
+		<input type="text" placeHolder="Search By Team Name" ng-model="vm.teamSearch">
+<!-- 		<input type="submit" class="button" type="submit" value="Search " ng-click="vm.filterTeam"> -->
 	</form>
 </div>
 <table>
 	<thead>
 	<tbody>
-		<tr ng-repeat="team in vm.teams">
+		<tr ng-repeat="team in vm.teams| teamSearch : vm.teamSearch | orderBy: 'id'">
 
 		<td>{{team.name}}</td>
 		<td><button class="button" ng-click="vm.joinTeam(team.id)">Join Team</button></td>
