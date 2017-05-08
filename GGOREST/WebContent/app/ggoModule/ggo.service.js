@@ -25,7 +25,7 @@ angular.module('ggoModule')
 			url : 'api/players/'+ authService.getToken().id +"/teams"
 		})		
 	}
-	
+
 	//Update an active account
 	service.updatePlayer = function(player){
 		console.log("In updatePlayer service method")
@@ -38,9 +38,9 @@ angular.module('ggoModule')
 	          },
 	          data : player
 	        })
-		
 	}
-	//Create a new team
+	
+	//Create a new team using gameId
 	service.createTeam = function(team) {
     	console.log(team)
     	return $http({
