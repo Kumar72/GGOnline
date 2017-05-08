@@ -53,7 +53,7 @@ angular.module('ggoModule').controller('ModalInstanceCtrl',
 	    			.then(function(res){
 //	    			vm.reload();
 	    			console.log('In removeGame function')
-	    			
+	    				
 	    		})
 				
 			}
