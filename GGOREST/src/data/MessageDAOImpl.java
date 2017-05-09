@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Message;
+import entities.Player;
 
 @Transactional
 public class MessageDAOImpl implements MessageDAO{
@@ -25,15 +26,42 @@ public class MessageDAOImpl implements MessageDAO{
 	}
 
 	@Override
-	public Message show() {
-		// TODO Auto-generated method stub
-		return null;
+	public Message show(int messageId) {
+		Message message = em.find(Message.class, messageId);
+		return message;
 	}
 
 	@Override
-	public Message create(Message message) {
-		// TODO Auto-generated method stub
-		return null;
+	public Message createMessage(Message message) {
+		em.persist(message);
+		em.flush();
+		return message;
+	}
+	
+	@Override
+	public boolean destroy(int messageId) {
+		Message managed = em.find(Message.class, messageId);
+//		Player managedPlayer = em.find(Player.class, managed.getUserId());
+//		for(Message m : managedPlayer.getMessages()){
+//			if(m.getId() == messageId){
+//				managedPlayer.getMessages().remove(m);
+//			}
+//		}
+//		em.persist(managedPlayer);
+		
+		em.remove(managed);
+		
+		em.flush();
+		
+		if(em.find(Message.class, messageId)==null){
+			return true;
+		}
+		
+		else if(em.find(Message.class, messageId)!= null){
+			return false;
+		}
+		
+		return false;
 	}
 
 }

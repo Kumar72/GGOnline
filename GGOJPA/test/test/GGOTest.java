@@ -54,10 +54,10 @@ public class GGOTest {
     	 assertEquals("Rocket League", game.getName());
      }
      
-//     @Test
-//     public void test_Message_Mapping(){
-//    	 assertEquals("GG Easy", message.getMessage());
-//     }
+     @Test
+     public void test_Message_Mapping(){
+    	 assertEquals("GG Easy", message.getMessage());
+     }
      
      @Test
      public void test_Team_Mapping(){
