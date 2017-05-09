@@ -28,24 +28,26 @@ public class TeamController {
 	public String ping(){
 		return "PONG FROM TEAM CONTROLLER";
 	}
-	
+	//Show teams
 	@RequestMapping(value="teams", method=RequestMethod.GET)
 	public List<Team> index(){
 		return teamDAO.index();
 	}
 	
+	//shows an individual team
 	@RequestMapping(value="teams/{id}", method = RequestMethod.GET)
 	public Team show(@PathVariable int id){
 		return teamDAO.show(id);
 	}
 	
-	
+	//shows all players in a team
 	@RequestMapping(value="teams/{teamId}/players", method = RequestMethod.GET)
 		public List<Player> indexOfPlayersFollowingGame(@PathVariable int teamId){
 			return teamDAO.indexOfPlayers(teamId);
 				
 	}
 	
+	//edits an existing team
 	@RequestMapping(value="teams/{teamId}", method = RequestMethod.PUT)
 	public Team update(@PathVariable int teamId, Team team){
 		

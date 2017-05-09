@@ -118,6 +118,14 @@ angular.module('ggoModule')
 		})
 	}
 	
+	//get a list of players on a team
+	service.getTeamMembers = function(team){
+		return $http({
+			url : 'api/players/'+authService.getToken().id+'/teams/'+team.id,
+			method : 'GET'
+		})
+	}
+	
 	
 	return service;
 	})

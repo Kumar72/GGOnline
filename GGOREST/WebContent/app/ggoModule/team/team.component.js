@@ -21,6 +21,14 @@ angular.module('ggoModule')
 			})
 			
 		}
+		
+		 vm.newTeam = function(team, gameId) {
+				ggoService.createTeam(team, gameId).then(function(res){
+					ggoService.playerTeams().then(function(res){
+		        		vm.teams = res.data;
+		    	    })
+				})
+			 }
 		vm.reload();
 		
 		

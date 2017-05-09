@@ -4,6 +4,8 @@ angular.module('ggoModule')
 	controller : function(ggoService, $filter, $location){
 		var vm = this;
 		
+		
+		
 	},
 	controllerAs : 'vm'
 

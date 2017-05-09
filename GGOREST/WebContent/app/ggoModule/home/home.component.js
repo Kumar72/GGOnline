@@ -76,11 +76,7 @@ angular.module("ggoModule").component("home", {
     		vm.showTeamForm = true;
     	}
     	
-    	vm.modalShown = false;
-    	  vm.toggleModal = function() {
-//    		  console.log("in toggleModal function")
-    	    vm.modalShown = !vm.modalShown;
-    	  };
+    	
     	
     	vm.displayGameInfo = function() {}
 

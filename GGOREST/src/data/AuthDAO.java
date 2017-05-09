@@ -6,5 +6,6 @@ public interface AuthDAO {
 
 	public Player register(Player p);
   	public Player login(Player p);
+  	
 		
 }
