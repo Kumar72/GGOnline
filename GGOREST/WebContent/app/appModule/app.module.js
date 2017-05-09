@@ -28,8 +28,8 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/social', {
 		template: '<social></social>'
 	})
-	.when('/friend', {
-		template: '<friend></friend>'
+	.when('/player', {
+		template: '<player></player>'
 	})
 	.when('/players/:playerId',{
 		template: '<show-player></show-player>'

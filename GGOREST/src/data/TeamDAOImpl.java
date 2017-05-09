@@ -28,8 +28,6 @@ public class TeamDAOImpl implements TeamDAO {
 		Team team = em.find(Team.class, teamId);	
 		return team;
 	}
-	
-	
 
 	@Override
 	public List<Player> indexOfPlayers(int teamId) {
@@ -89,9 +87,9 @@ public class TeamDAOImpl implements TeamDAO {
 	@Override
 	public List<Team> index() {
 		String q = "SELECT t FROM Team t";
-		List<Team> team = em.createQuery(q, Team.class).getResultList();
+		List<Team> teams = em.createQuery(q, Team.class).getResultList();
 	
-		return team;
+		return teams;
 	}
 
 	
@@ -110,8 +108,9 @@ public class TeamDAOImpl implements TeamDAO {
 			mappedTeam = om.readValue(teamJson, Team.class);
 			System.out.println("TEST 1: "+mappedTeam);
 			mappedTeam.setPlayers(p);
-			if(mappedTeam.getImage().equals(null))
-			mappedTeam.setImage("http://us.battle.net/heroes/static/images/game/game-modes/Icon_team-league.png");
+
+			if(mappedTeam.getImage() == null)
+				mappedTeam.setImage("http://us.battle.net/heroes/static/images/game/game-modes/Icon_team-league.png");
 			mappedTeam.setGame(g);
 			mappedTeam.setActive(true);
 			System.out.println("TEST 2: "+mappedTeam);

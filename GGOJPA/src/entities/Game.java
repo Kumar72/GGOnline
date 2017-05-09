@@ -31,6 +31,15 @@ public class Game {
 	private String rating;
 	
 	private String description;
+	private String image;
+
+	@JsonIgnore
+    @ManyToMany(mappedBy="games")
+    private List<Player> players;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="game")
+	  private List<Team> teams;
 	
 	public String getImage() {
 		return image;
@@ -44,17 +53,6 @@ public class Game {
 		this.id = id;
 	}
 
-	private String image;
-
-	@JsonIgnore
-    @ManyToMany(mappedBy="games")
-    private List<Player> players;
-	
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="game")
-	  private List<Team> teams;
-	
 //	private boolean isFollowed;
 //	
 //	public boolean isFollowed() {
@@ -125,7 +123,7 @@ public class Game {
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", name=" + name + ", genre=" + genre + ", rating=" + rating + ", description="
-				+ description + ", image=" + image + ", players=" + players + ", teams=" + teams + "]";
+				+ description + ", image=" + image +"]";
 	}
 
 	
