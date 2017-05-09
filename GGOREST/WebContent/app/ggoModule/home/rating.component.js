@@ -1,13 +1,13 @@
 angular.module('ggoModule').controller('playerRating', function ($scope) {
 	templateUrl : 'app/ggoModule/home/home.component.html',
 
-  $scope.rate = 7;
-  $scope.max = 10;
+  $scope.rate = 0;
+  $scope.max = 5;
   $scope.isReadonly = false;
 
   $scope.hoveringOver = function(value) {
     $scope.overStar = value;
-    $scope.percent = 100 * (value / $scope.max);
+//    $scope.percent = 100 * (value / $scope.max);
   };
 
   $scope.ratingStates = [

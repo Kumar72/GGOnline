@@ -2,6 +2,7 @@ angular.module('ggoModule')
 .controller('teamModal',
 		function($scope, $uibModal, $log, ggoService) {
 	
+
 	
 	$scope.animationsEnabled = true; 
 	
@@ -16,6 +17,11 @@ angular.module('ggoModule')
 			resolve : {
 				team : function() {
 					return team;
+				},
+				members : function() {
+					return ggoService.getTeamMembers(team).then(function(res){
+						return res.data
+					});
 				}
 			}
 		});
@@ -38,9 +44,10 @@ angular.module('ggoModule')
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('TeamModalInstanceCtrl',
-		function($scope, $uibModalInstance, team, ggoService) {
+		function($scope, $uibModalInstance, team, members, ggoService) {
 	
 			$scope.team = team;
+			$scope.members = members;
 //			$scope.selected = {
 //				item : $scope.items[0]
 //			};

@@ -10,8 +10,8 @@
                 <li>
                   <img src={{team.image}}/><br>
                 </li>
-                <li>
-                		Members: {{team.players.username}}
+                <li ng-repeat="member in members">
+                		Members: {{member.username}}<br>
                 </li>
                 
             </ul>
