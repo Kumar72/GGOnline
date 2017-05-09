@@ -125,6 +125,7 @@ angular.module('ggoModule')
 			url : 'api/players/'+authService.getToken().id+'/teams/'+team.id,
 			method : 'GET'
 		})
+	}
 
 	//Message Index
 	service.messageIndex = function(){
@@ -136,5 +137,5 @@ angular.module('ggoModule')
 	
 	
 	return service;
-	})
+	});
 
