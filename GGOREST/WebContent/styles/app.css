@@ -268,3 +268,7 @@ span.psw {
 #teamModalButton{
 	margin-left: 4em;
 }
+#gameModalImage{
+	height: 200px;
+	width: 200px;
+}

@@ -31,6 +31,9 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/friend', {
 		template: '<friend></friend>'
 	})
+	.when('/players/:playerId',{
+		template: '<show-player></show-player>'
+	})
 	.otherwise({
 		template: '<not-found-component></not-found-component>'
 	})

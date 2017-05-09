@@ -135,6 +135,15 @@ angular.module('ggoModule')
 		})	
 	}
 	
+	//view another users profile
+	service.visitPlayersProfile = function(team, player){
+		return $http({
+			method : 'GET',
+			url : 'api/teams/'+ team.id + '/players/' + player.id
+		})
+		
+	}
+	
 	
 	return service;
 	});

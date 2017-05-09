@@ -1,5 +1,5 @@
 angular.module('ggoModule').controller('playerRating', function ($scope) {
-	templateUrl : 'app/ggoModule/home/home.component.html',
+	templateUrl : 'app/ggoModule/showPlayer/playerRoute.component.html',
 
   $scope.rate = 0;
   $scope.max = 5;
