@@ -2,6 +2,7 @@ angular.module('ggoModule')
 .factory('ggoService', function($http,$cookies,authService){
 	var service = {};
 	
+	
 	//Get User
 	service.showUser = function () {
 		return $http({
