@@ -236,6 +236,31 @@ CREATE TABLE IF NOT EXISTS `captain` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `user_has_user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_user` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_user` (
+  `user_id` INT(11) NOT NULL,
+  `friend_id` INT(11) NOT NULL,
+  PRIMARY KEY (`user_id`, `friend_id`),
+  INDEX `fk_user_has_user_user2_idx` (`friend_id` ASC),
+  INDEX `fk_user_has_user_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_user_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_user_user2`
+    FOREIGN KEY (`friend_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO user1;
  DROP USER user1;

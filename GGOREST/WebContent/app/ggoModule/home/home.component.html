@@ -33,9 +33,7 @@
 								<td></td>
 								<td>Email:</td>
 								<td>{{vm.player.email}}</td>
-							</tr>
-							
-							
+							</tr>														
 						</tbody>
 					</table>
 				</td>
@@ -117,6 +115,28 @@
 					
 				
 				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+		<h3>Friends</h3>
+	<div>
+		<!-- class="divline" -->
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="friend in vm.friends">
+					<td><img ng-src="{{friend.image}}"
+						height="60px" width="60px"></td>
+					<td>{{friend.username}}</td>
+					<td><button id="unFriend" class="button" ng-click="vm.unFriend(friend)">Remove</button></td>
+					<td ng-controller="gameModal"><button id="modalButton" class="button" ng-click="open(friend)">View Profile</button></td>
+				<!-- </tr>
+				<tr> -->
+				</tr>
+
 			</tbody>
 		</table>
 	</div>
