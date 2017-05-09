@@ -6,6 +6,8 @@ angular.module("ggoModule").component("home", {
     	vm.player =[];
     	vm.games = [];
     	vm.teams = [];
+    	vm.friends = [];
+    	
     	vm.showTeamForm = true;
     	
     	
@@ -17,15 +19,12 @@ angular.module("ggoModule").component("home", {
        
         	ggoService.playerGames().then(function(res){
         		vm.games = res.data;
-    	    })
-    	    .catch(function(error){
-//    	    	console.log(error)
-    	    	console.log('In failed player games')
-  	    
-    	    })
-    		
+    	    })    		
     	    ggoService.playerTeams().then(function(res){
         		vm.teams = res.data;
+    	    })
+    	    ggoService.playerFriends().then(function(res){
+    	    	vm.friends = res.data
     	    })
     	}
     	
@@ -76,11 +75,7 @@ angular.module("ggoModule").component("home", {
     		vm.showTeamForm = true;
     	}
     	
-    	vm.modalShown = false;
-    	  vm.toggleModal = function() {
-//    		  console.log("in toggleModal function")
-    	    vm.modalShown = !vm.modalShown;
-    	  };
+    	
     	
     	vm.displayGameInfo = function() {}
 

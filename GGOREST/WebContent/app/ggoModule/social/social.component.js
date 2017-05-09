@@ -7,6 +7,7 @@ angular.module("ggoModule")
 		vm.messages - [];
 		vm.showMessageForm = false;
 		
+
 		vm.reload = function(){
 			ggoService.messageIndex().then(function(res){
 				console.log(res.data);

@@ -1,0 +1,18 @@
+<div id="searchDiv">
+	<!-- <form>
+		<input type="text" placeHolder="Search By Title" ng-model="vm.playerSearch">
+		<input type="submit" class="button" ng-click="gameSearch">
+	</form> -->
+</div>
+<h1>In Players List</h1>
+<table>
+	<thead>
+	<tbody>
+		<tr ng-repeat="player in vm.players">
+
+		<td>{{player.username}}</td>
+		<td><button class="button" ng-click="vm.friendRequest(player.id)">Friend Request</button></td>
+		</tr>
+	</tbody>
+</table>
+

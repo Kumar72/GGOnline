@@ -1,0 +1,66 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title">{{team.name}}</h3>
+		<h3 class="modal-title">{{team.players}}</h3>
+	</div>
+	<div class="modal-body">
+
+		<ul>
+
+			<li><img src={{team.image}} /><br></li>
+			<li ng-repeat="member in members">Members:<a href="#/players/{{member.id}}">{{member.username}}</a><br>
+				
+			</li>
+
+		</ul>
+
+		<button class="button" ng-click="cancel()">Go Back</button>
+		<!-- Team Calendar -->
+
+		<!-- <button class="button" ng-click="teamCalendar">View
+			TeamCalendar</button> -->
+
+
+
+	</div>
+
+		<!-- *********** TEAM CALENDAR ************** -->
+	<!-- <style>
+.full button span {
+	background-color: limegreen;
+	border-radius: 32px;
+	color: black;
+}
+
+.partially button span {
+	background-color: orange;
+	border-radius: 32px;
+	color: black;
+}
+</style>
+	<div ng-controller="teamCalendar">
+
+
+		<h4>Team Calendar</h4>
+		<div class="row">
+			<div class="col-md-6">
+				<p class="input-group">
+					<input type="text" class="form-control"
+						uib-datepicker-popup="{{format}}" ng-model="dt"
+						is-open="popup1.opened" datepicker-options="dateOptions"
+						ng-required="true" close-text="Close"
+						alt-input-formats="altInputFormats" /> <span
+						class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()">
+							<i class="glyphicon glyphicon-calendar"></i>
+						</button>
+						<button class="button" ng-click="showEventForm()">Create Event</button>
+						<form id="eventForm">
+							<input type="text">
+						</form>
+					</span>
+				</p>
+			</div>
+		</div>
+	</div> -->
+</div>

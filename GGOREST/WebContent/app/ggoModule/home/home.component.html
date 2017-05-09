@@ -33,7 +33,7 @@
 								<td></td>
 								<td>Email:</td>
 								<td>{{vm.player.email}}</td>
-							</tr>
+							</tr>														
 						</tbody>
 					</table>
 				</td>
@@ -73,7 +73,8 @@
 
 
 	<h3>Teams</h3>
-	<button ng-click="vm.displayForm()">Make Team</button>
+		<button ng-click="vm.displayForm()">Make Team</button>
+	
 	<div ng-repeat="team in vm.teams">
 		<table>
 			<thead>
@@ -82,11 +83,34 @@
 				<tr>
 					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
 					<img ng-src="{{team.image}}" height="60px" width="60px"></td>
+ 					<td>{{team.name}}</td> 
+					<td><button id="leaveTeamButton" class="button" ng-click="vm.leaveTeam(team)">Leave</button></td>
+ 					<td ng-controller="teamModal"><button id="teamModalButton" class="button" ng-click="open(team)">View Team</button></td>
+					
+				
 				</tr>
-				<tr>
-					<td>{{team.name}}</td>
-					<td><button class="button" ng-click="vm.leaveTeam(team)">Leave</button></td>
+			</tbody>
+		</table>
+	</div>
+	
+		<h3>Friends</h3>
+	<div>
+		<!-- class="divline" -->
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="friend in vm.friends">
+					<td><img ng-src="{{friend.image}}"
+						height="60px" width="60px"></td>
+					<td>{{friend.username}}</td>
+					<td><button id="unFriend" class="button" ng-click="vm.unFriend(friend)">Remove</button></td>
+					<td ng-controller="gameModal"><button id="modalButton" class="button" ng-click="open(friend)">View Profile</button></td>
+				<!-- </tr>
+				<tr> -->
 				</tr>
+
 			</tbody>
 		</table>
 	</div>

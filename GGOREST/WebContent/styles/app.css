@@ -262,3 +262,13 @@ span.psw {
 #removeGame{
 	margin-left: 2em;
 }
+#leaveTeamButton{
+	margin-left : 2em;
+}
+#teamModalButton{
+	margin-left: 4em;
+}
+#gameModalImage{
+	height: 200px;
+	width: 200px;
+}

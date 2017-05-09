@@ -1,6 +1,7 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,60 +18,56 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class Player {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String username;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String email;
 	private String password;
-	
-	@Column(name="create_time")
+
+	@Column(name = "create_time")
 	private Timestamp createTime;
-	
+
 	private String fname;
 	private String lname;
 	private Boolean active;
-	private Boolean	status;
-	
+	private Boolean status;
+
 	private String image;
-	
 	@JsonIgnore
-	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	  @JoinTable(name="user_team",
-	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
-	    inverseJoinColumns=@JoinColumn(name="team_id")
-	  )
-	  private List<Team>teams;
-	
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "user_has_user", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
+	private List<Player> friends;
+
+	// @ManyToOne
+	// @JoinColumn(name="friends")
+	// private Player player;
+
 	@JsonIgnore
-	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	  @JoinTable(name="user_game",
-	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
-	    inverseJoinColumns=@JoinColumn(name="game_id")
-	  )
-	  private List<Game>games;
-	
-	
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "user_team", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "team_id"))
+	private List<Team> teams;
+
 	@JsonIgnore
-	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	  @JoinTable(name="message_recipient",
-	    joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
-	    inverseJoinColumns=@JoinColumn(name="message_id")
-	  )
-	  private List<Message>messages;
-	
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "user_game", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
+	private List<Game> games;
+
 	@JsonIgnore
-	@OneToMany(mappedBy="player")
-	  private List<Rating> ratings;
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "message_recipient", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "message_id"))
+	private List<Message> messages;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "player")
+	private List<Rating> ratings;
 
 	public int getId() {
 		return id;
@@ -184,6 +181,23 @@ public class Player {
 		this.ratings = ratings;
 	}
 
+	public List<Player> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<Player> friends) {
+		this.friends = friends;
+	}
+
+	public void addPlayer(Player player) {
+		if (this.friends == null) {
+			this.friends = new ArrayList<Player>();
+			this.friends.add(player);
+		} else {
+			this.friends.add(player);
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
@@ -191,13 +205,5 @@ public class Player {
 				+ ", status=" + status + ", image=" + image + ", teams=" + teams + ", games=" + games + ", messages="
 				+ messages + ", ratings=" + ratings + "]";
 	}
-	
-	
-	
-
-	
-	
-	
-	
 
 }

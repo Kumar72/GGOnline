@@ -43,6 +43,12 @@ public class PlayerController {
 	public String ping() {
 		return "PONG FROM PLAYERS CONTROLLER";
 	}
+	
+	@RequestMapping(value ="players", method=RequestMethod.GET)
+	public List<Player> index() {
+		return playerDAO.index();
+	}
+
 
 	//Player get by Id
 	@RequestMapping(value = "players/{id}", method = RequestMethod.GET)
@@ -50,23 +56,6 @@ public class PlayerController {
 		return playerDAO.show(id);
 	}
 
-	//Player Create
-	@RequestMapping(value = "players", method = RequestMethod.POST)
-	public Player create(@RequestBody String playerJson, HttpServletResponse res) {
-
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			Player mappedPlayer = mapper.readValue(playerJson, Player.class);
-
-			return playerDAO.create(mappedPlayer);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("YOU DON MESSED UP BROH!");
-		}
-		return null;
-
-	}
 	
 	//Player update
 	@RequestMapping(value = "players/{playerId}", method = RequestMethod.PUT)
@@ -83,23 +72,38 @@ public class PlayerController {
 		}
 		return null;
 	}
-
 	
+	//Player: Friend index
+	@RequestMapping(value = "players/{playerId}/players", method = RequestMethod.GET)
+	public List<Player> indexOfFriends(@PathVariable int playerId) {
+		return playerDAO.friends(playerId);
+	}
 	
+	//Player: Add a friend
+	@RequestMapping(value = "players/{playerId}/players/{friendId}", method = RequestMethod.POST)
+	public Player addFriend(@PathVariable("playerId") int playerId, @PathVariable("friendId") int friendId) {
+		return playerDAO.addFriend(playerId, friendId);
+	}
 	
-	//Game index
+	//Player: Player can unfriend a player
+	@RequestMapping(value="players/{playerId}/players/{friendId}", method = RequestMethod.DELETE)
+	public boolean unFrind(@PathVariable("playerId") int playerId, @PathVariable("friendId")int friendId){
+		return playerDAO.removeGameFromPlayer(playerId, friendId);
+	}
+	
+	//Game: Index
 	@RequestMapping(value = "players/{playerId}/games", method = RequestMethod.GET)
 	public List<Game> indexOfGamesPlayerHas(@PathVariable int playerId) {
 		return playerDAO.indexOfGamesPlayerHas(playerId);
 	}
 	
-	//Game add Game to Player
+	//Game: Add Game to Player
 	@RequestMapping(value = "players/{playerId}/games/{gameId}", method = RequestMethod.POST)
 	public Game addGameToPlayer(@PathVariable("playerId") int playerId, @PathVariable("gameId") int gameId) {
 		return playerDAO.addGame(playerId, gameId);
 	}
 	
-	//Game Player can remove a game
+	//Game: Player can remove a game
 	@RequestMapping(value="players/{playerId}/games/{gameId}", method = RequestMethod.DELETE)
 	public boolean removeGameFromPlayersList(@PathVariable("playerId") int playerId, @PathVariable("gameId")int gameId){
 		return playerDAO.removeGameFromPlayer(playerId, gameId);
@@ -133,5 +137,7 @@ public class PlayerController {
 		System.out.println(teamJson + teamDAO);
 		return teamDAO.createTeam(playerId, gameId, teamJson);
 	}
+	
+	
 	
 }
