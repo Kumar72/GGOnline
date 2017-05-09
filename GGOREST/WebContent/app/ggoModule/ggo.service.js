@@ -126,6 +126,15 @@ angular.module('ggoModule')
 		})
 	}
 	
+
+	//get a list of players on a team
+	service.getTeamMembers = function(team){
+		return $http({
+			url : 'api/teams/'+team.id + '/players',
+			method : 'GET'
+		})
+	}
+
 	//Message Index
 	service.messageIndex = function(){
 		return $http({
@@ -135,5 +144,5 @@ angular.module('ggoModule')
 	}
 	
 	return service;
-	})
+	});
 

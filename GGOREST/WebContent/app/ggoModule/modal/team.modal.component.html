@@ -1,0 +1,25 @@
+<div>
+        <div class="modal-header">
+            <h3 class="modal-title">{{team.name}}</h3>
+            <h3 class="modal-title">{{team.players}}</h3>
+        </div>
+        <div class="modal-body">
+            
+            <ul>
+            		
+                <li>
+                  <img src={{team.image}}/><br>
+                </li>
+                <li ng-repeat="member in members">
+                		Members: {{member.username}}<br>
+                </li>
+                
+            </ul>
+            
+            <button class="button" ng-click="cancel()">Go Back</button>
+           
+        </div>
+        
+
+   
+</div>

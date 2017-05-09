@@ -1,11 +1,11 @@
 angular.module('ggoModule').controller('gameModal',
 		function($scope, $uibModal, $log, ggoService) {
 
-			console.log('Clicked in modal.component.js');
 			
 			$scope.animationsEnabled = true;
 
 			$scope.open = function(game) {
+				console.log(game)
 				var modalInstance = $uibModal.open({
 					animation : $scope.animationsEnabled,
 					templateUrl : 'app/ggoModule/modal/modal.component.html',
@@ -24,6 +24,7 @@ angular.module('ggoModule').controller('gameModal',
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			};
+			
 
 			$scope.toggleAnimation = function() {
 				$scope.animationsEnabled = !$scope.animationsEnabled;
@@ -37,7 +38,7 @@ angular.module('ggoModule').controller('gameModal',
 
 angular.module('ggoModule').controller('ModalInstanceCtrl',
 		function($scope, $uibModalInstance, game, ggoService) {
-			console.log(game);
+			
 			$scope.game = game;
 //			$scope.game = items;
 //			$scope.selected = {
@@ -48,15 +49,15 @@ angular.module('ggoModule').controller('ModalInstanceCtrl',
 //				$uibModalInstance.close($scope.selected.item);
 //			};
 			
-			$scope.removeGame = function(game){
-				ggoService.removeGame(game)
-	    			.then(function(res){
-//	    			vm.reload();
-	    			console.log('In removeGame function')
-	    				
-	    		})
-				
-			}
+//			$scope.removeGame = function(game){
+//				ggoService.removeGame(game)
+//	    			.then(function(res){
+////	    			vm.reload();
+//	    			console.log('In removeGame function')
+//	    				
+//	    		})
+//				
+//			}
 //
 			$scope.cancel = function() {
 				$uibModalInstance.dismiss('cancel');

@@ -6,6 +6,7 @@ angular.module("ggoModule")
 		var vm = this;
 		vm.messages - [];
 		
+
 		vm.reload = function(){
 			ggoService.messageIndex().then(function(res){
 				console.log(res.data);
