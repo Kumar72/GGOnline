@@ -27,7 +27,7 @@ public class GameController {
 	@Autowired
 	GameDAO gameDAO;
 
-	@RequestMapping(value="ping", method=RequestMethod.GET)
+	@RequestMapping(value="games/ping", method=RequestMethod.GET)
 	public String ping(){
 		return "PONG FROM GAME CONTROLLER";
 	}

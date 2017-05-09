@@ -22,11 +22,11 @@ DROP TABLE IF EXISTS `game` ;
 
 CREATE TABLE IF NOT EXISTS `game` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL DEFAULT NULL,
-  `genera` VARCHAR(50) NULL DEFAULT NULL,
-  `rating` VARCHAR(1) NULL DEFAULT NULL,
-  `description` VARCHAR(500) NULL DEFAULT NULL,
-  `image` VARCHAR(500) NULL,
+  `name` VARCHAR(45) NULL,
+  `genera` VARCHAR(50) NULL,
+  `rating` VARCHAR(1) NULL,
+  `description` VARCHAR(500) NULL,
+  `image` VARCHAR(500) NULL DEFAULT 'http://dreamicus.com/data/game/game-08.jpg',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(500) NOT NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `message` VARCHAR(500) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
-  `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `message_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_message_user1_idx` (`user_id` ASC),
@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `team` ;
 CREATE TABLE IF NOT EXISTS `team` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `active` TINYINT(1) NULL DEFAULT 0,
   `game_id` INT(11) NOT NULL,
   `image` VARCHAR(500) NULL DEFAULT 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB',
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `user_id` INT(11) NOT NULL,
   `message_id` INT(11) NOT NULL,
   `user_team_id` INT(11) NOT NULL,
-  `is_read` TINYINT(1) NULL DEFAULT '0',
+  `is_read` TINYINT(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_recipient_user1_idx` (`user_id` ASC),
   INDEX `fk_recipient_message1_idx` (`message_id` ASC),
@@ -292,8 +292,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, '\'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB\'', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB', NULL);
 
 COMMIT;
 

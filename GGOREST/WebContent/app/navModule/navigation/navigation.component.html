@@ -8,12 +8,14 @@
 				<span style="font-size:30px;cursor:pointer" ng-click="vm.openNav()">&#9776;</span>
 			</div>
 			</a></li>
-			<li ng-show="vm.homeNav"><a href="#/home">Profile</a></li>	  
-	  		<li ng-show="vm.homeNav"><a href="#/notification" >Notification <!-- {{vm.messeageNotification()}} --></a></li>
-	  		<li ng-show="vm.homeNav"><a href="#/setting">Setting</a></li>
-	  		<li ng-show="vm.gameNav"><a href="#/game">Game</a></li>
-	  		<li ng-show="vm.gameNav"><a href="#/search">Advance Search</a></li>
-	  		<li ng-show="vm.socialNav"><a href="#/social">Chat</a></li>
+			<li ng-show="vm.homeNav()"><a href="#/home">Profile</a></li>	  
+	  		<li ng-show="vm.homeNav()"><a href="#/notification" >Notification <!-- {{vm.messeageNotification()}} --></a></li>
+	  		<li ng-show="vm.homeNav()"><a href="#/setting">Setting</a></li>
+	  		<li ng-show="vm.gameNav()"><a href="#/game">Game</a></li>
+	  		<li ng-show="vm.teamNav()"><a href="#/team">Game</a></li>
+	  		<li ng-show="vm.gameNav()"><a href="#/search">Advance Search</a></li>
+	  		<li ng-show="vm.socialNav()"><a href="#/social">Chat</a></li>
+	  		<li ng-show="vm.socialNav()"><a href="#/friend">Friends</a></li>
 	  		
 	  		
 	  		
