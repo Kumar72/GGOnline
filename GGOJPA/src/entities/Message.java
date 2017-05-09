@@ -29,8 +29,7 @@ public class Message {
 	@Column(name="created_date")
 	private Timestamp createdDate;
 	
-	@Column(name="message_id")
-	private int messageId;
+
 	
 	@ManyToOne
 	  @JoinColumn(name="message_id")
@@ -71,23 +70,36 @@ public class Message {
 		return createdDate;
 	}
 
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+
+	public void setMessAge(Message messAge) {
+		this.messAge = messAge;
+	}
+
 	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
 
-	public int getMessageId() {
-		return messageId;
-	}
-
-	public void setMessageId(int messageId) {
-		this.messageId = messageId;
-	}
-
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", message=" + message + ", createdDate=" + createdDate
-				+ ", messageId=" + messageId + "]";
+		return "Message [id=" + id + ", message=" + message + ", createdDate=" + createdDate + ", messAge=" + messAge
+				+ ", messages=" + messages + ", players=" + players + "]";
 	}
+
 	
 
 
