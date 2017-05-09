@@ -28,6 +28,9 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/social', {
 		template: '<social></social>'
 	})
+	.when('/friend', {
+		template: '<friend></friend>'
+	})
 	.otherwise({
 		template: '<not-found-component></not-found-component>'
 	})

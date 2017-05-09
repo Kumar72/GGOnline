@@ -3,10 +3,35 @@ angular.module("navModule").component("navComponent",{
 	controller : function(authService, $location) {
 		var vm = this;
 		
-		vm.homeNav = true;
-		vm.gameNav = true;
-		vm.teamNav = true;
-		vm.socialNav = true;
+		vm.homeNav = function() {
+			if($location.path() == '/home' ||$location.path()== '/notification' ||$location.path() == '/setting'){
+			return true;
+			}
+			return false;
+			
+		};
+		
+		vm.gameNav = function() {
+			if($location.path() == '/game' || $location.path()== '/search'){
+				return true;
+			}
+				return false;
+				
+		}
+		vm.teamNav = function() {
+			if($location.path() == '/team' || $location.path()== '/search'){
+				return true;
+			}
+				return false;		
+		}
+		vm.socialNav = function() {
+			if($location.path() == '/social' || $location.path()== '/chat' || $location.path() == '/friends'){
+				return true;
+			}
+				return false;		
+		}
+		
+		
 
 		vm.openNav = function() {
 			document.getElementById("mySidenav").style.width = "250px";

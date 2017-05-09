@@ -110,6 +110,8 @@ public class TeamDAOImpl implements TeamDAO {
 			mappedTeam = om.readValue(teamJson, Team.class);
 			System.out.println("TEST 1: "+mappedTeam);
 			mappedTeam.setPlayers(p);
+			if(mappedTeam.getGame().equals(""))
+			mappedTeam.setImage("http://us.battle.net/heroes/static/images/game/game-modes/Icon_team-league.png");
 			mappedTeam.setGame(g);
 			mappedTeam.setActive(true);
 			System.out.println("TEST 2: "+mappedTeam);
