@@ -28,14 +28,8 @@ public class Team {
 	
 	@Column(name="created_time")
 	private Timestamp createdTime;
-	
-
-
-	
 
 	private boolean active;
-
-
 
 	private String image;
 	

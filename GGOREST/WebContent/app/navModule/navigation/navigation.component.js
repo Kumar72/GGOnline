@@ -19,13 +19,13 @@ angular.module("navModule").component("navComponent",{
 				
 		}
 		vm.teamNav = function() {
-			if($location.path() == '/team' || $location.path()== '/search'){
+			if($location.path() == '/team' || $location.path() == '/search'){
 				return true;
 			}
 				return false;		
 		}
 		vm.socialNav = function() {
-			if($location.path() == '/social' || $location.path()== '/chat' || $location.path() == '/friends'){
+			if($location.path() == '/social' || $location.path()== '/chat' || $location.path() == '/player'){
 				return true;
 			}
 				return false;		

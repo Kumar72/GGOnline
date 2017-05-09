@@ -146,4 +146,11 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return false;
 	}
 
+	@Override
+	public List<Player> index() {
+		String q = "SELECT p FROM Player p";
+		List<Player> players = em.createQuery(q, Player.class).getResultList();
+		return players;
+	}
+
 }

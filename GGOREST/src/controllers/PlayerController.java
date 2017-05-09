@@ -43,6 +43,12 @@ public class PlayerController {
 	public String ping() {
 		return "PONG FROM PLAYERS CONTROLLER";
 	}
+	
+	@RequestMapping(value ="players", method=RequestMethod.GET)
+	public List<Player> index() {
+		return playerDAO.index();
+	}
+
 
 	//Player get by Id
 	@RequestMapping(value = "players/{id}", method = RequestMethod.GET)

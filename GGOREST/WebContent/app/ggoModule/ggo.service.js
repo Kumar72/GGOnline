@@ -10,6 +10,14 @@ angular.module('ggoModule')
 		})
 	}
 	
+	//Get Players
+	service.playerIndex = function(){
+		return $http({
+			method : 'GET',
+			url : 'api/players'
+		})	
+	}
+	
 	//Get Player Games
 	service.playerGames = function(){
 		return $http({
@@ -125,7 +133,6 @@ angular.module('ggoModule')
 			url : 'api/messages'
 		})	
 	}
-	
 	
 	return service;
 	})
