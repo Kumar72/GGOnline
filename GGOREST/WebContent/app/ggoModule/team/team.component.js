@@ -4,13 +4,19 @@ angular.module('ggoModule')
 	controller : function(ggoService, $filter, $location, authService){
 		var vm = this;
 		
-		vm.updatedList = function(){
-//			if(the user is part of this team return true){
-				
-//				return true;
-//			}
+		vm.updatedList = function(team){
+			return ggoService.playerTeams().then(function(res){
+				var match = false;
+				res.data.forEach(function(t, index, array){
+					if(t.id === team.id){						
+						 match = true;
+					}										
+				})
+				return match;
+			})
 			
-			return false;
+			
+
 		};
 		
 		
