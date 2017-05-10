@@ -12,13 +12,14 @@ angular.module('ggoModule')
 		.then(function(res){
 			vm.player = res.data;
 			if(!vm.player) $location.path('/not-found')
-			vm.reload();
+			vm.reload(vm.player.id);
 		});
 		
     	
     	
-    	vm.reload = function(){
-    		ggoService.showUser().then(function(res){
+    	vm.reload = function(playerId){
+    		console.log("###########"+playerId)
+    		ggoService.showPlayer(playerId).then(function(res){
         		vm.player = res.data;
         	})
        

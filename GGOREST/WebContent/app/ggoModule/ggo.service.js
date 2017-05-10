@@ -3,6 +3,7 @@ angular.module('ggoModule')
 	var service = {};
 	
 	
+	
 	//Get User
 	service.showUser = function () {
 		return $http({
@@ -10,6 +11,15 @@ angular.module('ggoModule')
 			url: "api/players/"+ authService.getToken().id
 		})
 	}
+	
+	service.showPlayer = function(playerId) {
+		console.log("@@@@@@@@@@@@@@@@@@"+playerId)
+		return $http({
+			method: 'GET',
+			url: "api/players/"+ playerId
+		})	
+	}
+	
 	//Update an active account
 	service.updatePlayer = function(player){
 		return $http({
