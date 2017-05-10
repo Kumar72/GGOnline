@@ -5,6 +5,7 @@ angular.module("ggoModule")
 	controller : function(ggoService, $location, $scope, authService) {
 		var vm = this;
 		vm.messages - [];
+		vm.showMessageForm = false;
 		
 
 		vm.reload = function(){
@@ -14,6 +15,24 @@ angular.module("ggoModule")
 				
 			})
 		}
+		
+		 vm.newMessage = function(message) {
+				ggoService.createMessage(message).then(function(res){
+					
+		        		vm.messages = res.data;
+		    	   
+				})
+			 }
+		 
+		 
+		 vm.displayForm = function() {
+	    		vm.showMessageForm = true;
+	    	}
+		 
+		 vm.messageNotification = function() {
+	    		return vm.messages.length;
+	    	}
+		 
 	},
 	controllerAs: 'vm'
 });

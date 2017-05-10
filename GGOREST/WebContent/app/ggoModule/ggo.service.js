@@ -168,6 +168,21 @@ angular.module('ggoModule')
 		})	
 	}
 	
+
+	//Create Message
+	service.createMessage = function(message) {
+//    	console.log(team)
+//    	console.log("Game ID in service"+gameId)
+    	return $http({
+    		method: 'POST',
+    		url: "api/messages/"+ authService.getToken().id,
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
+    	data: message
+    	})
+    }
+
 	//view another users profile
 	service.visitPlayersProfile = function(team, player){
 		console.log("Team: "+team)
@@ -179,6 +194,7 @@ angular.module('ggoModule')
 		
 	}
 	
+
 	
 	
 	return service;
