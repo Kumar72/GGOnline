@@ -1,8 +1,8 @@
 body {
    margin:0;
-   background-image: url("http://hdw.eweb4.com/media/wallpapers/1/1/8.jpg");  
+   background-image: url("http://hdw.eweb4.com/media/wallpapers/1/1/8.jpg");
    background-repeat: no-repeat;
-   background-attachment: fixed;  
+   background-attachment: fixed;
    background-size: 100%;
    transition: background-color .5s;
 }
@@ -16,9 +16,9 @@ body {
 
 /* body .page {
    margin:0;
-   background-image: url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg');  
+   background-image: url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg');
    background-repeat: no-repeat;
-   background-attachment: fixed;  
+   background-attachment: fixed;
    background-size: 100%;
    transition: background-color .5s;
 } */
@@ -123,7 +123,7 @@ input[type=text], input[type=password], input[type=email], input[type=number] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     background: white;
-    
+
 }
 
 label, #label {
@@ -157,12 +157,12 @@ button:hover {
     position: relative;
     top: -10px;
     border: 2px;
-    
+
 }
 
 img.avatar {
     width: 50.3%;
-    
+
 }
 
 .container {
@@ -271,4 +271,18 @@ span.psw {
 #gameModalImage{
 	height: 200px;
 	width: 200px;
+}
+
+#aboutGGO{
+	background-color: lightgray;
+	margin-top: 15em;
+}
+
+.headers{
+	text-align: center;
+}
+
+.aboutParagraph{
+  text-align: center;
+  color: black;
 }

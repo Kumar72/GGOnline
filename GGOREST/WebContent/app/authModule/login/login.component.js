@@ -14,8 +14,10 @@ angular.module("authModule").component("login", {
     		$location.path('/register')
     	}
     	vm.learn = function() {
-    		
+    		$location.url('/about')
     	}
+    	
+    	
     },
 	controllerAs: 'vm'
     });
