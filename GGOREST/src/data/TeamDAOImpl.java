@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -22,6 +23,8 @@ public class TeamDAOImpl implements TeamDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Autowired
+	TeamDAO teamDAO;
 	
 	@Override
 	public Team show(int teamId) {
@@ -29,13 +32,7 @@ public class TeamDAOImpl implements TeamDAO {
 		return team;
 	}
 
-	@Override
-	public List<Player> indexOfPlayers(int teamId) {
-		String q = "SELECT t FROM Team t JOIN FETCH t.players WHERE t.id=:id";
-		return em.createQuery(q, Team.class).setParameter("id", teamId).getSingleResult().getPlayers();
-		
-	}
-
+	
 	@Override
 	public Team create(Team team) {
 		em.persist(team);
@@ -130,5 +127,23 @@ public class TeamDAOImpl implements TeamDAO {
 		em.persist(mappedTeam);
 		em.flush();
 		return mappedTeam;
+	}
+	//getting a list of players subscribed to a team
+	@Override
+	public List<Player> indexOfPlayers(int teamId) {
+		String q = "SELECT t FROM Team t JOIN FETCH t.players WHERE t.id=:id";
+		return em.createQuery(q, Team.class).setParameter("id", teamId).getSingleResult().getPlayers();
+		
+	}
+
+	//gets a single player from a team
+	@Override
+	public Player getPlayerFromTeam(int teamId, int playerId) {
+		List<Player> p = indexOfPlayers(teamId);
+		Player managed = em.find(Player.class, playerId);
+		int i = p.indexOf(managed);
+		return p.get(i);
+//		String q = "SELECT p FROM Player p WHERE p.id=:id";
+//		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult();
 	}
 }

@@ -170,9 +170,11 @@ angular.module('ggoModule')
 	
 	//view another users profile
 	service.visitPlayersProfile = function(team, player){
+		console.log("Team: "+team)
+		console.log("Player: "+ player)
 		return $http({
 			method : 'GET',
-			url : 'api/teams/'+ team.id + '/players/' + player.id
+			url : 'api/teams/'+ team + '/players/' + player
 		})
 		
 	}

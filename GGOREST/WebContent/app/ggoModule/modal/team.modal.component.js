@@ -33,6 +33,8 @@ angular.module('ggoModule')
 		});
 	};
 	
+		
+	
 	$scope.toggleAnimation = function() {
 		$scope.animationsEnabled = !$scope.animationsEnabled;
 	};
@@ -44,7 +46,12 @@ angular.module('ggoModule')
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('TeamModalInstanceCtrl',
-		function($scope, $uibModalInstance, team, members, ggoService) {
+		function($scope, $uibModalInstance, team, members, ggoService, $location) {
+	
+		$scope.routeToUserProfile = function(teamId, playerId){
+			$location.path('/teams/'+ teamId +'/players/'+ playerId)
+			$scope.cancel();
+		}
 	
 			$scope.team = team;
 			$scope.members = members;

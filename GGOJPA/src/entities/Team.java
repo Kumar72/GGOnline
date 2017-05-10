@@ -32,7 +32,7 @@ public class Team {
 	private boolean active;
 
 	private String image;
-	
+		
 
 	@ManyToMany(mappedBy="teams")
 	@JsonIgnore

@@ -31,7 +31,7 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/player', {
 		template: '<player></player>'
 	})
-	.when('/players/:playerId',{
+	.when('/teams/:teamId/players/:playerId',{
 		template: '<show-player></show-player>'
 	})
 	.otherwise({

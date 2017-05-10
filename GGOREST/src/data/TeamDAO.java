@@ -13,6 +13,7 @@ public interface TeamDAO {
 	public Team create(Team team);
 	public Team update(int teamId, Team team);
 	public boolean destroy(int teamId);
+	public Player getPlayerFromTeam(int teamId, int playerId);
 	
 	public Player makeCaptain(int playerId, int teamId);
 	public Player promoteToCaptain(int playerId);

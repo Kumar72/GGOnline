@@ -53,4 +53,9 @@ public class TeamController {
 		
 		return teamDAO.update(teamId, team);
 	}
+	//shows an individual player from a team
+	@RequestMapping(value="teams/{teamId}/players/{playerId}", method = RequestMethod.GET)
+	public Player showPlayerFromTeam(@PathVariable int teamId, @PathVariable int playerId){
+		return teamDAO.getPlayerFromTeam(teamId, playerId);
+	}
 }
