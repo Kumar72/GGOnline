@@ -57,7 +57,9 @@ angular.module("ggoModule").component("home", {
     		})
     	}
     	
-    	vm.unfriend = function(friend) {
+    	vm.unFriend = function(friend) {
+    		console.log(friend)
+    		console.log("In unfriend method in home.js")
     		ggoService.removeFriend(friend).then(function(res){
     			vm.reload();
     		})
