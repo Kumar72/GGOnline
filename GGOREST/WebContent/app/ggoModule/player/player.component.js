@@ -7,8 +7,22 @@ angular.module('ggoModule')
 		vm.players=[];
 		
 		vm.reload = function(){
-			ggoService.playerIndex().then(function(res){
-				vm.players = res.data;
+			var result = [];
+			ggoService.playerIndex().then(function(response){
+				ggoService.playerFriends().then(function(res){
+					response.data.forEach(function(player, index, array){
+						 var match = false;
+						 res.data.forEach(function(p,i,a){					 
+							 if (p.id === player.id){
+								 match = true;
+							 }
+						 })
+						 if(!match && player.id != authService.getToken().id){
+							 result.push(player);
+						 }
+					 })
+				})
+				vm.players = result;
 			})
 		}
 		vm.friendRequest = function(friendId){	
