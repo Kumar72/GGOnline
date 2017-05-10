@@ -30,19 +30,11 @@ angular.module("ggoModule").component("home", {
     	vm.reload();
     	
     	
-//		 vm.newTeam = function(team, gameId) {
-//			ggoService.createTeam(team, gameId).then(function(res){
-//				ggoService.playerTeams().then(function(res){
-//	        		vm.teams = res.data;
-//	    	    })
-//			})
-//		 }
     	 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)
     		.then(function(res){
     			vm.reload();
-//    			console.log('In removeGame function')
     		})
     		.catch(function(error){
     			console.log("hit error");
@@ -57,8 +49,6 @@ angular.module("ggoModule").component("home", {
     	}
     	
     	vm.unFriend = function(friend) {
-    		console.log(friend)
-    		console.log("In unfriend method in home.js")
     		ggoService.removeFriend(friend).then(function(res){
     			vm.reload();
     		})
