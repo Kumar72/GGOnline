@@ -25,7 +25,7 @@ angular.module("navModule").component("navComponent",{
 				return false;		
 		}
 		vm.socialNav = function() {
-			if($location.path() == '/social' || $location.path()== '/chat' || $location.path() == '/player'){
+			if($location.path() == '/social' || $location.path()== '/player' || $location.path() == '/chat'){
 				return true;
 			}
 				return false;		
