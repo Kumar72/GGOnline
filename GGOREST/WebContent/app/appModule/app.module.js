@@ -31,6 +31,9 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	.when('/player', {
 		template: '<player></player>'
 	})
+	.when('/newTeam', {
+		template: '<newTeam></newTeam>'
+	})
 	.when('/teams/:teamId/players/:playerId',{
 		template: '<show-player></show-player>'
 	})

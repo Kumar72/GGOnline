@@ -12,14 +12,14 @@ angular.module("navModule").component("navComponent",{
 		};
 		
 		vm.gameNav = function() {
-			if($location.path() == '/game' || $location.path()== '/search'){
+			if($location.path() == '/game' || $location.path()== '/addGame'){
 				return true;
 			}
 				return false;
 				
 		}
 		vm.teamNav = function() {
-			if($location.path() == '/team' || $location.path() == '/search'){
+			if($location.path() == '/team' || $location.path() == '/newTeam'){
 				return true;
 			}
 				return false;		
