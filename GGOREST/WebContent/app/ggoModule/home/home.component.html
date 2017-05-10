@@ -11,11 +11,6 @@
 						<tbody>
 							<tr>
 								<td></td>
-								<td>Player id:</td>
-								<td>{{vm.player.id}}</td>
-							</tr>
-							<tr>
-								<td></td>
 								<td>First Name:</td>
 								<td>{{vm.player.fname}}</td>
 							</tr>
@@ -92,10 +87,10 @@
 			</tbody>
 		</table>
 	</div>
-	
-		<h3>Friends</h3>
+
+	<hr>	
+	<h3>Friends</h3>
 	<div>
-		<!-- class="divline" -->
 		<table>
 			<thead>
 			</thead>
@@ -107,13 +102,14 @@
 					<td>{{friend.username}}</td>
 					<td><button id="unFriend" class="button" ng-click="vm.unFriend(friend)">Remove</button></td>
 					<td ng-controller="friendModal"><button id="modalButton" class="button" ng-click="open(friend)">View Profile</button></td>
-				<!-- </tr>
-				<tr> -->
+				</tr>
+				<tr>
 				</tr>
 
 			</tbody>
 		</table>
-	</div>
+	</div> 
+	
 	<!-- Put the form in modal once it works -->
 	<div id="share-options">
 		<form ng-hide="vm.showTeamForm">

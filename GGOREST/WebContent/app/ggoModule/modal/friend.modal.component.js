@@ -9,7 +9,7 @@ angular.module('ggoModule').controller('friendModal',
 				var modalInstance = $uibModal.open({
 					animation : $scope.animationsEnabled,
 					templateUrl : 'app/ggoModule/modal/friend.modal.component.html',
-					controller : 'ModalInstanceCtrl',
+					controller : 'friendModalInstanceCtrl',
 					size : "large",
 					resolve : {
 						friend : function() {
@@ -25,7 +25,6 @@ angular.module('ggoModule').controller('friendModal',
 				});
 			};
 			
-
 			$scope.toggleAnimation = function() {
 				$scope.animationsEnabled = !$scope.animationsEnabled;
 			};
@@ -36,7 +35,7 @@ angular.module('ggoModule').controller('friendModal',
 // dependency.
 // It is not the same as the $uibModal service used above.
 
-angular.module('ggoModule').controller('ModalInstanceCtrl',
+angular.module('ggoModule').controller('friendModalInstanceCtrl',
 		function($scope, $uibModalInstance, friend, ggoService) {
 			
 			$scope.friend = friend;

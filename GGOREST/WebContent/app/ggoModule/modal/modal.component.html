@@ -4,24 +4,43 @@
             <h3 class="modal-title">{{game.name}}</h3>
         </div>
         <div class="modal-body">
+            <table>
+            	<thead>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<td><img id="gameModalImage" src={{game.image}} height="100px"
+            					width="100px"/>
+            			</td>
+            			<td>
+            				<table>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Genera: {{game.genre}}</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td> Rating: {{game.rating}}</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Description: {{game.description}}</td>
+									</tr>														
+								</tbody>
+					</table>
+            			</td>
+            		<tr>
+            	</tbody>
+            </table>       
             
-            <ul>
-            		
-                <li>
-                  <img id="gameModalImage" src={{game.image}}/><br>
-                </li>
-                <li>
-                   Genera: {{game.genra}}<br>
-                </li>
-                <li>
-                   Rating: {{game.rating}}<br>
-                </li>
-                <li>
-                		Description: {{game.description}}
-                </li>
-            </ul>
-            
-<!--             <button class="button" ng-click="removeGame()">Un-follow</button> -->
+<!--       	<button class="button" ng-click="removeGame()">Un-follow</button> -->
             <button class="button" ng-click="cancel()">Go Back</button>
            
         </div>

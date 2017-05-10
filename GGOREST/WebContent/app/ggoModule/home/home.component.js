@@ -57,6 +57,12 @@ angular.module("ggoModule").component("home", {
     		})
     	}
     	
+    	vm.unfriend = function(friend) {
+    		ggoService.removeFriend(friend).then(function(res){
+    			vm.reload();
+    		})
+    	}
+    	
     	vm.updatePlayer = function(updateUser) {
     		ggoService.update().then(function(res){
         		vm.player = res.data;
