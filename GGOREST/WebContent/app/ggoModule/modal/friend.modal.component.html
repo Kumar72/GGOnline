@@ -1,0 +1,34 @@
+<div>
+<!--     <script type="text/ng-template" id="myModalContent.html"> -->
+        <div class="modal-header">
+            <h3 class="modal-title">{{friend.username}}</h3>
+        </div>
+        <div class="modal-body">
+            
+            <ul>            		
+                <li>
+                  <img src={{game.image}}/><br>
+                </li>
+                <li>
+                   First Name: {{friend.fname}}<br>
+                </li>
+                <li>
+                   Last Name: {{friend.lname}}<br>
+                </li>
+                <li>
+                   Rating: {{friend.rating}}<br>
+                </li>
+                <li>
+                    {{friend.active}} <!-- To Check if they are online -->
+                </li>
+            </ul>
+            
+<!--             <button class="button" ng-click="removeGame()">Un-follow</button> -->
+            <button class="button" ng-click="cancel()">Go Back</button>
+           
+        </div>
+        
+    <!-- </script> -->
+
+   
+</div>
