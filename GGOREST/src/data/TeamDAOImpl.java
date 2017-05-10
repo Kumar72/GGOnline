@@ -26,6 +26,7 @@ public class TeamDAOImpl implements TeamDAO {
 	@Autowired
 	TeamDAO teamDAO;
 	
+	//view a team
 	@Override
 	public Team show(int teamId) {
 		Team team = em.find(Team.class, teamId);	
@@ -33,6 +34,7 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 	
+	//creates a team
 	@Override
 	public Team create(Team team) {
 		em.persist(team);
@@ -40,6 +42,7 @@ public class TeamDAOImpl implements TeamDAO {
 		return team;
 	}
 
+	//updates a team
 	@Override
 	public Team update(int teamId, Team team) {
 		Team managed = em.find(Team.class, teamId);
@@ -47,6 +50,7 @@ public class TeamDAOImpl implements TeamDAO {
 		return null;
 	}
 
+	//deletes a team
 	@Override
 	public boolean destroy(int teamId) {
 		Team managed = em.find(Team.class, teamId);
@@ -65,7 +69,7 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 
-
+	//sets a player to team captain
 	@Override
 	public Player makeCaptain(int playerId, int teamId) {
 		Player managed = em.find(Player.class,playerId);
@@ -74,13 +78,13 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 
-
+	//promotes team member to team captain
 	@Override
 	public Player promoteToCaptain(int playerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	//gets a list of teams
 	@Override
 	public List<Team> index() {
 		String q = "SELECT t FROM Team t";
@@ -90,6 +94,8 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 	
+	
+	//makes a new team
 	@Override
 	public Team createTeam(int playerId, int gameId, String teamJson) {
 		System.out.println(teamJson);
@@ -143,7 +149,5 @@ public class TeamDAOImpl implements TeamDAO {
 		Player managed = em.find(Player.class, playerId);
 		int i = p.indexOf(managed);
 		return p.get(i);
-//		String q = "SELECT p FROM Player p WHERE p.id=:id";
-//		return em.createQuery(q, Player.class).setParameter("id", playerId).getSingleResult();
 	}
 }

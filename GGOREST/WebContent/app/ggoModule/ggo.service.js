@@ -185,8 +185,8 @@ angular.module('ggoModule')
 
 	//view another users profile
 	service.visitPlayersProfile = function(team, player){
-		console.log("Team: "+team)
-		console.log("Player: "+ player)
+		console.log("Team id: "+ team)
+		console.log("Player id: "+ player)
 		return $http({
 			method : 'GET',
 			url : 'api/teams/'+ team + '/players/' + player

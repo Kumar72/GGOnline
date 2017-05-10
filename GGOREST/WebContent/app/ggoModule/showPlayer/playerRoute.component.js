@@ -7,7 +7,6 @@ angular.module('ggoModule')
 		vm.player =[];
 		vm.games = [];
 		vm.teams = [];
-		console.log($routeParams)
 		
 		ggoService.visitPlayersProfile(parseInt($routeParams.teamId), parseInt($routeParams.playerId))
 		.then(function(res){
