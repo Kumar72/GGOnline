@@ -4,7 +4,8 @@ angular.module("navModule").component("navComponent",{
 		var vm = this;
 		
 		vm.homeNav = function() {
-			if($location.path() == '/home' ||$location.path()== '/notification' ||$location.path() == '/setting'){
+			if($location.path() == '/home' ||$location.path()== '/notification' 
+				||$location.path() == '/setting'|| $location.path().contains('/teams/')){
 			return true;
 			}
 			return false;

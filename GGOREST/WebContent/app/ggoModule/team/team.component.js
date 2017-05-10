@@ -4,26 +4,27 @@ angular.module('ggoModule')
 	controller : function(ggoService, $filter, $location, authService){
 		var vm = this;
 		
-		vm.updatedList = function(team){
-			return ggoService.playerTeams().then(function(res){
-				var match = false;
-				res.data.forEach(function(t, index, array){
-					if(t.id === team.id){						
-						 match = true;
-					}										
-				})
-				return match;
-			})			
-			
-
-		};
-		
 		
 		vm.teams=[];
 		
 		vm.reload = function(){
-			ggoService.teamIndex().then(function(res){
-				vm.teams = res.data;
+			var result = [];
+			ggoService.teamIndex().then(function(response){
+				 ggoService.playerTeams().then(function(res){				 
+					 response.data.forEach(function(team, index, array){
+						 var match = false;
+						 res.data.forEach(function(t,i,a){
+							 if (t.id === team.id){
+								 match = true;
+							 }
+						 })
+						 if(!match){
+							 result.push(team);
+						 }
+					 })
+				})
+				vm.teams = result;		//input all team into vm.teams that the user doesn't have
+				
 				
 			})
 		}

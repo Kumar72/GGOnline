@@ -11,9 +11,9 @@
 	
 		<tr ng-repeat="team in vm.teams| teamSearch : vm.teamSearch | orderBy: 'id'">
 
-		<td>{{team.name}}</td>
-		<td><button class="button" ng-click="vm.joinTeam(team.id)"
-			ng-hide="vm.updatedList(team)">Join Team</button></td>
+		<td ng-hide="">{{team.name}}</td>
+		<td><button class="button" ng-click="vm.joinTeam(team.id)">
+			Join Team</button></td>
 
 		</tr>
 	</tbody>

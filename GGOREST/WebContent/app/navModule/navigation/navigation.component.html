@@ -11,9 +11,13 @@
 			<li ng-show="vm.homeNav()"><a href="#/home">Profile</a></li>	  
 	  		<li ng-show="vm.homeNav()"><a href="#/notification" >Notification </a></li>
 	  		<li ng-show="vm.homeNav()"><a href="#/setting">Setting</a></li>
+	  		<li ng-show="vm.gameNav()"><a href="#/home">Profile</a></li>
 	  		<li ng-show="vm.gameNav()"><a href="#/game">Game</a></li>
+	  		<li ng-show="vm.gameNav()"><a href="#/addGame">Add Game</a></li>
+	  		<li ng-show="vm.teamNav()"><a href="#/home">Profile</a></li>
 	  		<li ng-show="vm.teamNav()"><a href="#/team">Team</a></li>
 	  		<li ng-show="vm.teamNav()"><a href="#/newTeam">Make Team</a></li>
+	  		<li ng-show="vm.socialNav()"><a href="#/home">Profile</a></li>
 	  		<li ng-show="vm.socialNav()"><a href="#/player">Players</a></li>
 	  		<li ng-show="vm.socialNav()"><a href="#/social">Chat <!-- {{vm.messeageNotification()}} --></a></li>	  		
 	  </ul>
@@ -26,8 +30,8 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" ng-click="vm.closeNav()">&times;</a>
   <a href="#/home" ng-click="vm.closeNav()" >Home</a>
-  <a href="#/game" ng-click="vm.closeNav()" >Game</a>
   <a href="#/player" ng-click="vm.closeNav()">Social</a>
+  <a href="#/game" ng-click="vm.closeNav()" >Game</a>
   <a href="#/team" ng-click="vm.closeNav()">Team</a>
   <a ng-click="vm.logout()">LogOut</a>
 </div>
