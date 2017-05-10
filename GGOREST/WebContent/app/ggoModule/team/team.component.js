@@ -5,10 +5,10 @@ angular.module('ggoModule')
 		var vm = this;
 		
 		vm.updatedList = function(){
-			if(the user is part of this team return true){
+//			if(the user is part of this team return true){
 				
-				return true;
-			}
+//				return true;
+//			}
 			
 			return false;
 		};
