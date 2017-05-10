@@ -31,13 +31,13 @@ angular.module("ggoModule").component("home", {
     	vm.reload();
     	
     	
-		 vm.newTeam = function(team, gameId) {
-			ggoService.createTeam(team, gameId).then(function(res){
-				ggoService.playerTeams().then(function(res){
-	        		vm.teams = res.data;
-	    	    })
-			})
-		 }
+//		 vm.newTeam = function(team, gameId) {
+//			ggoService.createTeam(team, gameId).then(function(res){
+//				ggoService.playerTeams().then(function(res){
+//	        		vm.teams = res.data;
+//	    	    })
+//			})
+//		 }
     	 
     	vm.removeGame = function(game){
     		ggoService.removeGame(game)

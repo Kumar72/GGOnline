@@ -1,0 +1,22 @@
+<div id="share-options">
+		<form ng-hide="vm.showTeamForm">
+			<fieldset class="form-register">
+				<label for="InputTeamName">Team Name: </label>
+			  	<input type="text" class="form-control" id="InputTeamName" ng-model="newteam.name" placeholder="Team Name" required>
+				<br>
+				<label for="InputTeamPic">Team Image URL: </label>
+			  	<input type="text" class="form-control" id="InputTeamPic" ng-model="newteam.image" placeholder="Team Picture URL">
+				<br>
+				<label for="SelectGame">Game: </label> 
+				<select ng-model="newgame">
+					<option ng-repeat="game in vm.games" value="{{game.id}}" required>{{game.name}}</option>
+				</select>
+				<br>	
+				<label for="InputTeamSize">Team Size: </label>
+		    	<input type="number" class="form-control" id="InputTeamSize" placeholder="Team Size" min="2" max="50"/> <!-- add team size to db -->
+				<br>
+				<button type="submit" class="btn btn-primary" ng-click="vm.newTeam(newteam, newgame); ">Create Team</button>
+				<button type="submit" class="btn btn-primary" ng-click="vm.cancelButton()">Cancel</button>
+	  		</fieldset>
+		</form>
+	</div>
