@@ -5,7 +5,6 @@ angular.module('ggoModule').controller('friendModal',
 			$scope.animationsEnabled = true;
 
 			$scope.open = function(friend) {
-				console.log(friend)
 				var modalInstance = $uibModal.open({
 					animation : $scope.animationsEnabled,
 					templateUrl : 'app/ggoModule/modal/friend.modal.component.html',

@@ -29,7 +29,6 @@ angular.module('authModule')
 
 
     service.login = function(user) {
-    	console.log(user);
     	return $http({
     		method: 'POST',
     		url: "api/auth/login",
@@ -45,7 +44,6 @@ angular.module('authModule')
     }
 
     service.register = function(user) {
-//    	console.log(user)
     	return $http({
     		method: 'POST',
     		url: "api/auth/register",
@@ -59,7 +57,6 @@ angular.module('authModule')
     }
 
     service.logout = function() {
-    	console.log("in logout service")
     	return $http({
     		method: 'POST',
     		url: "api/auth/logout",

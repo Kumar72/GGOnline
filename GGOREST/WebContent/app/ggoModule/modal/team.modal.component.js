@@ -8,7 +8,6 @@ angular.module('ggoModule')
 	
 	$scope.open = function(team) {
 		
-		console.log(team);
 		var modalInstance = $uibModal.open({
 			animation : $scope.animationsEnabled,
 			templateUrl : 'app/ggoModule/modal/team.modal.component.html',

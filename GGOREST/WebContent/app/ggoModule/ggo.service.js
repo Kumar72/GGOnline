@@ -13,7 +13,6 @@ angular.module('ggoModule')
 	}
 	
 	service.showPlayer = function(playerId) {
-		console.log("@@@@@@@@@@@@@@@@@@"+playerId)
 		return $http({
 			method: 'GET',
 			url: "api/players/"+ playerId
@@ -50,7 +49,6 @@ angular.module('ggoModule')
 	}
 	//Add Friend to Player List
 	service.addFriend = function(friendId){
-		console.log("clicked in addGame service" + friendId)
 		return $http({
 			method : 'POST',
 			url : 'api/players/'+ authService.getToken().id +'/players/'+friendId,
@@ -61,8 +59,6 @@ angular.module('ggoModule')
 	}
 	//Remove a player from your friend list
 	service.removeFriend = function(friend){
-		console.log(friend)
-		console.log("In unfriend method in ggo.service.js")
 		return $http({
 			url : 'api/players/'+authService.getToken().id+'/players/'+ friend.id,
 			method : 'DELETE',
@@ -122,7 +118,6 @@ angular.module('ggoModule')
 	}	
 	//Team Index
 	service.teamIndex = function(){
-//		console.log('In teamIndex -- ggoService')
 		return $http({
 			method : 'GET',
 			url : 'api/teams'
@@ -183,8 +178,6 @@ angular.module('ggoModule')
 
 	//Create Message
 	service.createMessage = function(message) {
-//    	console.log(team)
-//    	console.log("Game ID in service"+gameId)
     	return $http({
     		method: 'POST',
     		url: "api/messages/"+ authService.getToken().id,

@@ -48,7 +48,6 @@ public class AuthController {
 
 	@RequestMapping(path = "/logout", method = RequestMethod.POST)
 	public Boolean logout(HttpSession session, HttpServletResponse res) {
-		System.out.println("############### IN AUTH CONTROLLER - LOGOUT");
 		session.removeAttribute("user");
 		return true;
 	}

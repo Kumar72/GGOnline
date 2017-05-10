@@ -8,7 +8,6 @@ angular.module('ggoModule')
 	  	vm.reload = function(){
 	  		ggoService.playerGames().then(function(res){
         		vm.games = res.data;
-        		console.log(vm.games)
 	  		})	
         	}
 		 vm.reload();
