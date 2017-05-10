@@ -51,6 +51,8 @@ angular.module('ggoModule')
 	}
 	//Remove a player from your friend list
 	service.removeFriend = function(friend){
+		console.log(friend)
+		console.log("In unfriend method in ggo.service.js")
 		return $http({
 			url : 'api/players/'+authService.getToken().id+'/players/'+ friend.id,
 			method : 'DELETE',

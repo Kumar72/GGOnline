@@ -103,9 +103,6 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public Player addFriend(int playerId, int friendId) {
 		System.err.println(playerId);
-//		String query = "SELECT p FROM Player p JOIN FETCH p.friends where p.id = 3";
-		
-//		Player player = em.createQuery(query, Player.class).getSingleResult();
 		Player player = em.find(Player.class, playerId);
 		System.err.println(player.getFriends());
 		System.err.println(player.getFriends().size());
@@ -135,17 +132,20 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return team;
 	}
 	
+	
+	
 	//Un-friend a player
 	@Override
 	public boolean unfriend(int playerId, int friendId) {
-		Player player = em.find(Player.class, playerId);
-		Player friend = em.find(Player.class, friendId);
-		int id = player.getFriends().indexOf(friend);
-		List<Player> friends = player.getFriends();
-		System.out.println(friends.size());
+		System.out.println("In unfriend method in DAOImpl");
+		Player player = em.find(Player.class, playerId);		//user id
+		Player friend = em.find(Player.class, friendId);		//friend to be removed
+		int id = player.getFriends().indexOf(friend);		//get the id of the friend
+		List<Player> friends = player.getFriends();		
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%% Before "+friends.size());
 		friends.remove(id);
 		player.setFriends(friends);
-		System.out.println(player.getFriends().size());
+		System.out.println("************************ After "+player.getFriends().size());
 		if(em.find(Player.class, friendId)==null){
 			return true;
 		}
