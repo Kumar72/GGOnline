@@ -20,6 +20,10 @@ angular.module('ggoModule')
 		    	    })
 				})
 			 }
+		 
+		 vm.redirect = function(){
+			 $location.url('/team')
+		 }
 		
 		
 	},

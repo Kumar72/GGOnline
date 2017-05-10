@@ -13,8 +13,7 @@ angular.module('ggoModule')
 					}										
 				})
 				return match;
-			})
-			
+			})			
 			
 
 		};
