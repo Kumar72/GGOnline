@@ -32,7 +32,7 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 		template: '<player></player>'
 	})
 	.when('/newTeam', {
-		template: '<newTeam></newTeam>'
+		template: '<new-team></new-team>'
 	})
 	.when('/teams/:teamId/players/:playerId',{
 		template: '<show-player></show-player>'
