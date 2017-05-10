@@ -1,6 +1,6 @@
 angular.module("navModule").component("navComponent",{
 	templateUrl : 'app/navModule/navigation/navigation.component.html',
-	controller : function(authService, $location) {
+	controller : function(authService, $location, social) {
 		var vm = this;
 		
 		vm.homeNav = function() {
@@ -55,10 +55,7 @@ angular.module("navModule").component("navComponent",{
 			return false;
 		}
 		
-		/* vm.messageNotification = function() {
-    		return vm.message.length; 
-    	} */
-
+	
 		vm.logout = function() {
 			console.log("in navigation component / log out method")
 			vm.closeNav();

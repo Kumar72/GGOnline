@@ -2,6 +2,7 @@ angular.module('ggoModule')
 .factory('ggoService', function($http,$cookies,authService){
 	var service = {};
 	
+	
 	//Get User
 	service.showUser = function () {
 		return $http({
@@ -167,6 +168,31 @@ angular.module('ggoModule')
 		})	
 	}
 	
+
+	//Create Message
+	service.createMessage = function(message) {
+//    	console.log(team)
+//    	console.log("Game ID in service"+gameId)
+    	return $http({
+    		method: 'POST',
+    		url: "api/messages/"+ authService.getToken().id,
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
+    	data: message
+    	})
+    }
+
+	//view another users profile
+	service.visitPlayersProfile = function(team, player){
+		return $http({
+			method : 'GET',
+			url : 'api/teams/'+ team.id + '/players/' + player.id
+		})
+		
+	}
+	
+
 	
 	
 	return service;

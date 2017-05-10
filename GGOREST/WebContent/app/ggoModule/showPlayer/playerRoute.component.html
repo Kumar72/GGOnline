@@ -1,0 +1,120 @@
+<div class="container3">
+	<table>
+		<thead>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img ng-src="{{vm.player.image}}" height="100px"
+					width="100px"></td>
+				<td>
+					<table>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>Player id:</td>
+								<td>{{vm.player.id}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>First Name:</td>
+								<td>{{vm.player.fname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Last Name:</td>
+								<td>{{vm.player.lname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Username:</td>
+								<td>{{vm.player.username}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Email:</td>
+								<td>{{vm.player.email}}</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- ***************** Start rating script ***************** -->
+
+	<div ng-controller="playerRating">
+
+		<h4>Rate Player</h4>
+
+		<uib-rating ng-model="rate" max="max" read-only="isReadonly"
+			on-hover="hoveringOver(value)" on-leave="overStar = null"
+			titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+		<span class="label"
+			ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+			ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+		<!--     <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+     <button type="button" class="btn btn-sm btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+ -->
+
+		<form>
+			<input type="text" placeHolder="Leave A Comment"> <input
+				type="submit" class="button" ng-click="vm.playerRating()">
+			<!-- not functional yet. Need to uncomment rating entity, controller, dao, and daoimpl -->
+		</form>
+	</div>
+
+
+
+	<!-- ***************** End rating script ***************** -->
+
+	<hr>
+	<!-- <button ng-click='gameModal'>Open Modal Dialog</button>
+	<modal-dialog show='vm.modalShown' width='750px' height='60%'>
+		<p>Modal Content Goes here<p>
+	</modal-dialog> -->
+
+
+	<h3>Games</h3>
+	<hr>
+	<div>
+		<!-- class="divline" -->
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="game in vm.games">
+					<td><img ng-src="{{game.image}}" height="60px" width="60px"></td>
+					<td>{{game.name}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</div>
+
+<h3>Teams</h3>
+	<div ng-repeat="team in vm.teams">
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
+					<img ng-src="{{team.image}}" height="60px" width="60px"></td>
+ 					<td>{{team.name}}</td> 
+ 					<td ng-controller="teamModal"><button id="teamModalButton" class="button" ng-click="open(team)">View Team</button></td>
+					
+				
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+
