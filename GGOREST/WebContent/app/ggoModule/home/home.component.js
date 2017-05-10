@@ -13,10 +13,8 @@ angular.module("ggoModule").component("home", {
     	
     	vm.reload = function(){
     		ggoService.showUser().then(function(res){
-    			console.log("In show user");
         		vm.player = res.data;
         	})
-       
         	ggoService.playerGames().then(function(res){
         		vm.games = res.data;
     	    })    		
