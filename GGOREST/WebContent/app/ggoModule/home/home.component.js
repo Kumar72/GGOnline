@@ -15,7 +15,6 @@ angular.module("ggoModule").component("home", {
     		ggoService.showUser().then(function(res){
         		vm.player = res.data;
         	})
-       
         	ggoService.playerGames().then(function(res){
         		vm.games = res.data;
     	    })    		

@@ -4,6 +4,16 @@ angular.module('ggoModule')
 	controller : function(ggoService, $filter, $location, authService){
 		var vm = this;
 		
+		vm.updatedList = function(){
+			if(the user is part of this team return true){
+				
+				return true;
+			}
+			
+			return false;
+		};
+		
+		
 		vm.teams=[];
 		
 		vm.reload = function(){
