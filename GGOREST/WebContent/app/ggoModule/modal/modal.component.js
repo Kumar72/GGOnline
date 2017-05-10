@@ -5,7 +5,6 @@ angular.module('ggoModule').controller('gameModal',
 			$scope.animationsEnabled = true;
 
 			$scope.open = function(game) {
-				console.log(game)
 				var modalInstance = $uibModal.open({
 					animation : $scope.animationsEnabled,
 					templateUrl : 'app/ggoModule/modal/modal.component.html',
@@ -53,7 +52,6 @@ angular.module('ggoModule').controller('ModalInstanceCtrl',
 //				ggoService.removeGame(game)
 //	    			.then(function(res){
 ////	    			vm.reload();
-//	    			console.log('In removeGame function')
 //	    				
 //	    		})
 //				

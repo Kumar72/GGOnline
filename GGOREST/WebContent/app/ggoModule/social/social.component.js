@@ -9,7 +9,6 @@ angular.module("ggoModule").component("social", {
 
 		vm.reload = function(){
 			ggoService.messageIndex().then(function(res){
-				console.log(res.data);
 				vm.messages = res.data;				
 			})
 		}

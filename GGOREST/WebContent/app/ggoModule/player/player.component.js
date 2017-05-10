@@ -9,7 +9,6 @@ angular.module('ggoModule')
 		vm.reload = function(){
 			ggoService.playerIndex().then(function(res){
 				vm.players = res.data;
-				console.log(vm.players)
 			})
 		}
 		vm.friendRequest = function(friendId){	

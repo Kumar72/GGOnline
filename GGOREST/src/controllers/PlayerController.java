@@ -89,8 +89,6 @@ public class PlayerController {
 	@RequestMapping(value="players/{playerId}/players/{friendId}", method = RequestMethod.DELETE)
 	public boolean unFrind(@PathVariable("playerId") int playerId, @PathVariable("friendId")int friendId){
 		
-		System.out.println("IN UnFriend method in Player Controller");
-		System.err.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+friendId);
 		return playerDAO.unfriend(playerId, friendId);
 	}
 	

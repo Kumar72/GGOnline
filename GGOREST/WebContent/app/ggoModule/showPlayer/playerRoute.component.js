@@ -18,7 +18,6 @@ angular.module('ggoModule')
     	
     	
     	vm.reload = function(playerId){
-    		console.log("###########"+playerId)
     		ggoService.showPlayer(playerId).then(function(res){
         		vm.player = res.data;
         	})
@@ -27,7 +26,6 @@ angular.module('ggoModule')
         		vm.games = res.data;
     	    })
     	    .catch(function(error){
-//    	    	console.log(error)
     	    	console.log('In failed player games')
   	    
     	    })
