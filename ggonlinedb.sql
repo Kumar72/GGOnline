@@ -318,7 +318,8 @@ COMMIT;
 START TRANSACTION;
 USE `ggonlinedb`;
 INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (1, 'Tiesto', NULL, 1, 1, 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB', NULL);
-INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'MonkyBarrel', NULL, 0, 2, 'https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0014/7740/brand.gif?itok=kAfjQFGB', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (2, 'Copenhagen Wolves', NULL, 0, 2, 'https://pbs.twimg.com/media/CkSb7rrWkAAWLeL.jpg', NULL);
+INSERT INTO `team` (`id`, `name`, `created_time`, `active`, `game_id`, `image`, `size`) VALUES (3, 'Team Solo Mid', NULL, 1, 3, 'https://pbs.twimg.com/profile_images/1510620545/TSM03-BW_400x400.jpg', NULL);
 
 COMMIT;
 

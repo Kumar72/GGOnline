@@ -14,14 +14,14 @@ Issues the team ran into:
 - Creating a message/chat functionality for the application.
 - Working with the Modals in AngularJS.
 - Many To Many Relational Mapping.
+- Setting up the Navigation Bar to map to individual pages.
+
 
 
 If more time were available:
     - Created a chat feature.
-    - Adding tags and filtering posts by tags.
-    - Adding search by review contains keywords.
-    - User ability to comment on other user posts.
-    - Tagging posts as a favorite.
+    - Adding notification functionality.
+    - Adding player rating functionality.
     - A direct messaging function.
 
 <p align="center">
