@@ -18,13 +18,13 @@ angular.module("ggoModule").component("home", {
     		ggoService.showUser().then(function(res){
         		vm.player = res.data;
         	})
-        	ggoService.playerGames().then(function(res){
+        	ggoService.userGames().then(function(res){
         		vm.games = res.data;
     	    })    		
-    	    ggoService.playerTeams().then(function(res){
+    	    ggoService.userTeams().then(function(res){
         		vm.teams = res.data;
     	    })
-    	    ggoService.playerFriends().then(function(res){
+    	    ggoService.userFriends().then(function(res){
     	    	vm.friends = res.data
     	    })
     	}

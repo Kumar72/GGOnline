@@ -7,6 +7,7 @@ angular.module('ggoModule')
 		vm.player =[];
 		vm.games = [];
 		vm.teams = [];
+		vm.friends =[];
 		
 		ggoService.visitPlayersProfile(parseInt($routeParams.teamId), parseInt($routeParams.playerId))
 		.then(function(res){
@@ -18,20 +19,20 @@ angular.module('ggoModule')
     	
     	
     	vm.reload = function(playerId){
+    		console.log(playerId)
+    		
     		ggoService.showPlayer(playerId).then(function(res){
         		vm.player = res.data;
         	})
        
-        	ggoService.playerGames().then(function(res){
+        	ggoService.playerGames(playerId).then(function(res){
         		vm.games = res.data;
-    	    })
-    	    .catch(function(error){
-    	    	console.log('In failed player games')
-  	    
-    	    })
-    		
-    	    ggoService.playerTeams().then(function(res){
+    	    })  		
+    	    ggoService.playerTeams(playerId).then(function(res){
         		vm.teams = res.data;
+    	    })  	    
+     	    ggoService.pFriends(playerId).then(function(res){
+        		vm.friends = res.data;
     	    })
     	}
     	
