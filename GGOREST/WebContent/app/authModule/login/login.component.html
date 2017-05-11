@@ -1,26 +1,22 @@
-<div class="loginbackground" id="logIn">
+<div class="login-box" id="logIn">
 
-	<div class="imgcontainer">
-	 <!-- <img src="http://www.reason.gg/wp-content/uploads/2015/03/default-avatar.png" alt="Avatar" class="avatar"> -->
-     	<img src="https://cdn.leagueoflegends.com/match-history/opengraph_icon.jpg" alt="Avatar" class="avatar">
-   	</div>
-
-	<div class="container">
-		<form>
-			<label><b>Username</b></label>
-			<input type="text" placeHolder="Username" ng-model="user.username" required/>
-			
+	<div class="username">
+		<form class ="username">
+			<label class="button"><b>Username</b></label> 
+			<input type="text" class="input-box" 
+			placeHolder="Username" ng-model="user.username" required /> 
 			<label><b>Password</b></label>
-			<input type="password" placeHolder="Password" ng-model ="user.password" required/>
-			
-			<button type="button" ng-click = "vm.login(user)">Sign In</button>
-			<input type="checkbox" id="label" checked="checked"> Remember me
-			<span class="psw">Forgot <a href="#">password?</a></span>
+			<input type="password" placeHolder="Password" class="input-box"
+				ng-model="user.password" required /> 
+				
+				<!-- <input type="checkbox" id="label" checked="checked"> Remember me 
+				<span class="psw">Forgot<a href="#">password?</a>
+				</span> -->
 			<hr>
-		<div class="container2" style="background-color:#f1f1f1">
-			<button type="button" class="butt" ng-click="vm.create()">Create Account</button>
-			<button type="button" class="butt" ng-click="vm.learn()">About GGOnline</button>
-		</div>
+			<div>
+				<button type="button" ng-click="vm.login(user)">Sign In</button>
+				<button type="submit" class="button" ng-click="vm.cancel()">Cancel</button>
+			</div>
 		</form>
 	</div>
 </div>

@@ -13,7 +13,11 @@ angular.module('ggoModule').controller('friendModal',
 					resolve : {
 						friend : function() {
 							return friend;
+						},
+						removeFriend: function() {
+							return $scope.removeFriend;
 						}
+						
 					}
 				});
 
@@ -35,10 +39,22 @@ angular.module('ggoModule').controller('friendModal',
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('friendModalInstanceCtrl',
-		function($scope, $uibModalInstance, friend, ggoService) {
+		function($scope, $uibModalInstance, friend, ggoService, $route) {
 			
 			$scope.friend = friend;
+			$scope.reloadRoute = function() {
+				$route.reload();
+			}
+			
+			$scope.removeFriend = function() {
+				ggoService.removeFriend($scope.friend).then(function(res){
+					$scope.cancel();
+					$scope.reloadRoute();
+				})
+			}
+			
 			$scope.cancel = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
+			
 		});

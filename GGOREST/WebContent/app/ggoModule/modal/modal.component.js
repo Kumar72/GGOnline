@@ -1,10 +1,9 @@
 angular.module('ggoModule').controller('gameModal',
 		function($scope, $uibModal, $log, ggoService) {
-
 			
 			$scope.animationsEnabled = true;
-
 			$scope.open = function(game) {
+				
 				var modalInstance = $uibModal.open({
 					animation : $scope.animationsEnabled,
 					templateUrl : 'app/ggoModule/modal/modal.component.html',
@@ -13,6 +12,10 @@ angular.module('ggoModule').controller('gameModal',
 					resolve : {
 						game : function() {
 							return game;
+						},
+						removeGame: function() {
+							return $scope.removeGame;
+							
 						}
 					}
 				});
@@ -36,26 +39,23 @@ angular.module('ggoModule').controller('gameModal',
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('ModalInstanceCtrl',
-		function($scope, $uibModalInstance, game, ggoService) {
+		function($scope, $uibModalInstance, game, ggoService, removeGame, $route) {
 			
 			$scope.game = game;
-//			$scope.game = items;
-//			$scope.selected = {
-//				item : $scope.items[0]
-//			};
-//
-//			$scope.ok = function() {
-//				$uibModalInstance.close($scope.selected.item);
-//			};
 			
-//			$scope.removeGame = function(game){
-//				ggoService.removeGame(game)
-//	    			.then(function(res){
-////	    			vm.reload();
-//	    				
-//	    		})
+			$scope.reloadRoute = function() {
+				$route.reload();
+			}
+			
+			$scope.removeGame = function(){
+				ggoService.removeGame($scope.game)
+	    			.then(function(res){	    				
+	    			$scope.cancel();
+	    			$scope.reloadRoute();
+	    				
+	    		})
 //				
-//			}
+			}
 //
 			$scope.cancel = function() {
 				$uibModalInstance.dismiss('cancel');

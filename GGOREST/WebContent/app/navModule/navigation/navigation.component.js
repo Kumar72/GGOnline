@@ -6,7 +6,7 @@ angular.module("navModule").component("navComponent",{
 		vm.homeNav = function() {
 			
 			if($location.path() == '/home' ||$location.path()== '/notification' 
-				||$location.path() == '/setting'){
+				||$location.path() == '/setting' ||$location.path() == '/teams/'){
 			return true;
 			}
 			return false;
@@ -32,6 +32,12 @@ angular.module("navModule").component("navComponent",{
 			}
 				return false;		
 		}
+		vm.showPlayer = function() {
+			if($location.path() == '/teams/:teamId/players/:playerId') {
+				return true;
+			}
+			return false;
+		}
 		
 		
 
@@ -50,7 +56,7 @@ angular.module("navModule").component("navComponent",{
 		vm.loggedIn = function() {
 			if (authService.getToken().id) {
 				vm.name = authService.getToken().fname;
-				document.body.style.backgroundImage = "url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg')";
+//				document.body.style.backgroundImage = "url('http://wallpaper-gallery.net/images/desktop-wallpaper-gaming/desktop-wallpaper-gaming-6.jpg')";
 				return true
 
 			}
