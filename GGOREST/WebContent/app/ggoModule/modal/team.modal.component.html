@@ -1,30 +1,41 @@
 <div>
 	<div class="modal-header">
-		<h3 class="modal-title">{{team.name}}</h3>
-		<h3 class="modal-title">{{team.players}}</h3>
+		<h3 class="modal-title">
+			<strong>{{team.name}}</strong>
+		</h3>
 	</div>
 	<div class="modal-body">
-
 		<ul>
-
-			<li><img src={{team.image}} /><br></li>
-			<li ng-repeat="member in members">Members:<a ng-click="routeToUserProfile(team.id, member.id)">{{member.username}}</a><br>
-				
-			</li>
-
+			<li><img id="teamModalImage" src={{team.image}} height="100px"
+				width="100px" /></li>
 		</ul>
-		<button class="button" ng-click="leaveTeam()">Un-Favorite</button>
+		<table>
+			<thead>
+				<tr>
+					<th>Members</th>
+				</tr>
+			</thead>
+		</table>
+		<hr>
+		<div class="post ter" ng-repeat="member in members"
+			ng-click="routeToUserProfile(team.id, member.id)">
+			<div class="preview">
+				<img ng-src="{{member.image}}" height="120px" width="140px">
+			</div>
+			<br>
+			<div class="detail">{{member.username}}</div>
+		</div>
+		
+
+		<button class="button" ng-click="leaveTeam()" ng-hide="selectedUser()">Leave</button>
 		<button class="button" ng-click="cancel()">Go Back</button>
 		<!-- Team Calendar -->
 
 		<!-- <button class="button" ng-click="teamCalendar">View
 			TeamCalendar</button> -->
-
-
-
 	</div>
 
-		<!-- *********** TEAM CALENDAR ************** -->
+	<!-- *********** TEAM CALENDAR ************** -->
 	<!-- <style>
 .full button span {
 	background-color: limegreen;

@@ -6,7 +6,7 @@ angular.module("navModule").component("navComponent",{
 		vm.homeNav = function() {
 			
 			if($location.path() == '/home' ||$location.path()== '/notification' 
-				||$location.path() == '/setting' ||$location.path() == '/teams/'){
+				||$location.path() == '/setting' ||$location.path().includes('/teams')){
 			return true;
 			}
 			return false;

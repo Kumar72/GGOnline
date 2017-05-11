@@ -1,5 +1,5 @@
 angular.module('ggoModule').controller('gameModal',
-		function($scope, $uibModal, $log, ggoService) {
+		function($scope, $uibModal, $log, ggoService, authService) {
 			
 			$scope.animationsEnabled = true;
 			$scope.open = function(game) {
@@ -14,8 +14,10 @@ angular.module('ggoModule').controller('gameModal',
 							return game;
 						},
 						removeGame: function() {
-							return $scope.removeGame;
-							
+							return $scope.removeGame;							
+						},
+						selectedUser: function() {
+							return $scope.selectedUser;
 						}
 					}
 				});
@@ -39,9 +41,19 @@ angular.module('ggoModule').controller('gameModal',
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('ModalInstanceCtrl',
-		function($scope, $uibModalInstance, game, ggoService, removeGame, $route) {
+		function($scope, $uibModalInstance, game, 
+				ggoService, removeGame, $route, selectedUser, 
+				authService, $routeParams) {
 			
 			$scope.game = game;
+			
+			$scope.selectedUser = function() {
+				if(authService.getToken().id === $routeParams.playerId){
+					return false;
+				}
+				return true;				
+			};
+			
 			
 			$scope.reloadRoute = function() {
 				$route.reload();
