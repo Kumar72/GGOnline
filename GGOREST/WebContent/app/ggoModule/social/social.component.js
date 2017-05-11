@@ -4,6 +4,7 @@ angular.module("ggoModule").component("social", {
 	controller : function(ggoService, $location, $scope, authService) {
 		var vm = this;
 		vm.messages = [];
+		vm.friends =[];
 		vm.showMessageForm = false;
 		
 
@@ -20,6 +21,13 @@ angular.module("ggoModule").component("social", {
 		    	   
 				})
 			 }
+		 
+		 vm.newRecipient = function(friend){
+			 ggoService.newRecipient(friend).then(function(res){
+				 vm.friend = res.data;
+				 console.log(friend)
+			 })
+		 }
 		 
 		 
 		 vm.displayForm = function() {

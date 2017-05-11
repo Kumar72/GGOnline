@@ -1,4 +1,3 @@
-<h1>In Chat App</h1>
 <table>
 	<thead>
 	<tbody>
@@ -10,9 +9,10 @@
 	</tbody>
 </table>
 
-<button ng-click="vm.displayForm()">Compose Message</button>
+<button class="button" ng-click="vm.displayForm()">Compose Message</button>
 	<form ng-show="vm.showMessageForm">
 		<label>Composing Message</label>
+		<input type="text" ng-model="recipient" placeHolder="Recipient">
 		<input type="text" ng-model="newMessage.message" placeholder="Type your message here">
 		<button ng-click= "vm.newMessage(message)">Send</button>
 	</form>

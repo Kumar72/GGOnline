@@ -124,11 +124,11 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.counter {
+/* .counter {
   border-radius: 50%;
   background: #3E50B4;
   cursor: pointer;
-}
+} */
 
 .detail {
 	color: #e74c3c;	
@@ -157,8 +157,8 @@ body {
 /* The player info bars */
 .main>.detail{
   width:280px;
-  margin-top: 21px;
-  margin-left: 140px;
+  margin-top: -8.5em;
+  margin-left: 130px;
 }
 
 table {

@@ -1,5 +1,5 @@
 angular.module('ggoModule').controller('friendModal',
-		function($scope, $uibModal, $log, ggoService, authService) {
+		function($scope, $uibModal, $log, ggoService, authService, $location) {
 
 			
 			$scope.animationsEnabled = true;
@@ -43,10 +43,10 @@ angular.module('ggoModule').controller('friendModal',
 
 angular.module('ggoModule').controller('friendModalInstanceCtrl',
 		function($scope, $uibModalInstance, friend, ggoService, $route,
-				selectedUser, authService, $routeParams) {
+				selectedUser, authService, $routeParams, $location) {
 			
 		$scope.selectedUser = function() {
-			if(authService.getToken().id === $routeParams.playerId){
+			if(authService.getToken().id === $routeParams.playerId || $location.path().includes('/home')){
 				return false;
 			}
 			return true;				
