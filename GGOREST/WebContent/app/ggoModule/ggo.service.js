@@ -188,6 +188,13 @@ angular.module('ggoModule')
     	data: message
     	})
     }
+	
+	service.newRecipient = function(friend){
+		return $http({
+			method : 'GET',
+			url : 'api/players/' + authService.getToken().id + '/friends'		
+		})
+	}
 
 	//view another users profile
 	service.visitPlayersProfile = function(team, player){

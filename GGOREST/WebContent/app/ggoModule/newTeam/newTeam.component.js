@@ -29,6 +29,7 @@ angular.module('ggoModule')
 			})
 		 }
 		 vm.redirect = function(){
+			 console.log($location)
 			 $location.url('/team')
 		 }
 		
