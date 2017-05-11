@@ -31,71 +31,54 @@
 				</div>
 			</div>
 
+
+
 			<div class="post2 sec">
-				<div class="preview">
-					<!-- <img ng-src="https://wallpaperlost.com/images/2-screen-wallpapers-11.jpg" height="115px" width="480px"> -->
-				</div>
+				<div class="preview"></div>
 				<div class="detail">Games</div>
 			</div>
 
 			<div class="post ter" ng-repeat="game in vm.games"
-				ng-controller="gameModal">
+				ng-controller="gameModal" ng-click="open(game)">
 				<div class="preview">
 					<img ng-src="{{game.image}}" height="120px" width="140px">
 				</div>
-				<div class="counter" ng-click="open(game)"></div>
+				<br>
 				<div class="detail">{{game.name}}</div>
 			</div>
+
+
 
 			<div class="post2 sec">
 				<div class="preview"></div>
 				<div class="detail">Teams</div>
 			</div>
+
 			<div class="post ter" ng-repeat="team in vm.teams"
-				ng-controller="teamModal">
+				ng-controller="teamModal" ng-click="open(team)">
 				<div class="preview">
 					<img ng-src="{{team.image}}" height="120px" width="140px">
 				</div>
-				<div class="counter" ng-click="open(team)"></div>
+				<br>
 				<div class="detail">{{team.name}}</div>
 			</div>
 
+
+
 			<div class="post2 sec">
-				<h3>Teams</h3>
-				<hr>
-
-				<div ng-repeat="team in vm.teams">
-					<table>
-						<thead>
-						</thead>
-						<tbody>
-							<tr>
-								<td ng-click="goToTheTeamPageAndViewOtherPlayersInTheTeam">
-									<img Dennis loves dicks ng-src="{{team.image}}" height="60px"
-									width="60px">
-								</td>
-								<td>{{team.name}}</td>
-								<td><button id="leaveTeamButton" class="button"
-										ng-click="vm.leaveTeam(team)">Leave</button></td>
-								<td ng-controller="teamModal"><button id="teamModalButton"
-										class="button" ng-click="open(team)">View Team</button></td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="post sec">
-						<div class="preview"></div>
-						<div class="detail">Friends</div>
-					</div>
-					<div class="post ter" ng-repeat="friend in vm.friends"
-						ng-controller="friendModal">
-						<div class="preview">
-							<img ng-src="{{friend.image}}" height="120px" width="140px">
-						</div>
-						<div class="counter" ng-click="open(friend)"></div>
-						<div class="detail">{{friend.username}}</div>
-					</div>
+				<div class="preview"></div>
+				<div class="detail">Friends</div>
+			</div>
+			
+			<div class="post ter" ng-repeat="friend in vm.friends"
+				ng-controller="friendModal" ng-click="open(friend)">
+				<div class="preview">
+					<img ng-src="{{friend.image}}" height="120px" width="140px">
 				</div>
-
+				<br>
+				<div class="detail">{{friend.username}}</div>
 			</div>
 		</div>
+
+	</div>
+</div>
