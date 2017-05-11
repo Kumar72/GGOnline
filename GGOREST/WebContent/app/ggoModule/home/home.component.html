@@ -39,15 +39,13 @@
 			</div>
 
 			<div class="post ter" ng-repeat="game in vm.games"
-				ng-controller="gameModal">
+				ng-controller="gameModal" ng-click="open(game)">
 				<div class="preview">
 					<img ng-src="{{game.image}}" height="120px" width="140px">
 				</div>
-				<div class="counter" ng-click="open(game)"></div>
+				<br>
 				<div class="detail">{{game.name}}</div>
 			</div>
-
-
 
 
 
@@ -57,11 +55,11 @@
 			</div>
 
 			<div class="post ter" ng-repeat="team in vm.teams"
-				ng-controller="teamModal">
+				ng-controller="teamModal" ng-click="open(team)">
 				<div class="preview">
 					<img ng-src="{{team.image}}" height="120px" width="140px">
 				</div>
-				<div class="counter" ng-click="open(team)"></div>
+				<br>
 				<div class="detail">{{team.name}}</div>
 			</div>
 
@@ -73,11 +71,11 @@
 			</div>
 			
 			<div class="post ter" ng-repeat="friend in vm.friends"
-				ng-controller="friendModal">
+				ng-controller="friendModal" ng-click="open(friend)">
 				<div class="preview">
 					<img ng-src="{{friend.image}}" height="120px" width="140px">
 				</div>
-				<div class="counter" ng-click="open(friend)"></div>
+				<br>
 				<div class="detail">{{friend.username}}</div>
 			</div>
 		</div>
