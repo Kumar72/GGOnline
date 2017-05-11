@@ -12,7 +12,7 @@ angular.module('ggoModule')
 		})
 	}
 	
-	//
+	//shows a player
 	service.showPlayer = function(playerId) {
 		return $http({
 			method: 'GET',
