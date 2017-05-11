@@ -51,7 +51,7 @@ angular.module('ggoModule').controller('TeamModalInstanceCtrl',
 				leaveTeam, $route, selectedUser, $routeParams, authService) {
 		
 		$scope.selectedUser = function() {
-			if(authService.getToken().id === $routeParams.playerId){
+			if(authService.getToken().id === $routeParams.playerId||$location.path().includes('/home')){
 				return false;
 			}
 			return true;				

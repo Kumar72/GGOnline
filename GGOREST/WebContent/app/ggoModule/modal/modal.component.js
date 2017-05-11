@@ -1,5 +1,5 @@
 angular.module('ggoModule').controller('gameModal',
-		function($scope, $uibModal, $log, ggoService, authService) {
+		function($scope, $uibModal, $log, ggoService, authService, $location) {
 			
 			$scope.animationsEnabled = true;
 			$scope.open = function(game) {
@@ -43,12 +43,12 @@ angular.module('ggoModule').controller('gameModal',
 angular.module('ggoModule').controller('ModalInstanceCtrl',
 		function($scope, $uibModalInstance, game, 
 				ggoService, removeGame, $route, selectedUser, 
-				authService, $routeParams) {
+				authService, $routeParams, $location) {
 			
 			$scope.game = game;
 			
 			$scope.selectedUser = function() {
-				if(authService.getToken().id === $routeParams.playerId){
+				if(authService.getToken().id === $routeParams.playerId||$location.path().includes('/home')){
 					return false;
 				}
 				return true;				

@@ -9,8 +9,11 @@ angular.module("ggoModule").component("setting", {
     		ggoService.updatePlayer(updateuser).then(function(res){
         		vm.player = res.data;
         	})
-        	$location.path('/home')
     	}
+		vm.redirectHome = function(){
+			console.log("In setting.component.js"+$location)
+			$location.url('/home')
+		}
 	},
 	controllerAs: 'vm'
 });

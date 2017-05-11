@@ -188,7 +188,7 @@ angular.module('ggoModule')
     	data: message
     	})
     }
-	
+	//messaging, does not work. don't call this function
 	service.newRecipient = function(friend){
 		return $http({
 			method : 'GET',
