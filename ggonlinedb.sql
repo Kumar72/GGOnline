@@ -294,9 +294,14 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ggonlinedb`;
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL, NULL);
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL, NULL);
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('stefun26', 'stefanfuller31@gmail.com', 'bigf@rts', NULL, 1, 'Stefan', 'Fuller', NULL, NULL, 'https://avatars1.githubusercontent.com/u/25122387?v=3&s=400');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('kumar007', 'kumar72@gmail.com', 'chandino27', NULL, 2, 'Chandan', 'Thakur', NULL, NULL, 'https://avatars1.githubusercontent.com/u/25212319?v=3&s=400');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('gamesDean', 'deano@gmail.com', 'starChild67', NULL, 3, 'James', 'Dean', NULL, NULL, 'http://i.huffpost.com/gen/1332807/images/o-JAMES-DEAN-facebook.jpg');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('dburn22', 'david.burnett22@gmail.com', 'admin', NULL, 4, 'David', 'Burnett', NULL, NULL, 'https://avatars3.githubusercontent.com/u/24962797?v=3&s=400');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('myagmur', 'matt.gmur@hotmail.com', 'admin', NULL, 5, 'Matt', 'Gmur', NULL, NULL, 'https://avatars3.githubusercontent.com/u/17514784?v=3&s=400');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('frockalypse', 'cole.frock@sd.com', 'cooper', NULL, 6, 'Richard', 'Frock', NULL, NULL, 'http://skilldistillery.com/wp-content/uploads/2016/01/ColeAndCooper.-380x420.jpg');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('specialK', 'kris.kline@sd.com', 'yhatzee', NULL, 7, 'Kristof', 'Kane', NULL, NULL, 'https://avatars1.githubusercontent.com/u/7424607?v=3&s=460');
+INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `id`, `fname`, `lname`, `active`, `status`, `image`) VALUES ('AndyfromToyStory', 'andrew.conlin@sd.com', 'wolverines', NULL, 8, 'Andrew', 'Conlin', NULL, NULL, 'https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAnqAAAAJGFlYjgzOGQxLTU2ZGItNDM0ZC05OGRkLTc0NmVhYTA2M2JlMA.jpg');
 
 COMMIT;
 
