@@ -36,8 +36,6 @@ angular.module('ggoModule')
 		}
 		vm.reload();
 		
-		
-		
 	},
 	
 	controllerAs : 'vm'

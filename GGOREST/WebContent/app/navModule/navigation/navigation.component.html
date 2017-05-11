@@ -1,40 +1,63 @@
-
 <nav class="topnav" id="myTopnav" ng-show="vm.loggedIn()">
-	
+
 	<div id="main">
 		<ul>
 			<li><a>
-			<div>
-				<span style="font-size:30px;cursor:pointer" ng-click="vm.openNav()">&#9776;</span>
-			</div>
+					<div>
+						<span style="font-size: 30px; cursor: pointer"
+							ng-click="vm.openNav()">&#9776;</span>
+					</div>
 			</a></li>
-			<li ng-show="vm.homeNav()"><a href="#/home">Profile</a></li>	  
-	  		<li ng-show="vm.homeNav()"><a href="#/notification" >Notification </a></li>
-	  		<li ng-show="vm.homeNav()"><a href="#/setting">Setting</a></li>
-	  		
-	  		<li ng-show="vm.gameNav()"><a href="#/home">Profile</a></li>
-	  		<li ng-show="vm.gameNav()"><a href="#/game">Game</a></li>
-	  		<li ng-show="vm.gameNav()"><a href="#/addGame">Add Game</a></li>
-	  		
-	  		<li ng-show="vm.teamNav()"><a href="#/home">Profile</a></li>
-	  		<li ng-show="vm.teamNav()"><a href="#/team">Team</a></li>
-	  		<li ng-show="vm.teamNav()"><a href="#/newTeam">Make Team</a></li>
-	  		
-	  		<li ng-show="vm.socialNav()"><a href="#/home">Profile</a></li>
-	  		<li ng-show="vm.socialNav()"><a href="#/player">Players</a></li>
-	  		<li ng-show="vm.socialNav()"><a href="#/social">Chat <!-- {{vm.messeageNotification()}} --></a></li>	  		
-	  </ul>
-	  <ul id="right">
-	  		<li><a>Welcome {{vm.name}}</a></li>
-	  </ul>
- 	 </div>
+			<li ng-show="vm.homeNav()"><a href="#/home">Profile</a></li>
+			<li ng-show="vm.homeNav()"><a href="#/notification">Notification
+			</a></li>
+			<li ng-show="vm.homeNav()"><a href="#/setting">Setting</a></li>
+
+			<li ng-show="vm.gameNav()"><a href="#/home">Profile</a></li>
+			<li ng-show="vm.gameNav()"><a href="#/game">Game</a></li>
+			<li ng-show="vm.gameNav()"><a href="#/addGame">Add Game</a></li>
+
+			<li ng-show="vm.teamNav()"><a href="#/home">Profile</a></li>
+			<li ng-show="vm.teamNav()"><a href="#/team">Team</a></li>
+			<li ng-show="vm.teamNav()"><a href="#/newTeam">Make Team</a></li>
+
+			<li ng-show="vm.socialNav()"><a href="#/home">Profile</a></li>
+			<li ng-show="vm.socialNav()"><a href="#/player">Players</a></li>
+			<li ng-show="vm.socialNav()"><a href="#/social">Chat <!-- {{vm.messeageNotification()}} --></a></li>
+		</ul>
+		<ul id="right">
+			<li><a>Welcome {{vm.name}}</a></li>
+		</ul>
+	</div>
 </nav>
 
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" ng-click="vm.closeNav()">&times;</a>
-  <a href="#/home" ng-click="vm.closeNav()" >Home</a>
-  <a href="#/player" ng-click="vm.closeNav()">Social</a>
-  <a href="#/game" ng-click="vm.closeNav()" >Game</a>
-  <a href="#/team" ng-click="vm.closeNav()">Team</a>
-  <a ng-click="vm.logout()">LogOut</a>
+	<a href="javascript:void(0)" class="closebtn" ng-click="vm.closeNav()">&times;</a>
+	<a href="#/home" ng-click="vm.closeNav()">Home</a> <a href="#/player"
+		ng-click="vm.closeNav()">Social</a> <a href="#/game"
+		ng-click="vm.closeNav()">Game</a> <a href="#/team"
+		ng-click="vm.closeNav()">Team</a> <a ng-click="vm.logout()">LogOut</a>
 </div>
+
+<!-- <!-- NEW SIDE NAV
+<div id="nav" class="nav">
+	<div class="icon">
+		<ul>
+			<li><a title="Home" href="#"><i class="fa fa-home "></i></a></li>
+			<li><a href="About"><i class="fa fa-search "></i></a></li>
+			<li><a href="#"><i class="fa fa-edit "></i></a></li>
+			<li><a href="#"><i class="fa fa-cog "></i></a></li>
+
+		</ul>
+	</div>
+	<div class="text">
+		<ul>
+			<li><a title="Home" href="#">Home</a></li>
+			<li><a href="#">Search</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Settings</a></li>
+		</ul>
+	</div>
+</div>
+
+-->

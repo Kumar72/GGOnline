@@ -29,7 +29,6 @@ angular.module('ggoModule')
 			})
 		}
 		vm.joinTeam = function(teamId){
-			var getUserId = authService.getToken().id;
 			ggoService.joinTeam(teamId).then(function(res){
 				vm.reload();
 			})

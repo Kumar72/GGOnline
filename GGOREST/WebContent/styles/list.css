@@ -1,0 +1,153 @@
+/* *:focus{outline:none !important;}
+#mainlist {
+	color:#4a5b65;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size:14px;
+    line-height: 20px;
+}
+
+.game-holder{
+    margin:0px auto;
+    width: 300px;
+}
+
+.game-holder{
+    background-color: #de3f53;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color:#fff;
+    font-family:"Roboto Condensed", Arial, sans-serif;
+    font-size:16px;
+    font-weight: 100;
+    line-height: 56px;
+    padding-left: 15px;
+    margin:0;
+}
+
+.game-holder ul, .game-holder li {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.game-holder li{
+    background-color: #262e4c;
+    border-bottom:1px solid #1c2340;
+    color: #b1b2c9;
+}
+
+.game-holder li span{
+    margin-left:30px;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+         -o-transition: all .2s linear;
+            transition: all .2s linear; 
+}
+
+.game-holder label{
+    cursor:pointer;
+    display:block;
+    line-height: 56px;
+    padding: 0 15px; 
+    position: relative;
+}
+
+.game-holder label:hover{
+    background-color: #2a3353;
+    color:#8284a3;
+}
+
+.game-holder label a{
+    background-color:#de3f53;
+    border-radius:50%;
+    color:#fff;
+    display:none;
+    float:right;
+    font-weight: bold;
+    line-height: normal;
+    height:16px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    width:16px;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+         -o-transition: all .2s linear;
+            transition: all .2s linear; 
+}
+
+.game-holder label:hover a{
+    display: block;
+}
+
+.game-holder label a:hover{  
+    background-color:#fff;
+    color:#de3f53;
+}
+
+.game-holder {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+.game-holder i{
+    background-color: #404a6e;
+    border-radius: 50%;
+    display: block;
+    height: 16px;
+    position: absolute;
+    top:20px;
+    width: 16px;    
+    z-index: 1;
+}
+
+.game-holder::after{
+    background-color: #6E6E96;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height:8px;
+    left:4px;
+    position: absolute;
+    top:4px;
+    width:8px;  
+    z-index: 2;
+}
+
+.game-holder ~ span{  
+    color: #586186;
+    text-decoration: line-through;
+}
+
+
+.game-holder ::-webkit-input-placeholder {color: #464f72;} WebKit browsers
+.game-holder :-moz-placeholder           {color: #464f72;} Mozilla Firefox 4 to 18
+.game-holder ::-moz-placeholder          {color: #464f72;} Mozilla Firefox 19+
+.game-holder :-ms-input-placeholder      {color: #464f72;} Internet Explorer 10+
+
+
+
+.game-holder li.remove{
+    -webkit-animation:collapseItem 300ms ease;
+            animation:collapseItem 300ms ease;
+    -webkit-transform-origin: 50% 0%;
+        -ms-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+
+}
+
+.game-holder li.remove span{
+    color: #586186;
+    text-decoration: line-through;
+}
+
+@keyframes collapseItem {
+    0%      { -ms-transform: perspective(500px) rotateX(0deg);transform: perspective(500px) rotateX(0deg);  }
+    100%    { -ms-transform: perspective(500px) rotateX(-90deg);transform: perspective(500px) rotateX(-90deg); }
+}
+
+@-webkit-keyframes collapseItem {
+    0%      { -webkit-transform: perspective(500px) rotateX(0deg);  }
+    100%    { -webkit-transform: perspective(500px) rotateX(-90deg);}
+} */

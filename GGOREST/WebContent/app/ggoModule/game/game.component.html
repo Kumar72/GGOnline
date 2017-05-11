@@ -1,17 +1,23 @@
-<div id="searchDiv">
-	<form>
-		<input type="text" placeHolder="Search By Title" ng-model="vm.gameSearch">
-<!-- 		<input type="submit" class="button" ng-click="gameSearch"> -->
-	</form>
+<div id="main">
+	<div class="card">
+		<div id="searchDiv">
+			<form>
+				<input type="text" placeHolder="Search By Title"
+					ng-model="vm.gameSearch">
+				<!-- 		<input type="submit" class="button" ng-click="gameSearch"> -->
+			</form>
+		</div>
+		<table>
+			<thead>
+			<tbody class ="">
+				<tr
+					ng-repeat="game in vm.games | gameSearch : vm.gameSearch | orderBy:'id'">
+
+					<td>{{game.name}}</td>
+					<td><button class="button" ng-click="vm.addGame(game.id)">Follow
+							Game</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
-<table>
-	<thead>
-	<tbody>
-		<tr ng-repeat="game in vm.games | gameSearch : vm.gameSearch | orderBy:'id'">
-
-		<td>{{game.name}}</td>
-		<td><button class="button" ng-click="vm.addGame(game.id)">Follow Game</button></td>
-		</tr>
-	</tbody>
-</table>
-
