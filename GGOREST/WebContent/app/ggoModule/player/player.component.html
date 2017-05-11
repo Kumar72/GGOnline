@@ -1,16 +1,17 @@
 <div id="main">
 	<div class="card">
-		<!-- <div id="searchDiv">
+		<div id="searchDiv">
 			<form>
-				<input type="text" placeHolder="Search By Title"
-					ng-model="vm.friendSearch">
+				<input type="text" placeHolder="Search By Name"
+					ng-model="vm.playerSearch">
 			</form>
-		</div> -->
+		</div> 
+				<div class="content contentText">
 		<table>
 			<thead>
 			<tbody class ="">
 				<tr
-					ng-repeat="player in vm.players">
+					ng-repeat="player in vm.player| playerSearch : vm.playerSearch | orderBy: 'id'">
 
 					<td>{{player.username}}</td>
 					<td><button class="button" ng-click="vm.friendRequest(player.id)">Add Friend</button></td>
@@ -19,3 +20,6 @@
 		</table>
 	</div>
 </div>
+</div>
+
+

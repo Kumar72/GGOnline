@@ -352,3 +352,6 @@ tbody>tr>*:nth-last-child(2) ~*{
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.2);
 }
+.contentText{
+	color : black !important;
+}

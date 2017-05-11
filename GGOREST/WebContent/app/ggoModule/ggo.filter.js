@@ -38,23 +38,9 @@ angular.module('ggoModule')
 	return function(players, text) {
 		if (!text) return players;
 		var results = [];
+		console.log(results)
 		players.forEach(function(p) {
-			if(p.name.toLowerCase().includes(text.toLowerCase())) {
-				results.push(p);
-			}
-		}) // end forEach
-		return results;
-		
-	}
-	// end function
-})
-
-angular.module('ggoModule').filter('teamList', function() {
-	return function(players, text) {
-		if (!text) return players;
-		var results = [];
-		players.forEach(function(p) {
-			if(p.name.toLowerCase().includes(text.toLowerCase())) {
+			if(p.username.toLowerCase().includes(text.toLowerCase())) {
 				results.push(p);
 			}
 		}) // end forEach

@@ -1,18 +1,22 @@
+
 <table>
 	<thead>
 	<tbody>
 		<tr ng-repeat="message in vm.messages">
 
-		<td>{{message.message}}</td>
+			<td>{{message.message}}</td>
 
 		</tr>
 	</tbody>
 </table>
 
-<button class="button" ng-click="vm.displayForm()">Compose Message</button>
-	<form ng-show="vm.showMessageForm">
-		<label>Composing Message</label>
-		<input type="text" ng-model="recipient" placeHolder="Recipient">
-		<input type="text" ng-model="newMessage.message" placeholder="Type your message here">
-		<button ng-click= "vm.newMessage(message)">Send</button>
-	</form>
+<button class="button" ng-click="vm.displayForm()">Compose
+	Message</button>
+<form ng-show="vm.showMessageForm">
+	<label>Composing Message</label> <input type="text"
+		ng-model="recipient" placeHolder="Recipient"> <input
+		type="text" ng-model="newMessage.message"
+		placeholder="Type your message here">
+	<button ng-click="vm.newMessage(message)">Send</button>
+</form>
+
