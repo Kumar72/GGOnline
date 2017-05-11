@@ -48,6 +48,21 @@ angular.module('ggoModule')
 			url : 'api/players/'+ authService.getToken().id +"/players"
 		})		
 	}
+	
+	service.userFriends = function(){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ authService.getToken().id +"/players"
+		})		
+	}
+	
+	service.pFriends = function(playerId){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ playerId +"/players"
+		})		
+	}
+	
 	//Add Friend to Player List
 	service.addFriend = function(friendId){
 		return $http({
@@ -70,13 +85,19 @@ angular.module('ggoModule')
 	}
 	
 	
-	
-	
-	//Get Player Games
-	service.playerGames = function(){
+	//Get user games
+	service.userGames = function(){
 		return $http({
 			method : 'GET',
 			url : 'api/players/'+ authService.getToken().id +"/games"
+		})		
+	}
+	
+	//Get Player Games
+	service.playerGames = function(playerId){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ playerId +"/games"
 		})		
 	}
 	//Game Index
@@ -107,14 +128,19 @@ angular.module('ggoModule')
 		})
 	}
 
-
-	
-	
-	//Get Player Teams
-	service.playerTeams = function(){
+	//Get user Teams
+	service.userTeams = function(){
 		return $http({
 			method : 'GET',
 			url : 'api/players/'+ authService.getToken().id +"/teams"
+		})		
+	}
+	
+	//Get Player Teams
+	service.playerTeams = function(playerId){
+		return $http({
+			method : 'GET',
+			url : 'api/players/'+ playerId +"/teams"
 		})		
 	}	
 	//Team Index
