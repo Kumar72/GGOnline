@@ -1,71 +1,65 @@
-<div id="main" class="container3">
-	<table>
-		<thead>
-		</thead>
-		<tbody>
-			<tr>
-				<td><img ng-src="{{vm.player.image}}" height="100px"
-					width="100px"></td>
-				<td>
+<div id="main">
+	<div class="card">
+		<div class="content">
+			<div class="post main">
+				<div class="preview" class="avatar">
+					<img ng-src="{{vm.player.image}}" height="153px" width="150px">
+				</div>
+				<div class="counter"></div>
+				<div class="details">
+				</div>
+
+				<div class="detail">
 					<table>
 						<tbody>
 							<tr>
 								<td></td>
-								<td>First Name:</td>
-								<td>{{vm.player.fname}}</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Last Name:</td>
-								<td>{{vm.player.lname}}</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Username:</td>
+								<td><strong>Username:</strong></td>
 								<td>{{vm.player.username}}</td>
 							</tr>
 							<tr>
 								<td></td>
-								<td>Email:</td>
+								<td><strong>Name:</strong></td>
+								<td>{{vm.player.fname}} {{vm.player.lname}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><strong>Email:</strong></td>
 								<td>{{vm.player.email}}</td>
-							</tr>														
+							</tr>
 						</tbody>
 					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<hr>
-	<!-- <button ng-click='gameModal'>Open Modal Dialog</button>
-	<modal-dialog show='vm.modalShown' width='750px' height='60%'>
-		<p>Modal Content Goes here<p>
-	</modal-dialog> -->
-	
-	
-	<h3>Games</h3>
-	<hr>
-	<div>
-		<!-- class="divline" -->
-		<table>
-			<thead>
-			</thead>
-			<tbody>
+				</div>
+			</div>
 
-				<tr ng-repeat="game in vm.games">
-					<td><img ng-src="{{game.image}}"
-						height="60px" width="60px"></td>
-					<td>{{game.name}}</td>
-					<td><button id="removeGame" class="button" ng-click="vm.removeGame(game)">Remove</button></td>
-					<td ng-controller="gameModal"><button id="modalButton" class="button" ng-click="open(game)">View Game</button></td>
-				<!-- </tr>
-				<tr> -->
-				</tr>
+			<div class="post sec">
+				<div class="preview">
+				<img ng-src="https://wallpaperlost.com/images/2-screen-wallpapers-11.jpg" height="115px" width="480px">
+				</div>
+				<div class="detail">Games</div>
+			</div>
 
-			</tbody>
-		</table>
-	</div>
-	<br class="clearBoth" />
-	<hr>
+			<div class="post ter" ng-repeat="game in vm.games"
+				ng-controller="gameModal">
+				<div class="preview">
+					<img ng-src="{{game.image}}" height="120px" width="140px">
+				</div>
+				<div class="counter" ng-click="open(game)"></div>
+				<div class="detail">{{game.name}}</div>
+			</div>
+
+			<div class="post sec">
+				<div class="preview"></div>
+				<div class="detail">Teams</div>
+			</div>
+			<div class="post ter" ng-repeat="team in vm.teams"
+				ng-controller="teamModal">
+				<div class="preview">
+					<img ng-src="{{team.image}}" height="120px" width="140px">
+				</div>
+				<div class="counter" ng-click="open(team)"></div>
+				<div class="detail">{{team.name}}</div>
+			</div>
 
 
 	<h3>Teams</h3>
@@ -87,31 +81,20 @@
 				</tr>
 			</tbody>
 		</table>
+
+			<div class="post sec">
+				<div class="preview"></div>
+				<div class="detail">Friends</div>
+			</div>
+			<div class="post ter" ng-repeat="friend in vm.friends"
+				ng-controller="friendModal">
+				<div class="preview">
+					<img ng-src="{{friend.image}}" height="120px" width="140px">
+				</div>
+				<div class="counter" ng-click="open(friend)"></div>
+				<div class="detail">{{friend.username}}</div>
+			</div>
+		</div>
+
 	</div>
-
-	<hr>	
-	<h3>Friends</h3>
-	<hr>
-	<div>
-		<table>
-			<thead>
-			</thead>
-			<tbody>
-
-				<tr ng-repeat="friend in vm.friends">
-					<td><img ng-src="{{friend.image}}"
-						height="60px" width="60px"></td>
-					<td>{{friend.username}}</td>
-					<td><button id="unFriend" class="button" ng-click="vm.unFriend(friend)">Remove</button></td>
-					<td ng-controller="friendModal"><button id="modalButton" class="button" ng-click="open(friend)">View Profile</button></td>
-				</tr>
-				<tr>
-				</tr>
-
-			</tbody>
-		</table>
-	</div> 
-	
-	<!-- Put the form in modal once it works -->
-	
 </div>

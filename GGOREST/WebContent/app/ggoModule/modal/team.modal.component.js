@@ -1,11 +1,7 @@
-angular.module('ggoModule')
-.controller('teamModal',
+angular.module('ggoModule').controller('teamModal',
 		function($scope, $uibModal, $log, ggoService) {
-	
 
-	
-	$scope.animationsEnabled = true; 
-	
+	$scope.animationsEnabled = true; 	
 	$scope.open = function(team) {
 		
 		var modalInstance = $uibModal.open({
@@ -21,6 +17,9 @@ angular.module('ggoModule')
 					return ggoService.getTeamMembers(team).then(function(res){
 						return res.data
 					});
+				},
+				leaveTeam: function() {
+					return $scope.leaveTeam;
 				}
 			}
 		});
@@ -45,15 +44,26 @@ angular.module('ggoModule')
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('TeamModalInstanceCtrl',
-		function($scope, $uibModalInstance, team, members, ggoService, $location) {
-	
+		function($scope, $uibModalInstance, team, members, ggoService, $location, leaveTeam, $route) {
+		
 		$scope.routeToUserProfile = function(teamId, playerId){
 			$location.path('/teams/'+ teamId +'/players/'+ playerId)
 			$scope.cancel();
 		}
-	
-			$scope.team = team;
-			$scope.members = members;
+		
+		$scope.reloadRoute = function() {
+			$route.reload();
+		}
+		
+		$scope.team = team;
+		$scope.members = members;
+		
+		$scope.leaveTeam = function() {
+			ggoService.leaveTeam($scope.team).then(function(res){
+				$scope.cancel();
+				$scope.reloadRoute();
+			})
+		}
 //			$scope.selected = {
 //				item : $scope.items[0]
 //			};

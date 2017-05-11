@@ -2,7 +2,7 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 .config(function($routeProvider){
 	$routeProvider
 	.when('/', {
-		template: '<login></login>'
+		template: '<landing></landing>'
 	})
 	.when('/register', {
 		template: '<register></register>'
@@ -30,9 +30,6 @@ angular.module('appModule',['ngRoute','authModule','ggoModule','navModule'])
 	})
 	.when('/player', {
 		template: '<player></player>'
-	})
-	.when('/teams/*/**', {
-		template: '<home></home>'
 	})
 	.when('/newTeam', {
 		template: '<new-team></new-team>'
