@@ -20,6 +20,9 @@ angular.module('ggoModule').controller('teamModal',
 				},
 				leaveTeam: function() {
 					return $scope.leaveTeam;
+				},
+				selectedUser: function() {
+					return $scope.selectedUser;
 				}
 			}
 		});
@@ -44,8 +47,16 @@ angular.module('ggoModule').controller('teamModal',
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('TeamModalInstanceCtrl',
-		function($scope, $uibModalInstance, team, members, ggoService, $location, leaveTeam, $route) {
+		function($scope, $uibModalInstance, team, members, ggoService, $location, 
+				leaveTeam, $route, selectedUser, $routeParams, authService) {
 		
+		$scope.selectedUser = function() {
+			if(authService.getToken().id === $routeParams.playerId){
+				return false;
+			}
+			return true;				
+		};
+	
 		$scope.routeToUserProfile = function(teamId, playerId){
 			$location.path('/teams/'+ teamId +'/players/'+ playerId)
 			$scope.cancel();

@@ -125,6 +125,9 @@ li {
   opacity: 0;
   transition: 0.2s 0.3s cubic-bezier(.55, 0, .1, 1);
 }
+.input-box [type=text] {
+	background-color: white;
+}
 
 form {
 border: 3px solid #f1f1f1;
@@ -138,7 +141,7 @@ input[type=text], input[type=password], input[type=email], input[type=number] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    background: #e74c3c;
+    background: #ffffff;
 
 }
 

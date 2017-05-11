@@ -1,34 +1,37 @@
 <div>
-<!--     <script type="text/ng-template" id="myModalContent.html"> -->
-        <div class="modal-header">
-            <h3 class="modal-title">{{friend.username}}</h3>
-        </div>
-        <div class="modal-body">
-            
-            <ul>            		
-                <li>
-                  <img src={{game.image}}/><br>
-                </li>
-                <li>
-                   First Name: {{friend.fname}}<br>
-                </li>
-                <li>
-                   Last Name: {{friend.lname}}<br>
-                </li>
-                <!-- <li>
-                   Rating: {{friend.rating}}<br>
-                </li> -->
-                <li>
-                    {{friend.active}} <!-- To Check if they are online -->
-                </li>
-            </ul>
-            
-			<button class="button" ng-click="removeFriend()">Un-Friend</button>
-            <button class="button" ng-click="cancel()">Go Back</button>
-           
-        </div>
-        
-    <!-- </script> -->
+	<!--     <script type="text/ng-template" id="myModalContent.html"> -->
+	<div class="modal-header">
+		<h3 class="modal-title">{{friend.username}}</h3>
+	</div>
+		<div class="modal-body">
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img id="friendModalImage" src={{friend.image}} height="153px"
+						width="150px"/></td>
+					<td>
+						<table>
+							<tbody>
+								<tr>
+									<td><strong>Name:</strong> {{friend.fname}} {{friend.lname}}</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</td>
+				<tr>
+			</tbody>
+		</table>
 
-   
+	<button class="button" ng-click="removeFriend()"
+		ng-hide="selectedUser()">Un-Friend</button>
+	<button class="button" ng-click="cancel()">Go Back</button>
+
+</div>
+
+<!-- </script> -->
+
+
 </div>

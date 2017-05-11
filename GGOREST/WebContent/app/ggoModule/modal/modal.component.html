@@ -1,51 +1,35 @@
 <div>
-<!--     <script type="text/ng-template" id="myModalContent.html"> -->
-        <div class="modal-header">
-            <h3 class="modal-title">{{game.name}}</h3>
-        </div>
-        <div class="modal-body">
-            <table>
-            	<thead>
-            	</thead>
-            	<tbody>
-            		<tr>
-            			<td><img id="gameModalImage" src={{game.image}} height="100px"
-            					width="100px"/>
-            			</td>
-            			<td>
-            				<table>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>Genera: {{game.genre}}</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td> Rating: {{game.rating}}</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>Description: {{game.description}}</td>
-									</tr>														
-								</tbody>
-					</table>
-            			</td>
-            		<tr>
-            	</tbody>
-            </table>       
-            
-	       	<button class="button" ng-click="removeGame()">Un-Favorite</button>
-            <button class="button" ng-click="cancel()">Go Back</button>
-           
-        </div>
-        
-    <!-- </script> -->
+	<div class="modal-header">
+		<h3 class="modal-title"><strong>{{game.name}}</strong></h3>
+	</div>
+	<div class="modal-body">
+		<table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img id="gameModalImage" src={{game.image}} height="100px"
+						width="100px"/></td>
+					<td>
+						<table>
+							<tbody>
+								<tr>
+									<td><strong>Genera:</strong> {{game.genre}}</td>
+								</tr>
+								<tr>
+									<td><strong>Rating:</strong> {{game.rating}}</td>
+								</tr>
+								<tr>
+									<td><strong>Description:</strong> {{game.description}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				<tr>
+			</tbody>
+		</table>
 
-   
+		<button class="button" ng-click="removeGame()" ng-hide="selectedUser()">Un-Favorite</button>
+		<button class="button" ng-click="cancel()">Go Back</button>
+	</div>
 </div>

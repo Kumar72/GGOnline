@@ -1,5 +1,5 @@
 angular.module('ggoModule').controller('friendModal',
-		function($scope, $uibModal, $log, ggoService) {
+		function($scope, $uibModal, $log, ggoService, authService) {
 
 			
 			$scope.animationsEnabled = true;
@@ -16,6 +16,9 @@ angular.module('ggoModule').controller('friendModal',
 						},
 						removeFriend: function() {
 							return $scope.removeFriend;
+						},
+						selectedUser: function() {
+							return $scope.selectedUser;
 						}
 						
 					}
@@ -39,22 +42,30 @@ angular.module('ggoModule').controller('friendModal',
 // It is not the same as the $uibModal service used above.
 
 angular.module('ggoModule').controller('friendModalInstanceCtrl',
-		function($scope, $uibModalInstance, friend, ggoService, $route) {
+		function($scope, $uibModalInstance, friend, ggoService, $route,
+				selectedUser, authService, $routeParams) {
 			
-			$scope.friend = friend;
-			$scope.reloadRoute = function() {
-				$route.reload();
+		$scope.selectedUser = function() {
+			if(authService.getToken().id === $routeParams.playerId){
+				return false;
 			}
+			return true;				
+		};
+		
+		$scope.friend = friend;
+		$scope.reloadRoute = function() {
+			$route.reload();
+		}
 			
-			$scope.removeFriend = function() {
-				ggoService.removeFriend($scope.friend).then(function(res){
-					$scope.cancel();
-					$scope.reloadRoute();
-				})
-			}
+		$scope.removeFriend = function() {
+			ggoService.removeFriend($scope.friend).then(function(res){
+				$scope.cancel();
+				$scope.reloadRoute();
+			})
+		}
 			
-			$scope.cancel = function() {
-				$uibModalInstance.dismiss('cancel');
-			};
+		$scope.cancel = function() {
+			$uibModalInstance.dismiss('cancel');
+		};
 			
 		});

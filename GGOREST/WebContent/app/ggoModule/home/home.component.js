@@ -1,7 +1,10 @@
 angular.module("ggoModule").component("home", {
     templateUrl : 'app/ggoModule/home/home.component.html',
-    controller: function(ggoService, $location, $scope) {
+    controller: function(ggoService, $location, $scope, $document) {
     	var vm = this;
+    	var body = $document.find('body').eq(0);
+    		body.css("background-image","url('https://s-media-cache-ak0.pinimg.com/originals/92/4b/13/924b13926e7f5a5dc737947f1bd4026a.jpg')");
+    		body.css("background-repeat", "repeat-y");
     	
     	vm.player =[];
     	vm.games = [];
