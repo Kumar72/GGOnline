@@ -9,6 +9,7 @@ angular.module('ggoModule')
 		vm.reload = function(){
 			var result = [];
 			ggoService.playerIndex().then(function(response){
+				console.log("In player index method")
 				ggoService.playerFriends().then(function(res){
 					response.data.forEach(function(player, index, array){
 						 var match = false;
@@ -23,6 +24,7 @@ angular.module('ggoModule')
 					 })
 				})
 				vm.players = result;
+				console.log(vm.players)
 			})
 		}
 		vm.friendRequest = function(friendId){	
