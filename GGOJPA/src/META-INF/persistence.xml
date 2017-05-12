@@ -21,8 +21,8 @@
 
 			<!-- make connection to db -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ggonlinedb" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="javax.persistence.jdbc.user" value="admin" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			
 			<!-- config for debug -->

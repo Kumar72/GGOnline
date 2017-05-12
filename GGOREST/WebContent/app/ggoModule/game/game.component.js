@@ -9,7 +9,7 @@ angular.module('ggoModule')
 		vm.reload = function(){
 			var result = [];
 			ggoService.gameIndex().then(function(response){
-				ggoService.playerGames().then(function(res){
+				ggoService.userGames().then(function(res){
 					 response.data.forEach(function(team, index, array){
 						 var match = false;
 						 res.data.forEach(function(t,i,a){

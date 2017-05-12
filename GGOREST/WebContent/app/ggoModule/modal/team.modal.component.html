@@ -1,77 +1,38 @@
-<div>
-	<div class="modal-header">
-		<h3 class="modal-title">
-			<strong>{{team.name}}</strong>
-		</h3>
-	</div>
-	<div class="modal-body">
-		<ul>
-			<li><img id="teamModalImage" src={{team.image}} height="100px"
-				width="100px" /></li>
-		</ul>
-		<table>
-			<thead>
-				<tr>
-					<th>Members</th>
-				</tr>
-			</thead>
-		</table>
-		<hr>
-		<div class="post ter" ng-repeat="member in members"
-			ng-click="routeToUserProfile(team.id, member.id)">
-			<div class="preview">
-				<img ng-src="{{member.image}}" height="120px" width="140px">
-			</div>
-			<br>
-			<div class="detail">{{member.username}}</div>
+<div class="card">
+		<div class="modal-header">
+			<h3 class="modal-title">
+				<strong>{{team.name}}</strong>
+			</h3>
 		</div>
-		
+		<div class="modal-body">
+			<ul>
+				<li><img id="teamModalImage" src={{team.image}} height="100px"
+					width="100px" /></li>
+			</ul>
+			<table>
+				<thead>
+					<tr>
+						<th>Members</th>
+					</tr>
+				</thead>
+			</table>
+			<hr>
+			<div class="post ter" ng-repeat="member in members"
+				ng-click="routeToUserProfile(team.id, member.id)">
+				<div class="preview">
+					<img ng-src="{{member.image}}" height="120px" width="140px">
+				</div>
+				<br>
+				<div class="detail">{{member.username}}</div>
+			</div>
 
-		<button class="button" ng-click="leaveTeam()" ng-hide="selectedUser()">Leave</button>
-		<button class="button" ng-click="cancel()">Go Back</button>
-		<!-- Team Calendar -->
 
-		<!-- <button class="button" ng-click="teamCalendar">View
+			<button class="button" ng-click="leaveTeam()"
+				ng-hide="selectedUser()">Leave</button>
+			<button class="button" ng-click="cancel()">Go Back</button>
+			<!-- Team Calendar -->
+
+			<!-- <button class="button" ng-click="teamCalendar">View
 			TeamCalendar</button> -->
-	</div>
-
-	<!-- *********** TEAM CALENDAR ************** -->
-	<!-- <style>
-.full button span {
-	background-color: limegreen;
-	border-radius: 32px;
-	color: black;
-}
-
-.partially button span {
-	background-color: orange;
-	border-radius: 32px;
-	color: black;
-}
-</style>
-	<div ng-controller="teamCalendar">
-
-
-		<h4>Team Calendar</h4>
-		<div class="row">
-			<div class="col-md-6">
-				<p class="input-group">
-					<input type="text" class="form-control"
-						uib-datepicker-popup="{{format}}" ng-model="dt"
-						is-open="popup1.opened" datepicker-options="dateOptions"
-						ng-required="true" close-text="Close"
-						alt-input-formats="altInputFormats" /> <span
-						class="input-group-btn">
-						<button type="button" class="btn btn-default" ng-click="open1()">
-							<i class="glyphicon glyphicon-calendar"></i>
-						</button>
-						<button class="button" ng-click="showEventForm()">Create Event</button>
-						<form id="eventForm">
-							<input type="text">
-						</form>
-					</span>
-				</p>
-			</div>
 		</div>
-	</div> -->
 </div>

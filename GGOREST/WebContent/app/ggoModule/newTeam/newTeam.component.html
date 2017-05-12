@@ -15,7 +15,7 @@
 				<label for="InputTeamSize">Team Size: </label>
 		    	<input type="number" class="input-box" id="InputTeamSize" placeholder="Team Size" min="2" max="50"/> <!-- add team size to db -->
 				<br>
-				<button type="submit" class="button" ng-click="vm.newTeam(newteam, newgame); vm.addTeam(); vm.redirect();">Create Team</button>
+				<button type="submit" class="button" ng-click="vm.newTeam(newteam, newgame); vm.redirect(); vm.addTeam();">Create Team</button>
 				<button type="submit" class="button" ng-click="vm.cancelButton(); vm.redirect();">Cancel</button>
 	  		</fieldset>
 		</form>

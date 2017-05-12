@@ -22,8 +22,8 @@
 	  </fieldset>
 
 	</form>
-	  <button type="submit" class="btn btn-primary" ng-click="vm.updatePlayer(updateuser)">Save Changes</button>
-	  <button type="submit" class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+	  <button type="submit" class="btn btn-primary" ng-click="vm.updatePlayer(updateuser); vm.redirectHome();">Save Changes</button>
+	  <button type="submit" class="btn btn-primary" ng-click="vm.cancel(); vm.redirectHome();">Cancel</button>
 
 </div>
 
