@@ -1,5 +1,5 @@
 # Summary
-A web-app for users who want to find other individuals to play a game with or make a team. This a collaborative project developed with a MAMP stack consisting of Java JPA API, the Spring MVC framework, and MySQL database technologies with CRUD functionality as well as AngularJS for the front end. The database was created with MySQL Workbench.
+A team management web application. This a collaborative project developed with a MAMP stack consisting of Java JPA API, the Spring MVC framework, and MySQL database technologies with CRUD functionality as well as AngularJS for the front end. The database was created with MySQL Workbench.
 
 We also wrote JUnit tests to ensure proper mapping of the entities before moving from JPA to SpringMVC. We then tested the DAO methods to ensure proper CRUD functionality and session persistence of a user.
 
