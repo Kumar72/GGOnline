@@ -13,14 +13,14 @@
 			<tbody class ="">
 				<tr
 					ng-repeat="player in vm.players| playerSearch : vm.playerSearch | orderBy: 'id'">
-
-					<td>{{player.username}}</td>
-					<td><button class="button" ng-click="vm.friendRequest(player.id)">Add Friend</button></td>
-				</tr>
-			</tbody>
-		</table>
+						<td>{{player.username}}</td>
+						<td><button class="button"
+								ng-click="vm.friendRequest(player.id)">Add Friend</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 </div>
 
 
