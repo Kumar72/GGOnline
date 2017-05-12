@@ -23,6 +23,7 @@ public class AuthDAOImpl implements AuthDAO {
 
 	@Override
 	public Player register(Player p) {
+		if(p.getImage() == null)
 		p.setImage("http://lastpage.in/blogAsset/img/avatar-na.png");
 		String passwordSha = encoder.encode(p.getPassword());
 		p.setPassword(passwordSha);

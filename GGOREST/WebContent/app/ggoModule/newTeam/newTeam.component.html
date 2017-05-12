@@ -1,6 +1,11 @@
 <div id="share-options" class="container3">
 		<form>
 			<fieldset class="form-register">
+				<label for="SelectGame">Game: </label> 
+				<select ng-model="newgame" class="input-box" id="SelectGame">
+					<option ng-repeat="game in vm.games" value="{{game.id}}" required>{{game.name}}</option>
+				</select>
+				<br>	
 				<label for="InputTeamName">Team Name: </label>
 			  	<input type="text" class="input-box" id="InputTeamName" ng-model="newteam.name" placeholder="Team Name" required>
 				<br>
