@@ -5,21 +5,22 @@
 				<input type="text" placeHolder="Search By Name"
 					ng-model="vm.playerSearch">
 			</form>
-		</div> 
-				<div class="content contentText">
-		<table>
-			<thead>
-			<tbody class ="">
-				<tr
-					ng-repeat="player in vm.player| playerSearch : vm.playerSearch | orderBy: 'id'">
+		</div>
+		<div class="content contentText">
+			<table>
+				<thead>
+				<tbody class="">
+					<tr
+						ng-repeat="player in vm.players| playerSearch : vm.playerSearch | orderBy: 'id'">
 
-					<td>{{player.username}}</td>
-					<td><button class="button" ng-click="vm.friendRequest(player.id)">Add Friend</button></td>
-				</tr>
-			</tbody>
-		</table>
+						<td>{{player.username}}</td>
+						<td><button class="button"
+								ng-click="vm.friendRequest(player.id)">Add Friend</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 </div>
 
 
